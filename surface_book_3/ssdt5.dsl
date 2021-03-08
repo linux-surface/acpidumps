@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt5.dat, Thu May 28 14:51:56 2020
+ * Disassembly of ssdt5.dat, Mon Mar  8 16:35:30 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -1305,7 +1305,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     }
 
                     ADBG ("TXDC DSM")
-                    If ((Arg0 == ToUUID ("732b85d5-b7a7-4a1b-9ba0-4bbd00ffd511")))
+                    If ((Arg0 == ToUUID ("732b85d5-b7a7-4a1b-9ba0-4bbd00ffd511") /* Unknown UUID */))
                     {
                         If ((Arg1 == One))
                         {
@@ -1709,7 +1709,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     {
                         Return (Package (0x04)
                         {
-                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -1719,7 +1719,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                                 }
                             }, 
 
-                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -1734,7 +1734,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     {
                         Return (Package (0x04)
                         {
-                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -1744,7 +1744,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                                 }
                             }, 
 
-                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -1760,7 +1760,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                 {
                     Return (Package (0x04)
                     {
-                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -1770,7 +1770,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -1785,7 +1785,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                 {
                     Return (Package (0x04)
                     {
-                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -1795,7 +1795,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -1810,7 +1810,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("197db5e0-f095-4f33-b915-71dd70833e55")))
+                If ((Arg0 == ToUUID ("197db5e0-f095-4f33-b915-71dd70833e55") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -2159,7 +2159,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     {
                         Return (Package (0x04)
                         {
-                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -2169,7 +2169,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                                 }
                             }, 
 
-                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -2184,7 +2184,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     {
                         Return (Package (0x04)
                         {
-                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                            ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -2194,7 +2194,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                                 }
                             }, 
 
-                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                            ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                             Package (0x01)
                             {
                                 Package (0x02)
@@ -2210,7 +2210,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                 {
                     Return (Package (0x04)
                     {
-                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -2220,7 +2220,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -2235,7 +2235,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                 {
                     Return (Package (0x04)
                     {
-                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7"), 
+                        ToUUID ("c44d002f-69f9-4e7d-a904-a7baabdf43f7") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -2245,7 +2245,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d"), 
+                        ToUUID ("6c501103-c189-4296-ba72-9bf5a26ebe5d") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -2260,7 +2260,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("197db5e0-f095-4f33-b915-71dd70833e55")))
+                If ((Arg0 == ToUUID ("197db5e0-f095-4f33-b915-71dd70833e55") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -2855,7 +2855,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -2865,7 +2865,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -3520,7 +3520,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -3530,7 +3530,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -4185,7 +4185,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -4195,7 +4195,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -4850,7 +4850,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -4860,7 +4860,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -5520,7 +5520,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -5530,7 +5530,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -6185,7 +6185,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -6195,7 +6195,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -6850,7 +6850,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -6860,7 +6860,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)
@@ -7515,7 +7515,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                     ADBG ("TBT RP _DSD")
                     Return (Package (0x04)
                     {
-                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4"), 
+                        ToUUID ("6211e2c0-58a3-4af3-90e1-927a4e0c55a4") /* Unknown UUID */, 
                         Package (0x01)
                         {
                             Package (0x02)
@@ -7525,7 +7525,7 @@ DefinitionBlock ("", "SSDT", 2, "INTEL ", "TcssSsdt", 0x00001000)
                             }
                         }, 
 
-                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389"), 
+                        ToUUID ("efcc06cc-73ac-4bc3-bff0-76143807c389") /* Unknown UUID */, 
                         Package (0x02)
                         {
                             Package (0x02)

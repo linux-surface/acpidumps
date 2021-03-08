@@ -1,620 +1,392 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt4.dat, Thu May 28 14:51:56 2020
+ * Disassembly of ssdt4.dat, Mon Mar  8 16:35:30 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000BA0 (2976)
+ *     Length           0x00000DB4 (3508)
  *     Revision         0x02
- *     Checksum         0x33
+ *     Checksum         0xEB
  *     OEM ID           "MSFT  "
- *     OEM Table ID     "xh_gc000"
- *     OEM Revision     0x00000000 (0)
+ *     OEM Table ID     "RTD3_GC"
+ *     OEM Revision     0x00001000 (4096)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20181003 (538447875)
  */
-DefinitionBlock ("", "SSDT", 2, "MSFT  ", "xh_gc000", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "MSFT  ", "RTD3_GC", 0x00001000)
 {
-    External (_SB_.PCI0.TXHC.RHUB.SS01, DeviceObj)
-    External (_SB_.PCI0.TXHC.RHUB.SS02, DeviceObj)
-    External (_SB_.PCI0.TXHC.RHUB.SS03, DeviceObj)
-    External (_SB_.PCI0.TXHC.RHUB.SS04, DeviceObj)
+    External (_SB_.CSD0, MethodObj)    // 1 Arguments
+    External (_SB_.CSD3, MethodObj)    // 1 Arguments
+    External (_SB_.OSCO, UnknownObj)
+    External (_SB_.PCI0, DeviceObj)
+    External (_SB_.PCI0.CNIP, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.GBTE, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.GLAN, DeviceObj)
+    External (_SB_.PCI0.HDAS, DeviceObj)
+    External (_SB_.PCI0.HDAS.VDID, UnknownObj)
+    External (_SB_.PCI0.I2C0, DeviceObj)
+    External (_SB_.PCI0.I2C0.TPD0, DeviceObj)
+    External (_SB_.PCI0.I2C1, DeviceObj)
+    External (_SB_.PCI0.I2C1.TPL1, DeviceObj)
+    External (_SB_.PCI0.LPCB.H_EC.ECAV, IntObj)
+    External (_SB_.PCI0.LPCB.H_EC.SPT2, UnknownObj)
+    External (_SB_.PCI0.RP01, DeviceObj)
+    External (_SB_.PCI0.RP01.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP01.VDID, UnknownObj)
+    External (_SB_.PCI0.RP02, DeviceObj)
+    External (_SB_.PCI0.RP02.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP02.VDID, UnknownObj)
+    External (_SB_.PCI0.RP03, DeviceObj)
+    External (_SB_.PCI0.RP03.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP03.VDID, UnknownObj)
+    External (_SB_.PCI0.RP04, DeviceObj)
+    External (_SB_.PCI0.RP04.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP04.VDID, UnknownObj)
+    External (_SB_.PCI0.RP05, DeviceObj)
+    External (_SB_.PCI0.RP05.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP05.VDID, UnknownObj)
+    External (_SB_.PCI0.RP06, DeviceObj)
+    External (_SB_.PCI0.RP06.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP06.VDID, UnknownObj)
+    External (_SB_.PCI0.RP07, DeviceObj)
+    External (_SB_.PCI0.RP07.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP07.VDID, UnknownObj)
+    External (_SB_.PCI0.RP08, DeviceObj)
+    External (_SB_.PCI0.RP08.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP08.VDID, UnknownObj)
+    External (_SB_.PCI0.RP09, DeviceObj)
+    External (_SB_.PCI0.RP09.PXSX, DeviceObj)
+    External (_SB_.PCI0.RP09.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP09.VDID, UnknownObj)
+    External (_SB_.PCI0.RP10, DeviceObj)
+    External (_SB_.PCI0.RP10.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP10.VDID, UnknownObj)
+    External (_SB_.PCI0.RP11, DeviceObj)
+    External (_SB_.PCI0.RP11.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP11.VDID, UnknownObj)
+    External (_SB_.PCI0.RP12, DeviceObj)
+    External (_SB_.PCI0.RP12.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP12.VDID, UnknownObj)
+    External (_SB_.PCI0.RP13, DeviceObj)
+    External (_SB_.PCI0.RP13.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP13.VDID, UnknownObj)
+    External (_SB_.PCI0.RP14, DeviceObj)
+    External (_SB_.PCI0.RP14.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP14.VDID, UnknownObj)
+    External (_SB_.PCI0.RP15, DeviceObj)
+    External (_SB_.PCI0.RP15.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP15.VDID, UnknownObj)
+    External (_SB_.PCI0.RP16, DeviceObj)
+    External (_SB_.PCI0.RP16.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP16.VDID, UnknownObj)
+    External (_SB_.PCI0.RP17, DeviceObj)
+    External (_SB_.PCI0.RP17.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP17.VDID, UnknownObj)
+    External (_SB_.PCI0.RP18, DeviceObj)
+    External (_SB_.PCI0.RP18.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP18.VDID, UnknownObj)
+    External (_SB_.PCI0.RP19, DeviceObj)
+    External (_SB_.PCI0.RP19.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP19.VDID, UnknownObj)
+    External (_SB_.PCI0.RP20, DeviceObj)
+    External (_SB_.PCI0.RP20.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP20.VDID, UnknownObj)
+    External (_SB_.PCI0.RP21, DeviceObj)
+    External (_SB_.PCI0.RP21.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP21.VDID, UnknownObj)
+    External (_SB_.PCI0.RP22, DeviceObj)
+    External (_SB_.PCI0.RP22.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP22.VDID, UnknownObj)
+    External (_SB_.PCI0.RP23, DeviceObj)
+    External (_SB_.PCI0.RP23.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP23.VDID, UnknownObj)
+    External (_SB_.PCI0.RP24, DeviceObj)
+    External (_SB_.PCI0.RP24.SLOT, UnknownObj)
+    External (_SB_.PCI0.RP24.VDID, UnknownObj)
+    External (_SB_.PCI0.SAT0, DeviceObj)
+    External (_SB_.PCI0.SAT0.PRT0, DeviceObj)
+    External (_SB_.PCI0.SAT0.PRT1, DeviceObj)
+    External (_SB_.PCI0.SAT0.PRT2, DeviceObj)
+    External (_SB_.PCI0.SAT0.PRT3, DeviceObj)
+    External (_SB_.PCI0.SAT0.PRT4, DeviceObj)
+    External (_SB_.PCI0.SAT0.PRT5, DeviceObj)
+    External (_SB_.PCI0.SBTE, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.XDCI, DeviceObj)
+    External (_SB_.PCI0.XDCI.D0I3, UnknownObj)
+    External (_SB_.PCI0.XDCI.DVID, FieldUnitObj)
+    External (_SB_.PCI0.XDCI.XDCB, UnknownObj)
+    External (_SB_.PCI0.XHC_, DeviceObj)
+    External (_SB_.PCI0.XHC_.MEMB, UnknownObj)
     External (_SB_.PCI0.XHC_.RHUB, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.HS01, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.HS02, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.HS03, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.HS04, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.HS05, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.HS06, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.HS07, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.HS08, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.HS09, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.HS10, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS14, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.SS01, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.SS02, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.SS03, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.SS04, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.SS05, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.SS06, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.USR1, DeviceObj)
-    External (_SB_.PCI0.XHC_.RHUB.USR2, DeviceObj)
-    External (_SB_.UBTC, DeviceObj)
-    External (_SB_.UBTC.TPLD, MethodObj)    // 2 Arguments
-    External (_SB_.UBTC.TUPC, MethodObj)    // 2 Arguments
-    External (DBGU, IntObj)
-    External (EBID, IntObj)
-    External (UC00, IntObj)
-    External (UC01, IntObj)
-    External (UC02, IntObj)
-    External (UDB0, MethodObj)    // 1 Arguments
-    External (USTC, UnknownObj)
+    External (AUDD, FieldUnitObj)
+    External (CBTC, UnknownObj)
+    External (CNVI, UnknownObj)
+    External (DVID, UnknownObj)
+    External (GBED, UnknownObj)
+    External (GBEP, UnknownObj)
+    External (GBES, UnknownObj)
+    External (IC0D, FieldUnitObj)
+    External (IC1D, FieldUnitObj)
+    External (IC1S, FieldUnitObj)
+    External (PCHS, UnknownObj)
+    External (PEP0, UnknownObj)
+    External (RCG0, IntObj)
+    External (RCG1, IntObj)
+    External (SDS0, FieldUnitObj)
+    External (SDS1, FieldUnitObj)
+    External (SHSB, FieldUnitObj)
+    External (SPST, IntObj)
+    External (UAMS, UnknownObj)
+    External (VRRD, FieldUnitObj)
+    External (XDCE, UnknownObj)
+    External (XDST, IntObj)
+    External (XHPR, UnknownObj)
 
-    Scope (\_SB.PCI0.XHC.RHUB)
+    If ((GBES != Zero)){}
+    Scope (\_SB.PCI0.RP09.PXSX)
     {
-        Method (GPLD, 2, Serialized)
+        Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
         {
-            Name (PCKG, Package (0x01)
+            ToUUID ("5025030f-842f-4ab4-a561-99a5189762d0") /* Unknown UUID */, 
+            Package (0x01)
             {
-                Buffer (0x10){}
-            })
-            CreateField (DerefOf (PCKG [Zero]), Zero, 0x07, REV)
-            REV = 0x02
-            CreateField (DerefOf (PCKG [Zero]), 0x07, One, RGB)
-            RGB = One
-            CreateField (DerefOf (PCKG [Zero]), 0x40, One, VISI)
-            VISI = Arg0
-            CreateField (DerefOf (PCKG [Zero]), 0x57, 0x08, GPOS)
-            GPOS = Arg1
-            Return (PCKG) /* \_SB_.PCI0.XHC_.RHUB.GPLD.PCKG */
-        }
-
-        Method (SPLD, 3, Serialized)
-        {
-            Name (PCKG, Package (0x01)
-            {
-                Buffer (0x14)
+                Package (0x02)
                 {
-                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
-                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
-                    /* 0010 */  0xFF, 0xFF, 0xFF, 0xFF                           // ....
-                }
-            })
-            CreateField (DerefOf (PCKG [Zero]), Zero, 0x07, REV)
-            REV = 0x02
-            CreateField (DerefOf (PCKG [Zero]), 0x07, One, RGB)
-            RGB = One
-            CreateField (DerefOf (PCKG [Zero]), 0x40, One, VISI)
-            VISI = Arg0
-            CreateField (DerefOf (PCKG [Zero]), 0x57, 0x08, GPOS)
-            GPOS = Arg1
-            CreateField (DerefOf (PCKG [Zero]), 0x60, 0x02, EJCT)
-            EJCT = Arg2
-            Return (PCKG) /* \_SB_.PCI0.XHC_.RHUB.SPLD.PCKG */
-        }
-
-        Method (SUPC, 2, Serialized)
-        {
-            Name (PCKG, Package (0x04)
-            {
-                Zero, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-            If ((Arg0 != Zero))
-            {
-                PCKG [Zero] = 0xFF
-            }
-
-            PCKG [One] = Arg1
-            Return (PCKG) /* \_SB_.PCI0.XHC_.RHUB.SUPC.PCKG */
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS01)
-    {
-        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-        {
-            Return (SUPC (0xFF, 0xFF))
-        }
-
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (One, One, 0x03))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS02)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            0xFF, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x02, Zero))
-        }
-
-        Device (PRT1)
-        {
-            Name (_ADR, One)  // _ADR: Address
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0x09, 
-                Zero, 
-                Zero
-            })
-            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-            {
-                Return (SPLD (One, One, 0x03))
-            }
-        }
-
-        Device (PRT2)
-        {
-            Name (_ADR, 0x02)  // _ADR: Address
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-            {
-                Return (SPLD (Zero, 0x02, Zero))
-            }
-
-            Device (PRT1)
-            {
-                Name (_ADR, One)  // _ADR: Address
-                Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-                {
-                    Zero, 
-                    0xFF, 
-                    Zero, 
+                    "StorageD3Enable", 
                     Zero
-                })
-                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                {
-                    Return (SPLD (Zero, One, Zero))
                 }
             }
+        })
+    }
 
-            Device (PRT2)
+    If ((\_SB.PCI0.CNIP () & (CBTC == One)))
+    {
+        If ((PCHS == 0x02))
+        {
+            Scope (\_SB.PCI0.XHC.RHUB.HS10)
             {
-                Name (_ADR, 0x02)  // _ADR: Address
-                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                PowerResource (BTPR, 0x00, 0x0000)
                 {
-                    Return (SUPC (0xFF, Zero))
-                }
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        If ((\_SB.PCI0.GBTE () == One))
+                        {
+                            Return (One)
+                        }
+                        Else
+                        {
+                            Return (Zero)
+                        }
+                    }
 
-                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                {
-                    Return (SPLD (One, 0x02, 0x03))
+                    Method (_ON, 0, Serialized)  // _ON_: Power On
+                    {
+                        \_SB.PCI0.SBTE (One)
+                    }
+
+                    Method (_OFF, 0, Serialized)  // _OFF: Power Off
+                    {
+                        \_SB.PCI0.SBTE (Zero)
+                    }
                 }
             }
-
-            Device (PRT3)
+        }
+        ElseIf ((PCHS == One))
+        {
+            Scope (\_SB.PCI0.XHC.RHUB.HS14)
             {
-                Name (_ADR, 0x03)  // _ADR: Address
-                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                PowerResource (BTPR, 0x00, 0x0000)
                 {
-                    Return (SUPC (0xFF, Zero))
-                }
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        If ((\_SB.PCI0.GBTE () == One))
+                        {
+                            Return (One)
+                        }
+                        Else
+                        {
+                            Return (Zero)
+                        }
+                    }
 
-                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    Method (_ON, 0, Serialized)  // _ON_: Power On
+                    {
+                        \_SB.PCI0.SBTE (One)
+                    }
+
+                    Method (_OFF, 0, Serialized)  // _OFF: Power Off
+                    {
+                        \_SB.PCI0.SBTE (Zero)
+                    }
+                }
+            }
+        }
+        ElseIf ((PCHS == 0x03))
+        {
+            Scope (\_SB.PCI0.XHC.RHUB.HS08)
+            {
+                PowerResource (BTPR, 0x00, 0x0000)
                 {
-                    Return (SPLD (One, 0x03, 0x03))
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        If ((\_SB.PCI0.GBTE () == One))
+                        {
+                            Return (One)
+                        }
+                        Else
+                        {
+                            Return (Zero)
+                        }
+                    }
+
+                    Method (_ON, 0, Serialized)  // _ON_: Power On
+                    {
+                        \_SB.PCI0.SBTE (One)
+                    }
+
+                    Method (_OFF, 0, Serialized)  // _OFF: Power Off
+                    {
+                        \_SB.PCI0.SBTE (Zero)
+                    }
                 }
             }
         }
     }
 
-    Scope (\_SB.PCI0.XHC.RHUB.HS03)
+    If ((\_SB.PCI0.CNIP () & (CBTC == One)))
     {
-        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        Scope (\_SB.PCI0.XHC.RHUB.HS10)
         {
-            Return (SUPC (0xFF, Zero))
-        }
-
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x03, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS04)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x04, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS05)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x05, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS06)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x06, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS07)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x07, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS08)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x08, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS09)
-    {
-        Name (CNNT, Zero)
-        If ((((EBID & 0x2000) >> 0x0D) == One))
-        {
-            CNNT = 0xFF
-        }
-        Else
-        {
-            CNNT = Zero
-        }
-
-        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-        {
-            Return (SUPC (CNNT, Zero))
-        }
-
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x09, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.HS10)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x0A, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.USR1)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, Zero, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.USR2)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, Zero, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.SS01)
-    {
-        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-        {
-            Return (SUPC (0xFF, 0xFF))
-        }
-
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (One, One, 0x03))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.SS02)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            0xFF, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x02, Zero))
-        }
-
-        Device (PRT1)
-        {
-            Name (_ADR, One)  // _ADR: Address
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+            Name (_S0W, 0x02)  // _S0W: S0 Device Wake State
+            Name (_PR0, Package (0x01)  // _PR0: Power Resources for D0
             {
-                0xFF, 
-                0x09, 
-                Zero, 
-                Zero
+                BTPR
             })
-            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+            Name (_PR2, Package (0x01)  // _PR2: Power Resources for D2
             {
-                Return (SPLD (One, One, 0x03))
-            }
-        }
-
-        Device (PRT2)
-        {
-            Name (_ADR, 0x02)  // _ADR: Address
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
+                BTPR
             })
-            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+            Name (_PR3, Package (0x01)  // _PR3: Power Resources for D3hot
             {
-                Return (SPLD (Zero, 0x02, Zero))
+                BTPR
+            })
+        }
+    }
+
+    If ((XDCE == One))
+    {
+        Scope (\_SB)
+        {
+            PowerResource (USBC, 0x00, 0x0000)
+            {
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    Return (0x0F)
+                }
+
+                Method (_ON, 0, NotSerialized)  // _ON_: Power On
+                {
+                }
+
+                Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
+                {
+                }
+            }
+        }
+
+        Scope (\_SB.PCI0.XDCI)
+        {
+            OperationRegion (GENR, SystemMemory, ((XDCB & 0xFFFFFFFFFFFFFF00) + 0x0010F81C), 0x04)
+            Field (GENR, WordAcc, NoLock, Preserve)
+            {
+                    ,   2, 
+                CPME,   1, 
+                U3EN,   1, 
+                U2EN,   1
             }
 
-            Device (PRT1)
+            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
             {
-                Name (_ADR, One)  // _ADR: Address
-                Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+                CPME = One
+                U2EN = One
+                U3EN = One
+                \_SB.CSD3 (0x17)
+            }
+
+            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+            {
+                CPME = Zero
+                U2EN = Zero
+                U3EN = Zero
+                If ((DVID == 0xFFFF))
                 {
-                    0xFF, 
-                    0xFF, 
-                    Zero, 
-                    Zero
+                    Return (Zero)
+                }
+
+                \_SB.CSD0 (0x17)
+            }
+
+            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+            {
+                Return (Zero)
+            }
+
+            Method (_PR3, 0, NotSerialized)  // _PR3: Power Resources for D3hot
+            {
+                Return (Package (0x01)
+                {
+                    USBC
                 })
-                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                {
-                    Return (SPLD (Zero, One, 0x03))
-                }
+            }
+        }
+    }
+
+    If ((GBES != Zero))
+    {
+        Scope (\_SB.PCI0.GLAN)
+        {
+            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+            {
+                \_SB.CSD3 (0x15)
             }
 
-            Device (PRT2)
+            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
             {
-                Name (_ADR, 0x02)  // _ADR: Address
-                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                If (!GBED)
                 {
-                    Return (SUPC (0xFF, Zero))
-                }
-
-                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                {
-                    Return (SPLD (One, 0x02, 0x03))
-                }
-            }
-
-            Device (PRT3)
-            {
-                Name (_ADR, 0x03)  // _ADR: Address
-                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                {
-                    Return (SUPC (0xFF, Zero))
-                }
-
-                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                {
-                    Return (SPLD (One, 0x03, 0x03))
+                    \_SB.CSD0 (0x15)
                 }
             }
         }
     }
 
-    Scope (\_SB.PCI0.XHC.RHUB.SS03)
+    If ((\_SB.PCI0.HDAS.VDID != 0xFFFFFFFF))
     {
-        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        Scope (\_SB.PCI0.HDAS)
         {
-            Return (SUPC (0xFF, Zero))
-        }
-
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x03, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.SS04)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x04, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.SS05)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x05, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.XHC.RHUB.SS06)
-    {
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-        {
-            Return (SPLD (Zero, 0x06, Zero))
-        }
-    }
-
-    Scope (\_SB.PCI0.TXHC.RHUB.SS01)
-    {
-        UDB0 ("TXHC root port SS01")
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
-        {
-            Return (\_SB.UBTC.TPLD (Zero, One))
-        }
-    }
-
-    Scope (\_SB.PCI0.TXHC.RHUB.SS02)
-    {
-        UDB0 ("TXHC root port SS02")
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
-        {
-            Return (\_SB.UBTC.TPLD (Zero, 0x02))
-        }
-    }
-
-    Scope (\_SB.PCI0.TXHC.RHUB.SS03)
-    {
-        UDB0 ("TXHC root port SS03")
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
-        {
-            Return (\_SB.UBTC.TPLD (Zero, 0x03))
-        }
-    }
-
-    Scope (\_SB.PCI0.TXHC.RHUB.SS04)
-    {
-        UDB0 ("TXHC root port SS04")
-        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-        {
-            Zero, 
-            0xFF, 
-            Zero, 
-            Zero
-        })
-        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
-        {
-            Return (\_SB.UBTC.TPLD (Zero, 0x04))
-        }
-    }
-
-    Scope (\_SB.UBTC)
-    {
-        Device (CR01)
-        {
-            Name (_ADR, Zero)  // _ADR: Address
-            Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+            Name (PSTA, One)
+            Method (PS0X, 0, Serialized)
             {
-                Return (TPLD (One, One))
+                ^PSTA = One
             }
 
-            Method (_UPC, 0, NotSerialized)  // _UPC: USB Port Capabilities
+            Method (PS3X, 0, Serialized)
             {
-                Return (TUPC (One, 0x09))
+                ^PSTA = Zero
             }
         }
     }

@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
- * Disassembly of facp.dat, Thu May 28 14:51:56 2020
+ * Disassembly of facp.dat, Mon Mar  8 16:35:30 2021
  *
  * ACPI Data Table [FACP]
  *
@@ -13,28 +13,28 @@
 [000h 0000   4]                    Signature : "FACP"    [Fixed ACPI Description Table (FADT)]
 [004h 0004   4]                 Table Length : 00000114
 [008h 0008   1]                     Revision : 06
-[009h 0009   1]                     Checksum : 22
+[009h 0009   1]                     Checksum : 54
 [00Ah 0010   6]                       Oem ID : "MSFT  "
 [010h 0016   8]                 Oem Table ID : "MSFT    "
 [018h 0024   4]                 Oem Revision : 00000002
 [01Ch 0028   4]              Asl Compiler ID : "MSFT"
 [020h 0032   4]        Asl Compiler Revision : 20160422
 
-[024h 0036   4]                 FACS Address : 7BB94000
-[028h 0040   4]                 DSDT Address : 7BBC9000
+[024h 0036   4]                 FACS Address : 7BB93000
+[028h 0040   4]                 DSDT Address : 7BBC5000
 [02Ch 0044   1]                        Model : 00
 [02Dh 0045   1]                   PM Profile : 08 [Tablet]
 [02Eh 0046   2]                SCI Interrupt : 0009
 [030h 0048   4]             SMI Command Port : 000000B2
 [034h 0052   1]            ACPI Enable Value : F0
 [035h 0053   1]           ACPI Disable Value : F1
-[036h 0054   1]               S4BIOS Command : F2
+[036h 0054   1]               S4BIOS Command : 00
 [037h 0055   1]              P-State Control : 00
-[038h 0056   4]     PM1A Event Block Address : 00000000
+[038h 0056   4]     PM1A Event Block Address : 00001800
 [03Ch 0060   4]     PM1B Event Block Address : 00000000
-[040h 0064   4]   PM1A Control Block Address : 00000000
+[040h 0064   4]   PM1A Control Block Address : 00001804
 [044h 0068   4]   PM1B Control Block Address : 00000000
-[048h 0072   4]    PM2 Control Block Address : 00000000
+[048h 0072   4]    PM2 Control Block Address : 00001850
 [04Ch 0076   4]       PM Timer Block Address : 00001808
 [050h 0080   4]           GPE0 Block Address : 00001860
 [054h 0084   4]           GPE1 Block Address : 00000000
@@ -101,7 +101,7 @@
 
 [083h 0131   1]          FADT Minor Revision : 01
 [084h 0132   8]                 FACS Address : 0000000000000000
-[08Ch 0140   8]                 DSDT Address : 000000007BBC9000
+[08Ch 0140   8]                 DSDT Address : 000000007BBC5000
 [094h 0148  12]             PM1A Event Block : [Generic Address Structure]
 [094h 0148   1]                     Space ID : 01 [SystemIO]
 [095h 0149   1]                    Bit Width : 20
@@ -160,38 +160,38 @@
 
 
 [0F4h 0244  12]       Sleep Control Register : [Generic Address Structure]
-[0F4h 0244   1]                     Space ID : 01 [SystemIO]
-[0F5h 0245   1]                    Bit Width : 08
+[0F4h 0244   1]                     Space ID : 00 [SystemMemory]
+[0F5h 0245   1]                    Bit Width : 00
 [0F6h 0246   1]                   Bit Offset : 00
-[0F7h 0247   1]         Encoded Access Width : 03 [DWord Access:32]
-[0F8h 0248   8]                      Address : 0000000000001804
+[0F7h 0247   1]         Encoded Access Width : 00 [Undefined/Legacy]
+[0F8h 0248   8]                      Address : 0000000000000000
 
 [100h 0256  12]        Sleep Status Register : [Generic Address Structure]
-[100h 0256   1]                     Space ID : 01 [SystemIO]
-[101h 0257   1]                    Bit Width : 08
+[100h 0256   1]                     Space ID : 00 [SystemMemory]
+[101h 0257   1]                    Bit Width : 00
 [102h 0258   1]                   Bit Offset : 00
-[103h 0259   1]         Encoded Access Width : 03 [DWord Access:32]
-[104h 0260   8]                      Address : 0000000000001800
+[103h 0259   1]         Encoded Access Width : 00 [Undefined/Legacy]
+[104h 0260   8]                      Address : 0000000000000000
 
 [10Ch 0268   8]                Hypervisor ID : 0000000000000000
 
 Raw Table Data: Length 276 (0x114)
 
-    0000: 46 41 43 50 14 01 00 00 06 22 4D 53 46 54 20 20  // FACP....."MSFT  
+    0000: 46 41 43 50 14 01 00 00 06 54 4D 53 46 54 20 20  // FACP.....TMSFT  
     0010: 4D 53 46 54 20 20 20 20 02 00 00 00 4D 53 46 54  // MSFT    ....MSFT
-    0020: 22 04 16 20 00 40 B9 7B 00 90 BC 7B 00 08 09 00  // ".. .@.{...{....
-    0030: B2 00 00 00 F0 F1 F2 00 00 00 00 00 00 00 00 00  // ................
-    0040: 00 00 00 00 00 00 00 00 00 00 00 00 08 18 00 00  // ................
+    0020: 22 04 16 20 00 30 B9 7B 00 50 BC 7B 00 08 09 00  // ".. .0.{.P.{....
+    0030: B2 00 00 00 F0 F1 00 00 00 18 00 00 00 00 00 00  // ................
+    0040: 04 18 00 00 00 00 00 00 50 18 00 00 08 18 00 00  // ........P.......
     0050: 60 18 00 00 00 00 00 00 04 02 01 04 20 00 10 00  // `........... ...
     0060: 65 00 E9 03 00 00 00 00 01 03 0D 00 32 01 00 00  // e...........2...
     0070: F5 C4 20 00 01 08 00 01 F9 0C 00 00 00 00 00 00  // .. .............
-    0080: 06 00 00 01 00 00 00 00 00 00 00 00 00 90 BC 7B  // ...............{
+    0080: 06 00 00 01 00 00 00 00 00 00 00 00 00 50 BC 7B  // .............P.{
     0090: 00 00 00 00 01 20 00 02 00 18 00 00 00 00 00 00  // ..... ..........
     00A0: 01 00 00 02 00 00 00 00 00 00 00 00 01 10 00 02  // ................
     00B0: 04 18 00 00 00 00 00 00 01 00 00 02 00 00 00 00  // ................
     00C0: 00 00 00 00 01 08 00 01 50 18 00 00 00 00 00 00  // ........P.......
     00D0: 01 20 00 03 08 18 00 00 00 00 00 00 01 00 00 01  // . ..............
     00E0: 60 18 00 00 00 00 00 00 01 00 00 01 00 00 00 00  // `...............
-    00F0: 00 00 00 00 01 08 00 03 04 18 00 00 00 00 00 00  // ................
-    0100: 01 08 00 03 00 18 00 00 00 00 00 00 00 00 00 00  // ................
+    00F0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
+    0100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0110: 00 00 00 00                                      // ....

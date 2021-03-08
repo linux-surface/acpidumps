@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
- * Disassembly of apic.dat, Thu May 28 14:51:56 2020
+ * Disassembly of apic.dat, Mon Mar  8 16:35:29 2021
  *
  * ACPI Data Table [APIC]
  *
@@ -12,8 +12,8 @@
 
 [000h 0000   4]                    Signature : "APIC"    [Multiple APIC Description Table (MADT)]
 [004h 0004   4]                 Table Length : 0000012C
-[008h 0008   1]                     Revision : 03
-[009h 0009   1]                     Checksum : 56
+[008h 0008   1]                     Revision : 04
+[009h 0009   1]                     Checksum : 55
 [00Ah 0010   6]                       Oem ID : "MSFT  "
 [010h 0016   8]                 Oem Table ID : "MSFT    "
 [018h 0024   4]                 Oem Revision : 00000002
@@ -307,7 +307,7 @@
 
 Raw Table Data: Length 300 (0x12C)
 
-    0000: 41 50 49 43 2C 01 00 00 03 56 4D 53 46 54 20 20  // APIC,....VMSFT  
+    0000: 41 50 49 43 2C 01 00 00 04 55 4D 53 46 54 20 20  // APIC,....UMSFT  
     0010: 4D 53 46 54 20 20 20 20 02 00 00 00 4D 53 46 54  // MSFT    ....MSFT
     0020: 22 04 16 20 00 00 E0 FE 01 00 00 00 00 08 01 00  // ".. ............
     0030: 01 00 00 00 00 08 02 02 01 00 00 00 00 08 03 04  // ................

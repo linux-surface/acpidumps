@@ -1,372 +1,620 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt7.dat, Thu May 28 14:51:56 2020
+ * Disassembly of ssdt7.dat, Mon Mar  8 16:35:30 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000574 (1396)
+ *     Length           0x00000BA0 (2976)
  *     Revision         0x02
- *     Checksum         0x49
+ *     Checksum         0x33
  *     OEM ID           "MSFT  "
- *     OEM Table ID     "Tpm2Tabl"
- *     OEM Revision     0x00001000 (4096)
+ *     OEM Table ID     "xh_gc000"
+ *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20181003 (538447875)
  */
-DefinitionBlock ("", "SSDT", 2, "MSFT  ", "Tpm2Tabl", 0x00001000)
+DefinitionBlock ("", "SSDT", 2, "MSFT  ", "xh_gc000", 0x00000000)
 {
-    Scope (\_SB)
+    External (_SB_.PCI0.TXHC.RHUB.SS01, DeviceObj)
+    External (_SB_.PCI0.TXHC.RHUB.SS02, DeviceObj)
+    External (_SB_.PCI0.TXHC.RHUB.SS03, DeviceObj)
+    External (_SB_.PCI0.TXHC.RHUB.SS04, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS01, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS02, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS03, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS04, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS05, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS06, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS07, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS08, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS09, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.HS10, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.SS01, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.SS02, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.SS03, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.SS04, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.SS05, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.SS06, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.USR1, DeviceObj)
+    External (_SB_.PCI0.XHC_.RHUB.USR2, DeviceObj)
+    External (_SB_.UBTC, DeviceObj)
+    External (_SB_.UBTC.TPLD, MethodObj)    // 2 Arguments
+    External (_SB_.UBTC.TUPC, MethodObj)    // 2 Arguments
+    External (DBGU, IntObj)
+    External (EBID, IntObj)
+    External (UC00, IntObj)
+    External (UC01, IntObj)
+    External (UC02, IntObj)
+    External (UDB0, MethodObj)    // 1 Arguments
+    External (USTC, UnknownObj)
+
+    Scope (\_SB.PCI0.XHC.RHUB)
     {
-        Device (TPM)
+        Method (GPLD, 2, Serialized)
         {
-            Name (_HID, "NTC0702")  // _HID: Hardware ID
-            Noop
-            Name (_CID, "MSFT0101" /* TPM 2.0 Security Device */)  // _CID: Compatible ID
-            Name (_STR, Unicode ("TPM 2.0 Device"))  // _STR: Description String
-            OperationRegion (SMIP, SystemIO, 0xB2, One)
-            Field (SMIP, ByteAcc, NoLock, Preserve)
+            Name (PCKG, Package (0x01)
             {
-                IOPN,   8
-            }
+                Buffer (0x10){}
+            })
+            CreateField (DerefOf (PCKG [Zero]), Zero, 0x07, REV)
+            REV = 0x02
+            CreateField (DerefOf (PCKG [Zero]), 0x07, One, RGB)
+            RGB = One
+            CreateField (DerefOf (PCKG [Zero]), 0x40, One, VISI)
+            VISI = Arg0
+            CreateField (DerefOf (PCKG [Zero]), 0x57, 0x08, GPOS)
+            GPOS = Arg1
+            Return (PCKG) /* \_SB_.PCI0.XHC_.RHUB.GPLD.PCKG */
+        }
 
-            OperationRegion (TPMR, SystemMemory, 0xFED40000, 0x5000)
-            Field (TPMR, AnyAcc, NoLock, Preserve)
+        Method (SPLD, 3, Serialized)
+        {
+            Name (PCKG, Package (0x01)
             {
-                ACC0,   8, 
-                Offset (0x08), 
-                INTE,   32, 
-                INTV,   8, 
-                Offset (0x10), 
-                INTS,   32, 
-                INTF,   32, 
-                STS0,   32, 
-                Offset (0x24), 
-                FIFO,   32, 
-                Offset (0x30), 
-                TID0,   32
-            }
-
-            OperationRegion (TNVS, SystemMemory, 0x7BB92000, 0x2F)
-            Field (TNVS, AnyAcc, NoLock, Preserve)
-            {
-                PPIN,   8, 
-                PPIP,   32, 
-                PPRP,   32, 
-                PPRQ,   32, 
-                PPRM,   32, 
-                LPPR,   32, 
-                FRET,   32, 
-                MCIN,   8, 
-                MCIP,   32, 
-                MORD,   32, 
-                MRET,   32, 
-                UCRQ,   32, 
-                IRQN,   32, 
-                SFRB,   8
-            }
-
-            Name (RESS, ResourceTemplate ()
-            {
-                Memory32Fixed (ReadWrite,
-                    0xFED40000,         // Address Base
-                    0x00005000,         // Address Length
-                    )
-                Interrupt (ResourceConsumer, Level, ActiveLow, Shared, ,, )
+                Buffer (0x14)
                 {
-                    0x00000001,
-                    0x00000002,
-                    0x00000003,
-                    0x00000004,
-                    0x00000005,
-                    0x00000006,
-                    0x00000007,
-                    0x00000008,
-                    0x00000009,
-                    0x0000000A,
+                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                    /* 0010 */  0xFF, 0xFF, 0xFF, 0xFF                           // ....
                 }
             })
-            Name (RESL, ResourceTemplate ()
-            {
-                Memory32Fixed (ReadWrite,
-                    0xFED40000,         // Address Base
-                    0x00005000,         // Address Length
-                    )
-                Interrupt (ResourceConsumer, Level, ActiveLow, Shared, ,, )
-                {
-                    0x00000001,
-                    0x00000002,
-                    0x00000003,
-                    0x00000004,
-                    0x00000005,
-                    0x00000006,
-                    0x00000007,
-                    0x00000008,
-                    0x00000009,
-                    0x0000000A,
-                    0x0000000B,
-                    0x0000000C,
-                    0x0000000D,
-                    0x0000000E,
-                    0x0000000F,
-                }
-            })
-            Name (RES0, ResourceTemplate ()
-            {
-                Memory32Fixed (ReadWrite,
-                    0xFED40000,         // Address Base
-                    0x00005000,         // Address Length
-                    )
-                Interrupt (ResourceConsumer, Level, ActiveLow, Shared, ,, _Y31)
-                {
-                    0x0000000C,
-                }
-            })
-            Name (RES1, ResourceTemplate ()
-            {
-                Memory32Fixed (ReadWrite,
-                    0xFED40000,         // Address Base
-                    0x00005000,         // Address Length
-                    )
-            })
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
-            {
-                If ((IRQN == Zero))
-                {
-                    Return (RES1) /* \_SB_.TPM_.RES1 */
-                }
-                Else
-                {
-                    CreateDWordField (RES0, \_SB.TPM._Y31._INT, LIRQ)  // _INT: Interrupts
-                    LIRQ = IRQN /* \_SB_.TPM_.IRQN */
-                    Return (RES0) /* \_SB_.TPM_.RES0 */
-                }
-            }
+            CreateField (DerefOf (PCKG [Zero]), Zero, 0x07, REV)
+            REV = 0x02
+            CreateField (DerefOf (PCKG [Zero]), 0x07, One, RGB)
+            RGB = One
+            CreateField (DerefOf (PCKG [Zero]), 0x40, One, VISI)
+            VISI = Arg0
+            CreateField (DerefOf (PCKG [Zero]), 0x57, 0x08, GPOS)
+            GPOS = Arg1
+            CreateField (DerefOf (PCKG [Zero]), 0x60, 0x02, EJCT)
+            EJCT = Arg2
+            Return (PCKG) /* \_SB_.PCI0.XHC_.RHUB.SPLD.PCKG */
+        }
 
-            Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
-            {
-                If ((IRQN != Zero))
-                {
-                    CreateDWordField (Arg0, 0x11, IRQ0)
-                    CreateDWordField (RES0, \_SB.TPM._Y31._INT, LIRQ)  // _INT: Interrupts
-                    LIRQ = IRQ0 /* \_SB_.TPM_._SRS.IRQ0 */
-                    IRQN = IRQ0 /* \_SB_.TPM_._SRS.IRQ0 */
-                    CreateBitField (Arg0, 0x79, ITRG)
-                    CreateBitField (RES0, \_SB.TPM._Y31._HE, LTRG)  // _HE_: High-Edge
-                    LTRG = ITRG /* \_SB_.TPM_._SRS.ITRG */
-                    CreateBitField (Arg0, 0x7A, ILVL)
-                    CreateBitField (RES0, \_SB.TPM._Y31._LL, LLVL)  // _LL_: Low Level
-                    LLVL = ILVL /* \_SB_.TPM_._SRS.ILVL */
-                    If ((((TID0 & 0x0F) == Zero) || ((TID0 & 0x0F
-                        ) == 0x0F)))
-                    {
-                        If ((IRQ0 < 0x10))
-                        {
-                            INTV = (IRQ0 & 0x0F)
-                        }
-
-                        If ((ITRG == One))
-                        {
-                            INTE |= 0x10
-                        }
-                        Else
-                        {
-                            INTE &= 0xFFFFFFEF
-                        }
-
-                        If ((ILVL == Zero))
-                        {
-                            INTE |= 0x08
-                        }
-                        Else
-                        {
-                            INTE &= 0xFFFFFFF7
-                        }
-                    }
-                }
-            }
-
-            Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
-            {
-                If ((IRQN == Zero))
-                {
-                    Return (RES1) /* \_SB_.TPM_.RES1 */
-                }
-                ElseIf ((SFRB == Zero))
-                {
-                    Return (RESL) /* \_SB_.TPM_.RESL */
-                }
-                Else
-                {
-                    Return (RESS) /* \_SB_.TPM_.RESS */
-                }
-            }
-
-            Method (PTS, 1, Serialized)
-            {
-                Return (Zero)
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((ACC0 == 0xFF))
-                {
-                    Return (Zero)
-                }
-
-                Return (0x0F)
-            }
-
-            Method (HINF, 1, Serialized)
-            {
-                Switch (ToInteger (Arg0))
-                {
-                    Case (Zero)
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x03                                             // .
-                        })
-                    }
-                    Case (One)
-                    {
-                        Name (TPMV, Package (0x02)
-                        {
-                            One, 
-                            Package (0x02)
-                            {
-                                0x02, 
-                                Zero
-                            }
-                        })
-                        If ((_STA () == Zero))
-                        {
-                            Return (Package (0x01)
-                            {
-                                Zero
-                            })
-                        }
-
-                        Return (TPMV) /* \_SB_.TPM_.HINF.TPMV */
-                    }
-                    Default
-                    {
-                        BreakPoint
-                    }
-
-                }
-
-                Return (Buffer (One)
-                {
-                     0x00                                             // .
-                })
-            }
-
-            Name (TPM2, Package (0x02)
+        Method (SUPC, 2, Serialized)
+        {
+            Name (PCKG, Package (0x04)
             {
                 Zero, 
-                Zero
-            })
-            Name (TPM3, Package (0x03)
-            {
                 Zero, 
                 Zero, 
                 Zero
             })
-            Method (TPPI, 2, Serialized)
+            If ((Arg0 != Zero))
             {
-                Switch (ToInteger (Arg0))
-                {
-                    Case (Zero)
-                    {
-                        Return (Buffer (0x02)
-                        {
-                             0xFF, 0x01                                       // ..
-                        })
-                    }
-                    Case (One)
-                    {
-                        Return ("1.3")
-                    }
-                    Case (0x02)
-                    {
-                        PPRQ = DerefOf (Arg1 [Zero])
-                        PPRM = Zero
-                        PPIP = 0x02
-                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
-                        Return (FRET) /* \_SB_.TPM_.FRET */
-                    }
-                    Case (0x03)
-                    {
-                        TPM2 [One] = PPRQ /* \_SB_.TPM_.PPRQ */
-                        Return (TPM2) /* \_SB_.TPM_.TPM2 */
-                    }
-                    Case (0x04)
-                    {
-                        Return (0x02)
-                    }
-                    Case (0x05)
-                    {
-                        PPIP = 0x05
-                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
-                        TPM3 [One] = LPPR /* \_SB_.TPM_.LPPR */
-                        TPM3 [0x02] = PPRP /* \_SB_.TPM_.PPRP */
-                        Return (TPM3) /* \_SB_.TPM_.TPM3 */
-                    }
-                    Case (0x06)
-                    {
-                        Return (0x03)
-                    }
-                    Case (0x07)
-                    {
-                        PPIP = 0x07
-                        PPRQ = DerefOf (Arg1 [Zero])
-                        PPRM = Zero
-                        If ((PPRQ == 0x17))
-                        {
-                            PPRM = DerefOf (Arg1 [One])
-                        }
-
-                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
-                        Return (FRET) /* \_SB_.TPM_.FRET */
-                    }
-                    Case (0x08)
-                    {
-                        PPIP = 0x08
-                        UCRQ = DerefOf (Arg1 [Zero])
-                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
-                        Return (FRET) /* \_SB_.TPM_.FRET */
-                    }
-                    Default
-                    {
-                        BreakPoint
-                    }
-
-                }
-
-                Return (One)
+                PCKG [Zero] = 0xFF
             }
 
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            PCKG [One] = Arg1
+            Return (PCKG) /* \_SB_.PCI0.XHC_.RHUB.SUPC.PCKG */
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS01)
+    {
+        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        {
+            Return (SUPC (0xFF, 0xFF))
+        }
+
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (One, One, 0x03))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS02)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            0xFF, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x02, Zero))
+        }
+
+        Device (PRT1)
+        {
+            Name (_ADR, One)  // _ADR: Address
+            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
             {
-                If ((Arg0 == ToUUID ("cf8e16a5-c1e8-4e25-b712-4f54a96702c8")))
-                {
-                    Return (HINF (Arg2))
-                }
+                0xFF, 
+                0x09, 
+                Zero, 
+                Zero
+            })
+            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+            {
+                Return (SPLD (One, One, 0x03))
+            }
+        }
 
-                If ((Arg0 == ToUUID ("3dddfaa6-361b-4eb4-a424-8d10089d1653") /* Physical Presence Interface */))
-                {
-                    Return (TPPI (Arg2, Arg3))
-                }
+        Device (PRT2)
+        {
+            Name (_ADR, 0x02)  // _ADR: Address
+            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+            {
+                0xFF, 
+                0xFF, 
+                Zero, 
+                Zero
+            })
+            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+            {
+                Return (SPLD (Zero, 0x02, Zero))
+            }
 
-                Return (Buffer (One)
+            Device (PRT1)
+            {
+                Name (_ADR, One)  // _ADR: Address
+                Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
                 {
-                     0x00                                             // .
+                    Zero, 
+                    0xFF, 
+                    Zero, 
+                    Zero
                 })
+                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                {
+                    Return (SPLD (Zero, One, Zero))
+                }
+            }
+
+            Device (PRT2)
+            {
+                Name (_ADR, 0x02)  // _ADR: Address
+                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                {
+                    Return (SUPC (0xFF, Zero))
+                }
+
+                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                {
+                    Return (SPLD (One, 0x02, 0x03))
+                }
+            }
+
+            Device (PRT3)
+            {
+                Name (_ADR, 0x03)  // _ADR: Address
+                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                {
+                    Return (SUPC (0xFF, Zero))
+                }
+
+                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                {
+                    Return (SPLD (One, 0x03, 0x03))
+                }
+            }
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS03)
+    {
+        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        {
+            Return (SUPC (0xFF, Zero))
+        }
+
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x03, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS04)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x04, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS05)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x05, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS06)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x06, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS07)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x07, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS08)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x08, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS09)
+    {
+        Name (CNNT, Zero)
+        If ((((EBID & 0x2000) >> 0x0D) == One))
+        {
+            CNNT = 0xFF
+        }
+        Else
+        {
+            CNNT = Zero
+        }
+
+        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        {
+            Return (SUPC (CNNT, Zero))
+        }
+
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x09, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.HS10)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x0A, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.USR1)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, Zero, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.USR2)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, Zero, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.SS01)
+    {
+        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        {
+            Return (SUPC (0xFF, 0xFF))
+        }
+
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (One, One, 0x03))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.SS02)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            0xFF, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x02, Zero))
+        }
+
+        Device (PRT1)
+        {
+            Name (_ADR, One)  // _ADR: Address
+            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+            {
+                0xFF, 
+                0x09, 
+                Zero, 
+                Zero
+            })
+            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+            {
+                Return (SPLD (One, One, 0x03))
+            }
+        }
+
+        Device (PRT2)
+        {
+            Name (_ADR, 0x02)  // _ADR: Address
+            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+            {
+                0xFF, 
+                0xFF, 
+                Zero, 
+                Zero
+            })
+            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+            {
+                Return (SPLD (Zero, 0x02, Zero))
+            }
+
+            Device (PRT1)
+            {
+                Name (_ADR, One)  // _ADR: Address
+                Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+                {
+                    0xFF, 
+                    0xFF, 
+                    Zero, 
+                    Zero
+                })
+                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                {
+                    Return (SPLD (Zero, One, 0x03))
+                }
+            }
+
+            Device (PRT2)
+            {
+                Name (_ADR, 0x02)  // _ADR: Address
+                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                {
+                    Return (SUPC (0xFF, Zero))
+                }
+
+                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                {
+                    Return (SPLD (One, 0x02, 0x03))
+                }
+            }
+
+            Device (PRT3)
+            {
+                Name (_ADR, 0x03)  // _ADR: Address
+                Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                {
+                    Return (SUPC (0xFF, Zero))
+                }
+
+                Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                {
+                    Return (SPLD (One, 0x03, 0x03))
+                }
+            }
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.SS03)
+    {
+        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+        {
+            Return (SUPC (0xFF, Zero))
+        }
+
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x03, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.SS04)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x04, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.SS05)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x05, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.XHC.RHUB.SS06)
+    {
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+        {
+            Return (SPLD (Zero, 0x06, Zero))
+        }
+    }
+
+    Scope (\_SB.PCI0.TXHC.RHUB.SS01)
+    {
+        UDB0 ("TXHC root port SS01")
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+        {
+            Return (\_SB.UBTC.TPLD (Zero, One))
+        }
+    }
+
+    Scope (\_SB.PCI0.TXHC.RHUB.SS02)
+    {
+        UDB0 ("TXHC root port SS02")
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+        {
+            Return (\_SB.UBTC.TPLD (Zero, 0x02))
+        }
+    }
+
+    Scope (\_SB.PCI0.TXHC.RHUB.SS03)
+    {
+        UDB0 ("TXHC root port SS03")
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+        {
+            Return (\_SB.UBTC.TPLD (Zero, 0x03))
+        }
+    }
+
+    Scope (\_SB.PCI0.TXHC.RHUB.SS04)
+    {
+        UDB0 ("TXHC root port SS04")
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+        {
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
+        Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+        {
+            Return (\_SB.UBTC.TPLD (Zero, 0x04))
+        }
+    }
+
+    Scope (\_SB.UBTC)
+    {
+        Device (CR01)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+            Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+            {
+                Return (TPLD (One, One))
+            }
+
+            Method (_UPC, 0, NotSerialized)  // _UPC: USB Port Capabilities
+            {
+                Return (TUPC (One, 0x09))
             }
         }
     }

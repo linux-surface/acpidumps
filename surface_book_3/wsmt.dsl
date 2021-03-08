@@ -1,16 +1,16 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
- * Disassembly of wsmt.dat, Thu May 28 14:51:56 2020
+ * Disassembly of wsmt.dat, Mon Mar  8 16:35:30 2021
  *
  * ACPI Data Table [WSMT]
  *
  * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
  */
 
-[000h 0000   4]                    Signature : "WSMT"    [Windows SMM Security Migrations Table]
+[000h 0000   4]                    Signature : "WSMT"    [Windows SMM Security Mitigations Table]
 [004h 0004   4]                 Table Length : 00000028
 [008h 0008   1]                     Revision : 01
 [009h 0009   1]                     Checksum : B9

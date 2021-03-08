@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of dsdt.dat, Thu May 28 14:51:56 2020
+ * Disassembly of dsdt.dat, Mon Mar  8 16:35:30 2021
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0001BF33 (114483)
+ *     Length           0x0001C2DF (115423)
  *     Revision         0x02
- *     Checksum         0x9E
+ *     Checksum         0x02
  *     OEM ID           "MSFT  "
  *     OEM Table ID     "MSFT    "
  *     OEM Revision     0x00000002 (2)
@@ -214,6 +214,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     External (_SB_.TRPD, UnknownObj)
     External (_SB_.TRPF, UnknownObj)
     External (ALSE, UnknownObj)
+    External (BCLE, IntObj)
     External (BGIA, IntObj)
     External (BGMA, IntObj)
     External (BGMS, IntObj)
@@ -277,6 +278,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     External (TRE2, UnknownObj)
     External (TRE3, UnknownObj)
     External (TRTD, UnknownObj)
+    External (XBAS, UnknownObj)
 
     Method (ADBG, 1, Serialized)
     {
@@ -320,14 +322,14 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     Name (SS2, Zero)
     Name (SS3, Zero)
     Name (SS4, One)
-    OperationRegion (MNVS, SystemMemory, 0x7BB93000, 0x0041)
+    OperationRegion (MNVS, SystemMemory, 0x7BB92000, 0x0043)
     Field (MNVS, AnyAcc, Lock, Preserve)
     {
         SBFF,   32, 
         STDH,   72, 
-        STSM,   72, 
+        SHSD,   72, 
         SIDH,   72, 
-        SFUH,   72, 
+        SEDH,   72, 
         OMPR,   16, 
         OMBR,   8, 
         PTSM,   16, 
@@ -336,10 +338,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         SAMS,   72, 
         SSHP,   32, 
         SACS,   8, 
-        CANS,   8
+        CANS,   8, 
+        TZSM,   16
     }
 
-    OperationRegion (GNVS, SystemMemory, 0x7BBA6000, 0x07FA)
+    OperationRegion (GNVS, SystemMemory, 0x7BBA5000, 0x07FA)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         OSYS,   16, 
@@ -1288,7 +1291,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         SPEP,   32
     }
 
-    OperationRegion (SNVS, SystemMemory, 0x7BBA5000, 0x001C)
+    OperationRegion (SNVS, SystemMemory, 0x7BBA4000, 0x001C)
     Field (SNVS, AnyAcc, Lock, Preserve)
     {
         REMK,   32, 
@@ -1315,14 +1318,16 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         CSZE,   32, 
         GWAS,   32, 
         GWSI,   8, 
-        GWDS,   32
+        GWDS,   32, 
+        GWRE,   32, 
+        SCAP,   64
     }
 
     Scope (_SB)
     {
         Device (SRTC)
         {
-            Name (SGCP, 0xF00000F7)
+            Name (SGCP, 0x000001F7)
             Name (_SUB, "MSHW0214")  // _SUB: Subsystem ID
             Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
             {
@@ -1359,9 +1364,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     ThermalZone (TPOL)
     {
         Name (_HID, "MSHW0187")  // _HID: Hardware ID
+        Name (_UID, One)  // _UID: Unique ID
         Method (_STA, 0, NotSerialized)  // _STA: Status
         {
             Return (0x0F)
+        }
+
+        Method (OPTS, 0, NotSerialized)
+        {
+            Return (Package (0x01)
+            {
+                "\\_SB.PAGD"
+            })
         }
     }
 
@@ -4599,15 +4613,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         {
             If ((PCHS == PCHL))
             {
-                Return (DerefOf (DerefOf (GPCL [Arg0]) [Arg1]))
+                Local0 = (Arg0 % 0x10)
+                Return (DerefOf (DerefOf (GPCL [Local0]) [Arg1]))
             }
             ElseIf ((PCHS == PCHN))
             {
-                Return (DerefOf (DerefOf (GPCN [Arg0]) [Arg1]))
+                Local0 = (Arg0 % 0x12)
+                Return (DerefOf (DerefOf (GPCN [Local0]) [Arg1]))
             }
             Else
             {
-                Return (DerefOf (DerefOf (GPCH [Arg0]) [Arg1]))
+                Local0 = (Arg0 % 0x12)
+                Return (DerefOf (DerefOf (GPCH [Local0]) [Arg1]))
             }
         }
 
@@ -6301,7 +6318,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (CUID, 1, Serialized)
             {
-                If ((Arg0 == ToUUID ("7c9512a9-1705-4cb4-af7d-506a2423ab71")))
+                If ((Arg0 == ToUUID ("7c9512a9-1705-4cb4-af7d-506a2423ab71") /* Unknown UUID */))
                 {
                     Return (One)
                 }
@@ -6573,7 +6590,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 }
 
                 ADBG ("XDCI DSM")
-                If ((Arg0 == ToUUID ("732b85d5-b7a7-4a1b-9ba0-4bbd00ffd511")))
+                If ((Arg0 == ToUUID ("732b85d5-b7a7-4a1b-9ba0-4bbd00ffd511") /* Unknown UUID */))
                 {
                     If ((Arg1 == One))
                     {
@@ -6861,7 +6878,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("a69f886e-6ceb-4594-a41f-7b5dce24c553")))
+                If ((Arg0 == ToUUID ("a69f886e-6ceb-4594-a41f-7b5dce24c553") /* Unknown UUID */))
                 {
                     If ((ToInteger (Arg2) == Zero))
                     {
@@ -7005,7 +7022,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                     }, 
 
-                    ToUUID ("dbb8e3e6-5886-4ba6-8795-1319f52a966b"), 
+                    ToUUID ("dbb8e3e6-5886-4ba6-8795-1319f52a966b") /* Hierarchical Data Extension */, 
                     Package (0x04)
                     {
                         Package (0x02)
@@ -13826,7 +13843,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("9cd9cddd-8845-4afd-8392-31c4eb87cabd")))
+                If ((Arg0 == ToUUID ("9cd9cddd-8845-4afd-8392-31c4eb87cabd") /* Unknown UUID */))
                 {
                     Return (D3AS (Arg1, Arg2, Arg3))
                 }
@@ -15181,7 +15198,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (RSTD, 5, Serialized)
             {
-                If ((Arg0 == ToUUID ("e03e3431-e510-4fa2-abc0-2d7e901245fe")))
+                If ((Arg0 == ToUUID ("e03e3431-e510-4fa2-abc0-2d7e901245fe") /* Unknown UUID */))
                 {
                     Switch (ToInteger (Arg2))
                     {
@@ -16286,7 +16303,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     {
         Method (UDSM, 1, Serialized)
         {
-            If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27")))
+            If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27") /* Unknown UUID */))
             {
                 Return (One)
             }
@@ -16327,7 +16344,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27")))
+                If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27") /* Unknown UUID */))
                 {
                     Switch (ToInteger (Arg2))
                     {
@@ -16788,7 +16805,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Name (_HRV, 0x30)  // _HRV: Hardware Revision
                     Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                     {
-                        If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27")))
+                        If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27") /* Unknown UUID */))
                         {
                             Switch (ToInteger (Arg2))
                             {
@@ -16926,6 +16943,68 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
     Scope (_SB.PCI0)
     {
+        Method (DLLR, 5, Serialized)
+        {
+            ADBG ("SD DLL restore flow")
+            Name (TEMP, Zero)
+            Name (EMPB, Zero)
+            EMPB = XBAS /* External reference */
+            EMPB |= (Arg0 << 0x14)
+            EMPB |= (Arg1 << 0x0F)
+            EMPB |= (Arg2 << 0x0C)
+            OperationRegion (EMPC, SystemMemory, EMPB, 0x0100)
+            Field (EMPC, DWordAcc, NoLock, Preserve)
+            {
+                Offset (0x04), 
+                    ,   1, 
+                MSE,    1, 
+                Offset (0x10), 
+                BAR0,   64, 
+                Offset (0x84), 
+                PSTA,   32
+            }
+
+            Name (OPST, Zero)
+            OPST = PSTA /* \_SB_.PCI0.DLLR.PSTA */
+            PSTA &= 0xFFFFFFFC
+            TEMP = PSTA /* \_SB_.PCI0.DLLR.PSTA */
+            Name (OMSE, Zero)
+            OMSE = MSE /* \_SB_.PCI0.DLLR.MSE_ */
+            MSE = Zero
+            Name (OBAR, Zero)
+            OBAR = BAR0 /* \_SB_.PCI0.DLLR.BAR0 */
+            BAR0 = Arg3
+            TEMP = BAR0 /* \_SB_.PCI0.DLLR.BAR0 */
+            MSE = One
+            OperationRegion (EMMI, SystemMemory, Arg3, Arg4)
+            Field (EMMI, DWordAcc, NoLock, Preserve)
+            {
+                Offset (0x834), 
+                FDLL,   8, 
+                Offset (0x840), 
+                ADLL,   8
+            }
+
+            Name (FDLV, Zero)
+            Name (ADLV, Zero)
+            FDLV = FDLL /* \_SB_.PCI0.DLLR.FDLL */
+            ADLV = ADLL /* \_SB_.PCI0.DLLR.ADLL */
+            ADBG (Concatenate ("Fixed DLL value ", ToHexString (FDLV)))
+            ADBG (Concatenate ("Auto DLL Value ", ToHexString (ADLV)))
+            If ((ADLV != Zero))
+            {
+                ADBG ("Auto tuning executed, restoring values")
+                ADLV *= 0x02
+                FDLL = ADLV /* \_SB_.PCI0.DLLR.ADLV */
+            }
+
+            MSE = Zero
+            BAR0 = OBAR /* \_SB_.PCI0.DLLR.OBAR */
+            MSE = OMSE /* \_SB_.PCI0.DLLR.OMSE */
+            PSTA = OPST /* \_SB_.PCI0.DLLR.OPST */
+            TEMP = PSTA /* \_SB_.PCI0.DLLR.PSTA */
+        }
+
         Device (PUFS)
         {
             Name (_ADR, 0x00120005)  // _ADR: Address
@@ -16976,6 +17055,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_PS3, 0, Serialized)  // _PS3: Power State 3
             {
+                DLLR (Zero, 0x1A, Zero, 0xFE0D0000, 0x00010000)
                 PGEN = One
                 PSTA |= 0x03
                 TEMP = PSTA /* \_SB_.PCI0.PEMC.PSTA */
@@ -16988,7 +17068,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61")))
+                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61") /* Unknown UUID */))
                 {
                     If ((Arg1 >= Zero))
                     {
@@ -17185,7 +17265,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61")))
+                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61") /* Unknown UUID */))
                 {
                     If ((Arg1 >= Zero))
                     {
@@ -17961,7 +18041,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("6f8398c2-7ca4-11e4-ad36-631042b5008f")))
+                If ((Arg0 == ToUUID ("6f8398c2-7ca4-11e4-ad36-631042b5008f") /* Unknown UUID */))
                 {
                     Switch (ToInteger (Arg2))
                     {
@@ -18056,7 +18136,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("d5e383e1-d892-4a76-89fc-f6aaae7ed5b5")))
+                If ((Arg0 == ToUUID ("d5e383e1-d892-4a76-89fc-f6aaae7ed5b5") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -18181,6 +18261,50 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         }
     }
 
+    Name (BCLE, Zero)
+    Method (OBCL, 3, Serialized)
+    {
+        CreateDWordField (Arg2, Zero, STS0)
+        If ((Arg1 != 0x02))
+        {
+            STS0 &= 0xFFFFFFE0
+            STS0 |= 0x02
+            Return (Arg2)
+        }
+
+        CreateDWordField (Arg2, 0x04, CAP0)
+        Local0 = (STS0 & 0x1F)
+        If ((Local0 & One))
+        {
+            If ((CAP0 & 0x00080000))
+            {
+                If ((SCAP & 0x0400)){}
+                Else
+                {
+                    CAP0 &= 0xFFFFFFFFFFF7FFFF
+                    STS0 |= 0x10
+                }
+            }
+            Else
+            {
+            }
+        }
+        ElseIf ((CAP0 & 0x00080000))
+        {
+            If ((SCAP & 0x0400))
+            {
+                BCLE = One
+            }
+            Else
+            {
+                CAP0 &= 0xFFFFFFFFFFF7FFFF
+                STS0 |= 0x10
+            }
+        }
+
+        Return (Arg2)
+    }
+
     Scope (_SB)
     {
         Device (WSLT)
@@ -18220,7 +18344,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("a653cdf4-476c-44fb-b366-a73cedf6e14c")))
+                If ((Arg0 == ToUUID ("a653cdf4-476c-44fb-b366-a73cedf6e14c") /* Unknown UUID */))
                 {
                     If ((ToInteger (Arg2) == Zero))
                     {
@@ -18228,7 +18352,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {
                             Return (Buffer (One)
                             {
-                                 0x0F                                             // .
+                                 0x4F                                             // O
                             })
                         }
                     }
@@ -18251,6 +18375,16 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {
                             Local0 = ToInteger (OMPR)
                             Return (Local0)
+                        }
+
+                        If ((Arg2 == 0x06))
+                        {
+                            If (CondRefOf (BCLE))
+                            {
+                                Return (BCLE) /* \BCLE */
+                            }
+
+                            Return (Zero)
                         }
                     }
                 }
@@ -18283,7 +18417,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Name (RBUF, ResourceTemplate ()
+                Return (ResourceTemplate ()
                 {
                     GpioInt (Edge, ActiveBoth, SharedAndWake, PullNone, 0x0000,
                         "\\_SB.GPI0", 0x00, ResourceConsumer, ,
@@ -18322,12 +18456,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             0x00F7
                         }
                 })
-                Return (RBUF) /* \_SB_.MSBT._CRS.RBUF */
             }
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("6fd05c69-cde3-49f4-95ed-ab1665498035")))
+                If ((Arg0 == ToUUID ("6fd05c69-cde3-49f4-95ed-ab1665498035") /* Unknown UUID */))
                 {
                     If ((Arg1 == One))
                     {
@@ -18385,9 +18518,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             {
                 Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
                 {
-                    Name (BUF, Buffer (0x09){})
-                    BUF = STDH /* \STDH */
-                    Return (ToString (BUF, 0x09))
+                    Return (ToString (STDH, 0x09))
                 }
 
                 Name (_S0W, 0x03)  // _S0W: S0 Device Wake State
@@ -18398,7 +18529,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
-                    Name (RBUF, ResourceTemplate ()
+                    Return (ResourceTemplate ()
                     {
                         GpioInt (Edge, ActiveHigh, Exclusive, PullNone, 0x0000,
                             "\\_SB.GPI0", 0x00, ResourceConsumer, ,
@@ -18429,12 +18560,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             0x00, ResourceConsumer, , Exclusive,
                             )
                     })
-                    Return (RBUF) /* \_SB_.PCI0.I2C0.FINK._CRS.RBUF */
                 }
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If ((Arg0 == ToUUID ("7a0ae771-9cdd-4a77-958f-5d1c79cfe1b7")))
+                    If ((Arg0 == ToUUID ("7a0ae771-9cdd-4a77-958f-5d1c79cfe1b7") /* Unknown UUID */))
                     {
                         If ((Arg2 == Zero))
                         {
@@ -18467,34 +18597,34 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((Arg2 == 0x03))
                             {
-                                Name (CALO, Buffer (0x6C){})
-                                CreateDWordField (CALO, Zero, CCNT)
-                                CreateDWordField (CALO, 0x04, CVER)
-                                CreateDWordField (CALO, 0x08, CTP1)
-                                CreateDWordField (CALO, 0x0C, CAV1)
-                                CreateDWordField (CALO, 0x10, CDO1)
-                                CreateDWordField (CALO, 0x14, CAL1)
-                                CreateDWordField (CALO, 0x18, CRC1)
-                                CreateDWordField (CALO, 0x1C, CTP2)
-                                CreateDWordField (CALO, 0x20, CAV2)
-                                CreateDWordField (CALO, 0x24, CDO2)
-                                CreateDWordField (CALO, 0x28, CAL2)
-                                CreateDWordField (CALO, 0x2C, CRC2)
-                                CreateDWordField (CALO, 0x30, CTP3)
-                                CreateDWordField (CALO, 0x34, CAV3)
-                                CreateDWordField (CALO, 0x38, CDO3)
-                                CreateDWordField (CALO, 0x3C, CAL3)
-                                CreateDWordField (CALO, 0x40, CRC3)
-                                CreateDWordField (CALO, 0x44, CTP4)
-                                CreateDWordField (CALO, 0x48, CAV4)
-                                CreateDWordField (CALO, 0x4C, CDO4)
-                                CreateDWordField (CALO, 0x50, CAL4)
-                                CreateDWordField (CALO, 0x54, CRC4)
-                                CreateDWordField (CALO, 0x58, CTP5)
-                                CreateDWordField (CALO, 0x5C, CAV5)
-                                CreateDWordField (CALO, 0x60, CDO5)
-                                CreateDWordField (CALO, 0x64, CAL5)
-                                CreateDWordField (CALO, 0x68, CRC5)
+                                Local0 = Buffer (0x6C){}
+                                CreateDWordField (Local0, Zero, CCNT)
+                                CreateDWordField (Local0, 0x04, CVER)
+                                CreateDWordField (Local0, 0x08, CTP1)
+                                CreateDWordField (Local0, 0x0C, CAV1)
+                                CreateDWordField (Local0, 0x10, CDO1)
+                                CreateDWordField (Local0, 0x14, CAL1)
+                                CreateDWordField (Local0, 0x18, CRC1)
+                                CreateDWordField (Local0, 0x1C, CTP2)
+                                CreateDWordField (Local0, 0x20, CAV2)
+                                CreateDWordField (Local0, 0x24, CDO2)
+                                CreateDWordField (Local0, 0x28, CAL2)
+                                CreateDWordField (Local0, 0x2C, CRC2)
+                                CreateDWordField (Local0, 0x30, CTP3)
+                                CreateDWordField (Local0, 0x34, CAV3)
+                                CreateDWordField (Local0, 0x38, CDO3)
+                                CreateDWordField (Local0, 0x3C, CAL3)
+                                CreateDWordField (Local0, 0x40, CRC3)
+                                CreateDWordField (Local0, 0x44, CTP4)
+                                CreateDWordField (Local0, 0x48, CAV4)
+                                CreateDWordField (Local0, 0x4C, CDO4)
+                                CreateDWordField (Local0, 0x50, CAL4)
+                                CreateDWordField (Local0, 0x54, CRC4)
+                                CreateDWordField (Local0, 0x58, CTP5)
+                                CreateDWordField (Local0, 0x5C, CAV5)
+                                CreateDWordField (Local0, 0x60, CDO5)
+                                CreateDWordField (Local0, 0x64, CAL5)
+                                CreateDWordField (Local0, 0x68, CRC5)
                                 CCNT = Zero
                                 CVER = One
                                 CTP1 = One
@@ -18522,7 +18652,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                                 CDO5 = 0x7000
                                 CAL5 = 0x40
                                 CRC5 = Zero
-                                Return (CALO) /* \_SB_.PCI0.I2C0.FINK._DSM.CALO */
+                                Return (Local0)
                             }
                             Else
                             {
@@ -18708,7 +18838,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (0x0F)
+                If (CL01)
+                {
+                    Return (0x0F)
+                }
+
+                Return (Zero)
             }
 
             Method (SSDB, 0, NotSerialized)
@@ -18735,12 +18870,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee")))
+                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee") /* Unknown UUID */))
                 {
-                    Return (GCSM (One))
+                    If ((Arg2 == Zero))
+                    {
+                        If ((Arg1 == Zero))
+                        {
+                            Return (Buffer (One)
+                            {
+                                 0x03                                             // .
+                            })
+                        }
+                    }
+
+                    If ((Arg1 == Zero))
+                    {
+                        If ((Arg2 == One))
+                        {
+                            Return (GCSM (One))
+                        }
+                    }
+                    Else
+                    {
+                        ADBG ("CAMF: Revision 1 not supported")
+                    }
                 }
 
-                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881")))
+                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -18827,7 +18983,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f")))
+                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -18868,7 +19024,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11")))
+                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19010,12 +19166,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee")))
+                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee") /* Unknown UUID */))
                 {
-                    Return (GCSM (0x02))
+                    If ((Arg2 == Zero))
+                    {
+                        If ((Arg1 == Zero))
+                        {
+                            Return (Buffer (One)
+                            {
+                                 0x03                                             // .
+                            })
+                        }
+                    }
+
+                    If ((Arg1 == Zero))
+                    {
+                        If ((Arg2 == One))
+                        {
+                            Return (GCSM (0x02))
+                        }
+                    }
+                    Else
+                    {
+                        ADBG ("CAMR: Revision 1 not supported")
+                    }
                 }
 
-                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881")))
+                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19113,7 +19290,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f")))
+                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19159,7 +19336,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11")))
+                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19297,12 +19474,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee")))
+                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee") /* Unknown UUID */))
                 {
-                    Return (GCSM (0x03))
+                    If ((Arg2 == Zero))
+                    {
+                        If ((Arg1 == Zero))
+                        {
+                            Return (Buffer (One)
+                            {
+                                 0x03                                             // .
+                            })
+                        }
+                    }
+
+                    If ((Arg1 == Zero))
+                    {
+                        If ((Arg2 == One))
+                        {
+                            Return (GCSM (0x03))
+                        }
+                    }
+                    Else
+                    {
+                        ADBG ("CAM3: Revision 1 not supported")
+                    }
                 }
 
-                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881")))
+                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19383,7 +19581,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f")))
+                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19419,7 +19617,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11")))
+                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19484,7 +19682,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7")))
+                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19590,7 +19788,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7")))
+                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19696,7 +19894,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7")))
+                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -21793,6 +21991,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 {
                     OSYS = 0x07DF
                 }
+
+                If (_OSI ("Intel-Ice-Lake-Low-Power-S0-Idle-Always-Set-XTAL-Bypass"))
+                {
+                    S0I3 = Zero
+                }
             }
 
             If (CondRefOf (\_SB.DTSE))
@@ -23886,7 +24089,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 ADBG (Concatenate ("PEPC = ", ToHexString (PEPC)))
-                If ((Arg0 == ToUUID ("c4eb40a0-6cd2-11e2-bcfd-0800200c9a66")))
+                If ((Arg0 == ToUUID ("c4eb40a0-6cd2-11e2-bcfd-0800200c9a66") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -26138,17 +26341,17 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     {
         Method (PPMS, 1, Serialized)
         {
-            If ((Arg0 == ToUUID ("7c708106-3aff-40fe-88be-8c999b3f7445")))
+            If ((Arg0 == ToUUID ("7c708106-3aff-40fe-88be-8c999b3f7445") /* Unknown UUID */))
             {
                 Return ((ADPM & 0x04))
             }
 
-            If ((Arg0 == ToUUID ("f7922237-511f-4203-a780-2c2ce0a13af2")))
+            If ((Arg0 == ToUUID ("f7922237-511f-4203-a780-2c2ce0a13af2") /* Unknown UUID */))
             {
                 Return ((ADPM & 0x08))
             }
 
-            If ((Arg0 == ToUUID ("ec774fa9-28d3-424a-90e4-69f984f1eeb7")))
+            If ((Arg0 == ToUUID ("ec774fa9-28d3-424a-90e4-69f984f1eeb7") /* Unknown UUID */))
             {
                 Return ((ADPM & 0x0100))
             }
@@ -26340,7 +26543,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         CreateDWordField (GPSP, 0x20, TMP2)
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            If ((Arg0 == ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81")))
+            If ((Arg0 == ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81") /* Unknown UUID */))
             {
                 If ((Arg1 == 0x0100))
                 {
@@ -26351,7 +26554,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Return (0x80000002)
             }
 
-            If ((Arg0 == ToUUID ("cbeca351-067b-4924-9cbd-b46b00b86f34")))
+            If ((Arg0 == ToUUID ("cbeca351-067b-4924-9cbd-b46b00b86f34") /* Unknown UUID */))
             {
                 If ((Arg1 == 0x0103))
                 {
@@ -26362,7 +26565,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Return (0x80000002)
             }
 
-            If ((Arg0 == ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0")))
+            If ((Arg0 == ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0") /* Unknown UUID */))
             {
                 If ((Arg1 == 0x0100))
                 {
@@ -26373,7 +26576,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Return (0x80000002)
             }
 
-            If ((Arg0 == ToUUID ("d4a50b75-65c7-46f7-bfb7-41514cea0244")))
+            If ((Arg0 == ToUUID ("d4a50b75-65c7-46f7-bfb7-41514cea0244") /* Unknown UUID */))
             {
                 If ((Arg1 == 0x0102))
                 {
@@ -27188,7 +27391,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("5515a847-ed55-4b27-8352-cd320e10360a")))
+                If ((Arg0 == ToUUID ("5515a847-ed55-4b27-8352-cd320e10360a") /* Unknown UUID */))
                 {
                     If ((ToInteger (Arg1) == One))
                     {

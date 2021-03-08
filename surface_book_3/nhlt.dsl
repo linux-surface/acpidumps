@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
- * Disassembly of nhlt.dat, Thu May 28 14:51:56 2020
+ * Disassembly of nhlt.dat, Mon Mar  8 16:35:30 2021
  *
  * ACPI Data Table [NHLT]
  *

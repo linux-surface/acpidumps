@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt2.dat, Thu May 28 14:51:56 2020
+ * Disassembly of ssdt2.dat, Mon Mar  8 16:35:30 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -2626,7 +2626,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            If ((Arg0 == ToUUID ("3e5b41c6-eb1d-4260-9d15-c71fbadae414")))
+            If ((Arg0 == ToUUID ("3e5b41c6-eb1d-4260-9d15-c71fbadae414") /* Unknown UUID */))
             {
                 If (((PCHS == PCHN) && ((Arg2 == 0x12) || (Arg2 == 0x13))))
                 {
@@ -2883,7 +2883,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     {
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            If ((Arg0 == ToUUID ("9a9e6ab4-e3fc-475d-ad1c-c4789e4cfe90")))
+            If ((Arg0 == ToUUID ("9a9e6ab4-e3fc-475d-ad1c-c4789e4cfe90") /* Unknown UUID */))
             {
                 If ((Arg2 == Zero))
                 {

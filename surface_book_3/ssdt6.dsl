@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20210105 (64-bit version)
+ * Copyright (c) 2000 - 2021 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt6.dat, Thu May 28 14:51:56 2020
+ * Disassembly of ssdt6.dat, Mon Mar  8 16:35:30 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00001B61 (7009)
  *     Revision         0x02
- *     Checksum         0x14
+ *     Checksum         0xDF
  *     OEM ID           "CpuRef"
  *     OEM Table ID     "CpuSsdt"
  *     OEM Revision     0x00003000 (12288)
@@ -44,31 +44,31 @@ DefinitionBlock ("", "SSDT", 2, "CpuRef", "CpuSsdt", 0x00003000)
         Name (SSDT, Package (0x1B)
         {
             "CPU0IST ", 
-            0x7BB89098, 
+            0x7B789098, 
             0x00000437, 
             "APIST   ", 
-            0x7BB81018, 
+            0x7B781018, 
             0x000005FC, 
             "CPU0CST ", 
-            0x7BB82A98, 
+            0x7B782A98, 
             0x00000394, 
             "APCST   ", 
-            0x7BB89B18, 
+            0x7B789B18, 
             0x0000030A, 
             "CPU0HWP ", 
-            0x7BB89898, 
+            0x7B789898, 
             0x0000012C, 
             "APHWP   ", 
-            0x7BB81698, 
+            0x7B781698, 
             0x00000317, 
             "HWPLVT  ", 
-            0x7BB82018, 
+            0x7B782018, 
             0x00000724, 
             "CPU0PSD ", 
-            0x7BB89718, 
+            0x7B789718, 
             0x000000F4, 
             "APPSD   ", 
-            0x7BB80018, 
+            0x7B780018, 
             0x00000AB0
         })
         Name (\PC00, 0x80000000)
@@ -93,7 +93,7 @@ DefinitionBlock ("", "SSDT", 2, "CpuRef", "CpuSsdt", 0x00003000)
     Scope (\_SB)
     {
         Name (CTPC, Zero)
-        OperationRegion (PNVS, SystemMemory, 0x7A909000, 0x005D)
+        OperationRegion (PNVS, SystemMemory, 0x7A059000, 0x005D)
         Field (PNVS, AnyAcc, Lock, Preserve)
         {
             PGRV,   8, 
@@ -212,7 +212,7 @@ DefinitionBlock ("", "SSDT", 2, "CpuRef", "CpuSsdt", 0x00003000)
                      0x00, 0x00, 0x00, 0x00                           // ....
                 }
             Concatenate (Local3, TEMP, Local2)
-            Return (COSC (ToUUID ("4077a616-290c-47be-9ebd-d87058713953"), REVS, SIZE, Local2))
+            Return (COSC (ToUUID ("4077a616-290c-47be-9ebd-d87058713953") /* Unknown UUID */, REVS, SIZE, Local2))
         }
 
         Method (COSC, 4, NotSerialized)
@@ -222,7 +222,7 @@ DefinitionBlock ("", "SSDT", 2, "CpuRef", "CpuSsdt", 0x00003000)
             CreateDWordField (Arg0, 0x04, IID1)
             CreateDWordField (Arg0, 0x08, IID2)
             CreateDWordField (Arg0, 0x0C, IID3)
-            Local0 = ToUUID ("4077a616-290c-47be-9ebd-d87058713953")
+            Local0 = ToUUID ("4077a616-290c-47be-9ebd-d87058713953") /* Unknown UUID */
             CreateDWordField (Local0, Zero, EID0)
             CreateDWordField (Local0, 0x04, EID1)
             CreateDWordField (Local0, 0x08, EID2)
