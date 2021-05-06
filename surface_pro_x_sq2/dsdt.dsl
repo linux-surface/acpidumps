@@ -72297,7 +72297,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             })
         }
 
-        Device (BAM1)   /* Qualcomm Bus Device */
+        Device (BAM1)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72320,7 +72320,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAM5)   /* Qualcomm Bus Device */
+        Device (BAM5)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72343,7 +72343,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAM6)   /* Qualcomm Bus Device */
+        Device (BAM6)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72366,7 +72366,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAM7)   /* Qualcomm Bus Device */
+        Device (BAM7)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72389,7 +72389,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAMD)   /* Qualcomm Bus Device */
+        Device (BAMD)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72412,7 +72412,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAME)   /* Qualcomm Bus Device */
+        Device (BAME)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72435,7 +72435,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAMF)   /* Qualcomm Bus Device */
+        Device (BAMF)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72458,7 +72458,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAMG)   /* Qualcomm Bus Device */
+        Device (BAMG)   /* Qualcomm Bus Device (Bus Access Manager?) */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -89566,7 +89566,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SPMI)   /* Qualcomm Bus Device */
+        Device (SPMI)   /* Qualcomm Bus Device  (SPMI PMIC) */
         {
             Name (_HID, "QCOM040C")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -89598,7 +89598,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (GIO0)   /* Qualcomm System Manager Device */
+        Device (GIO0)   /* Qualcomm System Manager Device (MSM GPIO Class Extension Driver) */
         {
             Name (_HID, "QCOM040D")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -90125,7 +90125,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QPPX)   /* Qualcomm Power Management */
+        Device (QPPX)   /* Qualcomm Power Management (PPX) */
         {
             Name (_HID, "QCOM04A2")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -93153,7 +93153,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QGP0)   /* Qualcomm Bus Device */
+        Device (QGP0)   /* Qualcomm Bus Device (GPI) */
         {
             Name (_HID, "QCOM0493")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -93180,7 +93180,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QGP1)   /* Qualcomm Bus Device */
+        Device (QGP1)   /* Qualcomm Bus Device  (GPI) */
         {
             Name (_HID, "QCOM0493")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -93207,7 +93207,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QGP2)   /* Qualcomm Bus Device */
+        Device (QGP2)   /* Qualcomm Bus Device (GPI) */
         {
             Name (_HID, "QCOM0493")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
