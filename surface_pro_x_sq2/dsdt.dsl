@@ -108,7 +108,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
         Name (_BID, 0x0000000A)
         Name (MFGM, 0x0000)
         Name (SGCP, 0x000001F7)
-        Device (ABD)
+        Device (ABD)    /* Qualcomm ACPI Bridge Device */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -130,7 +130,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
 
         Name (ESNL, 0x14)
         Name (DBFL, 0x17)
-        Device (PMIC)
+        Device (PMIC)   /* Qualcomm Power Management */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -189,7 +189,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (PM01)
+        Device (PM01)   /* Surface Pro X PMIC GPIO Client Device */
         {
             Name (_HID, "QCOM0430")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -265,7 +265,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (PMAP)
+        Device (PMAP)   /* Qualcomm Power Management */
         {
             Name (_HID, "QCOM042F")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -648,7 +648,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (PEP0)
+        Device (PEP0)   /* Surface Pro X Power Engine Plug-in Device */
         {
             Name (_HID, "QCOM0419")  // _HID: Hardware ID
             Name (_CID, "PNP0D80" /* Windows-compatible System Power Management Controller */)  // _CID: Compatible ID
@@ -72297,7 +72297,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             })
         }
 
-        Device (BAM1)
+        Device (BAM1)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72320,7 +72320,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAM5)
+        Device (BAM5)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72343,7 +72343,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAM6)
+        Device (BAM6)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72366,7 +72366,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAM7)
+        Device (BAM7)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72389,7 +72389,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAMD)
+        Device (BAMD)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72412,7 +72412,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAME)
+        Device (BAME)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72435,7 +72435,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAMF)
+        Device (BAMF)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72458,7 +72458,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (BAMG)
+        Device (BAMG)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040A")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72481,7 +72481,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SPI2)
+        Device (SPI2)   /* Surface Pro X SPI Device */
         {
             Name (_HID, "QCOM040F")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72510,7 +72510,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SPI4)
+        Device (SPI4)   /* Surface Pro X SPI Device */
         {
             Name (_HID, "QCOM040F")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72539,7 +72539,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (I2C5)
+        Device (I2C5)   /* Qualcomm I2C Bus Device */
         {
             Name (_HID, "QCOM0411")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72566,7 +72566,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (I2C2)
+        Device (I2C2)   /* Qualcomm I2C Bus Device */
         {
             Name (_HID, "QCOM0411")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72593,7 +72593,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (IC10)
+        Device (IC10)   /* Qualcomm I2C Bus Device */
         {
             Name (_HID, "QCOM0411")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72620,7 +72620,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (UARD)
+        Device (UARD)   /* Surface Pro X UART Device */
         {
             Name (_HID, "QCOM0418")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72653,7 +72653,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (UR16)
+        Device (UR16)   /* Surface Pro X UART Device */
         {
             Name (_HID, "QCOM0418")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72691,7 +72691,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (IC19)
+        Device (IC19)   /* Qualcomm I2C Bus Device */
         {
             Name (_HID, "QCOM0411")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72723,7 +72723,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (UR14)
+        Device (UR14)   /* Surface Pro X UART Device */
         {
             Name (_HID, "QCOM0418")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -72756,7 +72756,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (UR18)
+        Device (UR18)   /* Surface Pro X UART Device */
         {
             Name (_HID, "QCOM0418")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -75962,18 +75962,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             })
         }
 
-        Device (RPEN)
+        Device (RPEN)   /* Qualcomm System Manager Device */
         {
             Name (_HID, "QCOM0433")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
         }
 
-        Device (PILC)
+        Device (PILC)   /* Qualcomm Peripheral Image Loader Device */
         {
             Name (_HID, "QCOM041B")  // _HID: Hardware ID
         }
 
-        Device (CDI)
+        Device (CDI)    /* Qualcomm System Manager Device */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -75988,7 +75988,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SCSS)
+        Device (SCSS)   /* Qualcomm All-Ways Aware Hub */
         {
             Name (_DEP, Package (0x06)  // _DEP: Dependencies
             {
@@ -76019,7 +76019,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (ADSP)
+        Device (ADSP)   /* Qualcomm Aqstic */
         {
             Name (_DEP, Package (0x06)  // _DEP: Dependencies
             {
@@ -76172,7 +76172,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (AMSS)
+        Device (AMSS)   /* Snapdragon X24 LTE Modem */
         {
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_DEP, Package (0x05)  // _DEP: Dependencies
@@ -76301,7 +76301,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
 
             Scope (\_SB)
             {
-                Device (COEX)
+                Device (COEX)   /* Qualcomm Data Device */
                 {
                     Name (_HID, "QCOM045F")  // _HID: Hardware ID
                     Alias (\_SB.PSUB, _SUB)
@@ -76317,7 +76317,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QSM)
+        Device (QSM)    /* Qualcomm Service Manager Device */
         {
             Name (_HID, "QCOM0420")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -76346,7 +76346,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SSDD)
+        Device (SSDD)   /* Qualcomm Subsystem Dependency Device */
         {
             Name (_HID, "QCOM0422")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -76358,7 +76358,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             })
         }
 
-        Device (MPTM)
+        Device (MPTM)   /* Qualcomm Modem Limiting Thermal Device */
         {
             Name (_HID, "QCOM04AF")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -76368,7 +76368,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             })
         }
 
-        Device (PDSR)
+        Device (PDSR)   /* Qualcomm System Manager Device */
         {
             Name (_HID, "QCOM047C")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -76380,7 +76380,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             })
         }
 
-        Device (CDSP)
+        Device (CDSP)   /* Surface Pro X CDSP Subsystem */
         {
             Name (_DEP, Package (0x06)  // _DEP: Dependencies
             {
@@ -76459,7 +76459,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (TFTP)
+        Device (TFTP)   /* Qualcomm Data Device */
         {
             Name (_HID, "QCOM048B")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -76487,7 +76487,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (LLC)
+        Device (LLC)    /* Qualcomm Memory and File System Device */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -76516,7 +76516,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (MMU0)
+        Device (MMU0)   /* Qualcomm Memory and File System Device */
         {
             Name (_HID, "QCOM0409")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -76790,7 +76790,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (MMU1)
+        Device (MMU1)   /* Qualcomm Memory and File System Device */
         {
             Name (_HID, "QCOM0409")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
@@ -76844,21 +76844,21 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (IMM0)
+        Device (IMM0)   /* Qualcomm IOMMU Device */
         {
             Name (_HID, "QCOM049B")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
             Name (_UID, Zero)  // _UID: Unique ID
         }
 
-        Device (IMM1)
+        Device (IMM1)   /* Qualcomm IOMMU Device */
         {
             Name (_HID, "QCOM049B")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
             Name (_UID, One)  // _UID: Unique ID
         }
 
-        Device (GPU0)
+        Device (GPU0)   /* Microsoft SQ2 Adreno 690 GPU */
         {
             Name (_HID, "QCOM043A")  // _HID: Hardware ID
             Name (_SUB, "MSWW8180")  // _SUB: Subsystem ID
@@ -89531,14 +89531,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SCM0)
+        Device (SCM0)   /* Qualcomm System Manager Device */
         {
             Name (_HID, "QCOM040B")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
             Name (_UID, Zero)  // _UID: Unique ID
         }
 
-        Device (TREE)
+        Device (TREE)   /* Qualcomm System Manager Device */
         {
             Name (_HID, "QCOM0476")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -89566,7 +89566,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SPMI)
+        Device (SPMI)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM040C")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -89598,7 +89598,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (GIO0)
+        Device (GIO0)   /* Qualcomm System Manager Device */
         {
             Name (_HID, "QCOM040D")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -90125,7 +90125,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QPPX)
+        Device (QPPX)   /* Qualcomm Power Management */
         {
             Name (_HID, "QCOM04A2")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -91401,7 +91401,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (IPC0)
+        Device (IPC0)   /* Qualcomm Data Device */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -91411,7 +91411,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             Alias (\_SB.PSUB, _SUB)
         }
 
-        Device (GLNK)
+        Device (GLNK)   /* Qualcomm Memory and File System Device */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -91465,7 +91465,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (ARPC)
+        Device (ARPC)   /* Qualcomm FastRPC Device */
         {
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -91477,7 +91477,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             Alias (\_SB.PSUB, _SUB)
         }
 
-        Device (ARPD)
+        Device (ARPD)   /* Qualcomm Audio RPC Daemon Device */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -91488,7 +91488,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             Alias (\_SB.PSUB, _SUB)
         }
 
-        Device (RFS0)
+        Device (RFS0)   /* Qualcomm Memory and File System Device */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -91537,7 +91537,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (IPA)
+        Device (IPA)    /* Qualcomm Bus Device */
         {
             Name (_DEP, Package (0x06)  // _DEP: Dependencies
             {
@@ -91582,7 +91582,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (GSI)
+        Device (GSI)    /* Qualcomm Bus Device */
         {
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
@@ -93134,7 +93134,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (GPS)
+        Device (GPS)    /* Qualcomm Location */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -93153,7 +93153,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QGP0)
+        Device (QGP0)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM0493")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -93180,7 +93180,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QGP1)
+        Device (QGP1)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM0493")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -93207,7 +93207,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (QGP2)
+        Device (QGP2)   /* Qualcomm Bus Device */
         {
             Name (_HID, "QCOM0493")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -93226,7 +93226,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SOCP)
+        Device (SOCP)   /* QcSOCPartition Device */
         {
             Name (_HID, "QCOM04AA")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -93609,7 +93609,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
         {
              0x00                                             // .
         })
-        Device (URS0)
+        Device (URS0)   /* Synopsys USB 3.0 Dual-Role Controller */
         {
             Method (URSI, 0, NotSerialized)
             {
@@ -94936,7 +94936,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (URS1)
+        Device (URS1)   /* Synopsys USB 3.0 Dual-Role Controller */
         {
             Name (_HID, "QCOM0497")  // _HID: Hardware ID
             Name (_CID, "PNP0CA1")  // _CID: Compatible ID
@@ -96268,7 +96268,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (USB2)
+        Device (USB2)   /* Qualcomm XHCI Filter Device */
         {
             Name (_HID, "QCOM04A6")  // _HID: Hardware ID
             Name (_CID, "PNP0D15" /* XHCI USB Controller without debug */)  // _CID: Compatible ID
@@ -96570,7 +96570,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (UCS0)
+        Device (UCS0)   /* Qualcomm USBC UCSI Participant */
         {
             Name (_HID, "QCOM04A9")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -96904,7 +96904,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ15)
+        ThermalZone (TZ15)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0462")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -96957,7 +96957,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ16)
+        ThermalZone (TZ16)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0462")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
@@ -97008,7 +97008,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ17)
+        ThermalZone (TZ17)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0462")  // _HID: Hardware ID
             Name (_UID, 0x02)  // _UID: Unique ID
@@ -97063,7 +97063,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ18)
+        ThermalZone (TZ18)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0465")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -97116,7 +97116,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ19)
+        ThermalZone (TZ19)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0465")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
@@ -97167,7 +97167,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ20)
+        ThermalZone (TZ20)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0469")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -97220,7 +97220,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ21)
+        ThermalZone (TZ21)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0469")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
@@ -97271,7 +97271,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ22)
+        ThermalZone (TZ22)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0463")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -97294,7 +97294,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ23)
+        ThermalZone (TZ23)  /* Surface Pro X ADC Temperature Monitor Device */
         {
             Name (_HID, "QCOM0467")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
@@ -97359,7 +97359,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        ThermalZone (TZ41)
+        ThermalZone (TZ41)  /* Qualcomm Data Device */
         {
             Name (_HID, "QCOM045F")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
@@ -97489,7 +97489,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             Alias (\_SB.PSUB, _SUB)
         }
 
-        Device (BTH0)
+        Device (BTH0)   /* Qualcomm Bluetooth UART Transport Driver */
         {
             Name (_HID, "QCOM0471")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
@@ -97525,7 +97525,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (ADC1)
+        Device (ADC1)   /* Qualcomm Hexacon 690 DSP */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -97658,7 +97658,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (ADC2)
+        Device (ADC2)   /* Qualcomm Hexacon 690 DSP */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -97791,7 +97791,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (ADC3)
+        Device (ADC3)   /* Qualcomm Hexacon 690 DSP */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -100040,7 +100040,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (CAMP)
+        Device (CAMP)   /* Qualcomm Spectra 390 ISP */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -100751,7 +100751,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (MPCS)
+        Device (MPCS)   /* Qualcomm Spectra 390 ISP */
         {
             Name (_DEP, Package (One)  // _DEP: Dependencies
             {
@@ -100801,7 +100801,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (JPGE)
+        Device (JPGE)   /* Qualcomm Spectra 390 ISP */
         {
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
@@ -100887,7 +100887,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (VFE0)
+        Device (VFE0)   /* Qualcomm Spectra 390 ISP */
         {
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -101703,7 +101703,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
             }
         }
 
-        Device (SEN2)
+        Device (SEN2)   /* Surface Pro X Qualcomm All-Ways Aware Hub */
         {
             Name (_DEP, Package (0x03)  // _DEP: Dependencies
             {
@@ -101718,7 +101718,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8180 ", 0x00000003)
 
         Scope (\_SB)
         {
-            Device (GTCH)
+            Device (GTCH)   /* Surface Digitizer HidSpi Extn Package */
             {
                 Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
                 {
