@@ -1,16 +1,16 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
- * Disassembly of nhlt.dat, Tue May 11 03:12:41 2021
+ * Disassembly of nhlt.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [NHLT]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
-[000h 0000   4]                    Signature : "NHLT"    
+[000h 0000   4]                    Signature : "NHLT"    [Non HD Audio Link Table]
 [004h 0004   4]                 Table Length : 0000002D
 [008h 0008   1]                     Revision : 00
 [009h 0009   1]                     Checksum : 92
@@ -20,9 +20,12 @@
 [01Ch 0028   4]              Asl Compiler ID : "MSFT"
 [020h 0032   4]        Asl Compiler Revision : 0000005F
 
+    /* Main table */
+[024h 0036   1]               Endpoint Count : 00
 
-**** Unknown ACPI table signature [NHLT]
-
+/* Terminating specific config (not part of NHLT spec) */
+[025h 0037   4]            Capabilities Size : 00000004
+[029h 0041   4]                 Capabilities : DE AD BE EF                                     /* .... */\
 
 Raw Table Data: Length 45 (0x2D)
 

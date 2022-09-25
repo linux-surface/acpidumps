@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt6.dat, Tue May 11 03:12:41 2021
+ * Disassembly of ssdt6.dat, Sun Sep 25 19:27:23 2022
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x000101B2 (65970)
  *     Revision         0x02
- *     Checksum         0xBB
+ *     Checksum         0xAB
  *     OEM ID           "MSFT  "
  *     OEM Table ID     "DptfTabl"
  *     OEM Revision     0x00001000 (4096)
@@ -104,7 +104,7 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "DptfTabl", 0x00001000)
     External (PWRS, IntObj)
     External (TCNT, IntObj)
 
-    OperationRegion (DNVS, SystemMemory, 0x8BEA9000, 0x013C)
+    OperationRegion (DNVS, SystemMemory, 0x8BEAA000, 0x013C)
     Field (DNVS, AnyAcc, Lock, Preserve)
     {
         ATMC,   8, 

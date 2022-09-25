@@ -1,18 +1,18 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
- * Disassembly of facs.dat, Tue May 11 03:12:41 2021
+ * Disassembly of facs.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [FACS]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
 [000h 0000   4]                    Signature : "FACS"
 [004h 0004   4]                       Length : 00000040
-[008h 0008   4]           Hardware Signature : 2A37D270
+[008h 0008   4]           Hardware Signature : CAD24695
 [00Ch 0012   4]    32 Firmware Waking Vector : 00000000
 [010h 0016   4]                  Global Lock : 00000000
 [014h 0020   4]        Flags (decoded below) : 00000000
@@ -26,7 +26,7 @@
 
 Raw Table Data: Length 64 (0x40)
 
-    0000: 46 41 43 53 40 00 00 00 70 D2 37 2A 00 00 00 00  // FACS@...p.7*....
+    0000: 46 41 43 53 40 00 00 00 95 46 D2 CA 00 00 00 00  // FACS@....F......
     0010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0020: 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................

@@ -1,13 +1,13 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
- * Disassembly of lpit.dat, Tue May 11 03:12:41 2021
+ * Disassembly of lpit.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [LPIT]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
 [000h 0000   4]                    Signature : "LPIT"    [Low Power Idle Table]

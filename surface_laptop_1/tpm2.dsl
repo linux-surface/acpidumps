@@ -1,16 +1,16 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
- * Disassembly of tpm2.dat, Tue May 11 03:12:41 2021
+ * Disassembly of tpm2.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [TPM2]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
-[000h 0000   4]                    Signature : "TPM2"    [Trusted Platform Module hardware interface table]
+[000h 0000   4]                    Signature : "TPM2"    [Trusted Platform Module hardware interface Table]
 [004h 0004   4]                 Table Length : 00000034
 [008h 0008   1]                     Revision : 03
 [009h 0009   1]                     Checksum : D1

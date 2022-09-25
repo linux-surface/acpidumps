@@ -1,27 +1,27 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
- * 
- * Disassembly of facp.dat, Tue May 11 03:12:41 2021
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
+ *
+ * Disassembly of facp.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [FACP]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
 [000h 0000   4]                    Signature : "FACP"    [Fixed ACPI Description Table (FADT)]
 [004h 0004   4]                 Table Length : 0000010C
 [008h 0008   1]                     Revision : 05
-[009h 0009   1]                     Checksum : 05
+[009h 0009   1]                     Checksum : 15
 [00Ah 0010   6]                       Oem ID : "MSFT  "
 [010h 0016   8]                 Oem Table ID : "MSFT    "
 [018h 0024   4]                 Oem Revision : 00000000
 [01Ch 0028   4]              Asl Compiler ID : "MSFT"
 [020h 0032   4]        Asl Compiler Revision : 0000005F
 
-[024h 0036   4]                 FACS Address : 8BE93000
-[028h 0040   4]                 DSDT Address : 8BEC8000
+[024h 0036   4]                 FACS Address : 8BE94000
+[028h 0040   4]                 DSDT Address : 8BEC7000
 [02Ch 0044   1]                        Model : 00
 [02Dh 0045   1]                   PM Profile : 02 [Mobile]
 [02Eh 0046   2]                SCI Interrupt : 0009
@@ -101,7 +101,7 @@
 
 [083h 0131   1]          FADT Minor Revision : 00
 [084h 0132   8]                 FACS Address : 0000000000000000
-[08Ch 0140   8]                 DSDT Address : 000000008BEC8000
+[08Ch 0140   8]                 DSDT Address : 000000008BEC7000
 [094h 0148  12]             PM1A Event Block : [Generic Address Structure]
 [094h 0148   1]                     Space ID : 01 [SystemIO]
 [095h 0149   1]                    Bit Width : 20
@@ -177,15 +177,15 @@
 
 Raw Table Data: Length 268 (0x10C)
 
-    0000: 46 41 43 50 0C 01 00 00 05 05 4D 53 46 54 20 20  // FACP......MSFT  
+    0000: 46 41 43 50 0C 01 00 00 05 15 4D 53 46 54 20 20  // FACP......MSFT
     0010: 4D 53 46 54 20 20 20 20 00 00 00 00 4D 53 46 54  // MSFT    ....MSFT
-    0020: 5F 00 00 00 00 30 E9 8B 00 80 EC 8B 00 02 09 00  // _....0..........
+    0020: 5F 00 00 00 00 40 E9 8B 00 70 EC 8B 00 02 09 00  // _....@...p......
     0030: B2 00 00 00 F0 F1 F2 00 00 18 00 00 00 00 00 00  // ................
     0040: 04 18 00 00 00 00 00 00 50 18 00 00 08 18 00 00  // ........P.......
     0050: 80 18 00 00 00 00 00 00 04 02 01 04 20 00 10 00  // ............ ...
     0060: 65 00 E9 03 00 00 00 00 01 03 0D 00 32 01 00 00  // e...........2...
     0070: B5 C4 20 00 01 08 00 01 F9 0C 00 00 00 00 00 00  // .. .............
-    0080: 06 00 00 00 00 00 00 00 00 00 00 00 00 80 EC 8B  // ................
+    0080: 06 00 00 00 00 00 00 00 00 00 00 00 00 70 EC 8B  // .............p..
     0090: 00 00 00 00 01 20 00 02 00 18 00 00 00 00 00 00  // ..... ..........
     00A0: 01 00 00 02 00 00 00 00 00 00 00 00 01 10 00 02  // ................
     00B0: 04 18 00 00 00 00 00 00 01 00 00 02 00 00 00 00  // ................

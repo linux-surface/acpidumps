@@ -1,16 +1,16 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
- * Disassembly of hpet.dat, Tue May 11 03:12:41 2021
+ * Disassembly of hpet.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [HPET]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
-[000h 0000   4]                    Signature : "HPET"    [High Precision Event Timer table]
+[000h 0000   4]                    Signature : "HPET"    [High Precision Event Timer Table]
 [004h 0004   4]                 Table Length : 00000038
 [008h 0008   1]                     Revision : 01
 [009h 0009   1]                     Checksum : 91

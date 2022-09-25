@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt2.dat, Tue May 11 03:12:41 2021
+ * Disassembly of ssdt2.dat, Sun Sep 25 19:27:23 2022
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00000574 (1396)
  *     Revision         0x02
- *     Checksum         0x6E
+ *     Checksum         0x8C
  *     OEM ID           "MSFT  "
  *     OEM Table ID     "Tpm2Tabl"
  *     OEM Revision     0x00001000 (4096)
@@ -31,7 +31,7 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "Tpm2Tabl", 0x00001000)
             OperationRegion (SMIP, SystemIO, 0xB2, One)
             Field (SMIP, ByteAcc, NoLock, Preserve)
             {
-                IOB2,   8
+                IOPN,   8
             }
 
             OperationRegion (TPMR, SystemMemory, 0xFED40000, 0x5000)
@@ -51,7 +51,7 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "Tpm2Tabl", 0x00001000)
                 TID0,   32
             }
 
-            OperationRegion (TNVS, SystemMemory, 0x8BEA8000, 0x2F)
+            OperationRegion (TNVS, SystemMemory, 0x8BEA9000, 0x2F)
             Field (TNVS, AnyAcc, NoLock, Preserve)
             {
                 PPIN,   8, 
@@ -297,7 +297,7 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "Tpm2Tabl", 0x00001000)
                         PPRQ = DerefOf (Arg1 [Zero])
                         PPRM = Zero
                         PPIP = 0x02
-                        IOB2 = PPIN /* \_SB_.TPM_.PPIN */
+                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
                         Return (FRET) /* \_SB_.TPM_.FRET */
                     }
                     Case (0x03)
@@ -312,7 +312,7 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "Tpm2Tabl", 0x00001000)
                     Case (0x05)
                     {
                         PPIP = 0x05
-                        IOB2 = PPIN /* \_SB_.TPM_.PPIN */
+                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
                         TPM3 [One] = LPPR /* \_SB_.TPM_.LPPR */
                         TPM3 [0x02] = PPRP /* \_SB_.TPM_.PPRP */
                         Return (TPM3) /* \_SB_.TPM_.TPM3 */
@@ -331,14 +331,14 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "Tpm2Tabl", 0x00001000)
                             PPRM = DerefOf (Arg1 [One])
                         }
 
-                        IOB2 = PPIN /* \_SB_.TPM_.PPIN */
+                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
                         Return (FRET) /* \_SB_.TPM_.FRET */
                     }
                     Case (0x08)
                     {
                         PPIP = 0x08
                         UCRQ = DerefOf (Arg1 [Zero])
-                        IOB2 = PPIN /* \_SB_.TPM_.PPIN */
+                        IOPN = PPIN /* \_SB_.TPM_.PPIN */
                         Return (FRET) /* \_SB_.TPM_.FRET */
                     }
                     Default

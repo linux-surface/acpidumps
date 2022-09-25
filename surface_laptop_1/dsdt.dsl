@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
- * 
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
+ *
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of dsdt.dat, Tue May 11 03:12:41 2021
+ * Disassembly of dsdt.dat, Sun Sep 25 19:27:23 2022
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x00017E67 (97895)
+ *     Length           0x00017F1B (98075)
  *     Revision         0x02
- *     Checksum         0x90
+ *     Checksum         0xA7
  *     OEM ID           "MSFT  "
  *     OEM Table ID     "MSFT    "
  *     OEM Revision     0x00000000 (0)
@@ -233,1017 +233,1051 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     Name (SS2, Zero)
     Name (SS3, Zero)
     Name (SS4, One)
-    OperationRegion (GNVS, SystemMemory, 0x8BEA4000, 0x0820)
+    OperationRegion (GNVS, SystemMemory, 0x8BEA5000, 0x082C)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
-        OSYS,   16, 
-        SMIF,   8, 
-        PRM0,   8, 
-        PRM1,   8, 
-        SCIF,   8, 
-        PRM2,   8, 
-        PRM3,   8, 
-        LCKF,   8, 
-        PRM4,   8, 
-        PRM5,   8, 
-        P80D,   32, 
-        PWRS,   8, 
-        DBGU,   8, 
-        THOF,   8, 
-        ACT1,   8, 
-        ACTT,   8, 
-        PSVT,   8, 
-        TC1V,   8, 
-        TC2V,   8, 
-        TSPV,   8, 
-        CRTT,   8, 
-        DTSE,   8, 
-        DTS1,   8, 
-        DTS2,   8, 
-        DTSF,   8, 
-        Offset (0x1E), 
-        BNUM,   8, 
-        Offset (0x20), 
-        Offset (0x21), 
-        Offset (0x22), 
-        Offset (0x23), 
-        Offset (0x24), 
-        Offset (0x25), 
-        REVN,   8, 
-        APIC,   8, 
-        TCNT,   8, 
-        PCP0,   8, 
-        PCP1,   8, 
-        PPCM,   8, 
-        PPMF,   32, 
-        C67L,   8, 
-        NATP,   8, 
-        CMAP,   8, 
-        CMBP,   8, 
-        LPTP,   8, 
-        FDCP,   8, 
-        CMCP,   8, 
-        CIRP,   8, 
-        SMSC,   8, 
-        W381,   8, 
-        SMC1,   8, 
-        EMAE,   8, 
-        EMAP,   16, 
-        EMAL,   16, 
-        MEFE,   8, 
-        DSTS,   8, 
-        MORD,   8, 
-        TCGP,   8, 
-        PPRP,   32, 
-        PPRQ,   8, 
-        LPPR,   8, 
-        IDEM,   8, 
-        OMPR,   8, 
-        OMBR,   8, 
-        OSCC,   8, 
-        NEXP,   8, 
-        SBV1,   8, 
-        SBV2,   8, 
-        ECON,   8, 
-        DSEN,   8, 
-        GPIC,   8, 
-        CTYP,   8, 
-        L01C,   8, 
-        VFN0,   8, 
-        VFN1,   8, 
-        VFN2,   8, 
-        VFN3,   8, 
-        VFN4,   8, 
-        VFN5,   8, 
-        VFN6,   8, 
-        VFN7,   8, 
-        VFN8,   8, 
-        VFN9,   8, 
-        Offset (0x61), 
-        CPFM,   8, 
-        CPSP,   8, 
-        CPPT,   8, 
-        CPPS,   8, 
-        TBAL,   32, 
-        TBAH,   32, 
-        RTIP,   8, 
-        TSOD,   8, 
-        PFLV,   8, 
-        BREV,   8, 
-        PDTS,   8, 
-        PKGA,   8, 
-        PAMT,   8, 
-        AC0F,   8, 
-        AC1F,   8, 
-        DTS3,   8, 
-        DTS4,   8, 
-        LTR1,   8, 
-        LTR2,   8, 
-        LTR3,   8, 
-        LTR4,   8, 
-        LTR5,   8, 
-        LTR6,   8, 
-        LTR7,   8, 
-        LTR8,   8, 
-        LTR9,   8, 
-        LTRA,   8, 
-        LTRB,   8, 
-        LTRC,   8, 
-        LTRD,   8, 
-        LTRE,   8, 
-        LTRF,   8, 
-        LTRG,   8, 
-        LTRH,   8, 
-        LTRI,   8, 
-        LTRJ,   8, 
-        LTRK,   8, 
-        LTRL,   8, 
-        LTRM,   8, 
-        LTRN,   8, 
-        LTRO,   8, 
-        OBF1,   8, 
-        OBF2,   8, 
-        OBF3,   8, 
-        OBF4,   8, 
-        OBF5,   8, 
-        OBF6,   8, 
-        OBF7,   8, 
-        OBF8,   8, 
-        OBF9,   8, 
-        OBFA,   8, 
-        OBFB,   8, 
-        OBFC,   8, 
-        OBFD,   8, 
-        OBFE,   8, 
-        OBFF,   8, 
-        OBFG,   8, 
-        OBFH,   8, 
-        OBFI,   8, 
-        OBFJ,   8, 
-        OBFK,   8, 
-        OBFL,   8, 
-        OBFM,   8, 
-        OBFN,   8, 
-        OBFO,   8, 
-        XTUB,   32, 
-        XTUS,   32, 
-        XMPB,   32, 
-        DDRF,   8, 
-        RTD3,   8, 
-        PEP0,   8, 
-        PEP3,   8, 
-        Offset (0xEF), 
-        BGMA,   64, 
-        BGMS,   8, 
-        BGIA,   16, 
-        IRMC,   8, 
-        NFCE,   8, 
-        CHEN,   8, 
-        S0ID,   8, 
-        CTDB,   8, 
-        DKSM,   8, 
-        SIO1,   16, 
-        SIO2,   16, 
-        SPBA,   16, 
-        SEC0,   32, 
-        SEC1,   32, 
-        SEC2,   32, 
-        SEC3,   32, 
-        SEC4,   32, 
-        SEC5,   32, 
-        SEC6,   32, 
-        SEC7,   32, 
-        SEC8,   32, 
-        Offset (0x1F4), 
-        Offset (0x200), 
-        Offset (0x203), 
-        XHPR,   8, 
-        RIC0,   8, 
-        GBSX,   8, 
-        IUBE,   8, 
-        IUCE,   8, 
-        IUDE,   8, 
-        ECNO,   8, 
-        AUDD,   16, 
-        IC0D,   16, 
-        IC1D,   16, 
-        IC1S,   16, 
-        VRRD,   16, 
-        PSCP,   8, 
-        I20D,   16, 
-        I21D,   16, 
-        RCG0,   16, 
-        RCG1,   16, 
-        ECDB,   8, 
-        P2ME,   8, 
-        P2MK,   8, 
-        SSH0,   16, 
-        SSL0,   16, 
-        SSD0,   16, 
-        FMH0,   16, 
-        FML0,   16, 
-        FMD0,   16, 
-        FPH0,   16, 
-        FPL0,   16, 
-        FPD0,   16, 
-        SSH1,   16, 
-        SSL1,   16, 
-        SSD1,   16, 
-        FMH1,   16, 
-        FML1,   16, 
-        FMD1,   16, 
-        FPH1,   16, 
-        FPL1,   16, 
-        FPD1,   16, 
-        M0C0,   16, 
-        M1C0,   16, 
-        M2C0,   16, 
-        M0C1,   16, 
-        M1C1,   16, 
-        M2C1,   16, 
-        M0C2,   16, 
-        M1C2,   16, 
-        M0C3,   16, 
-        M1C3,   16, 
-        M0C4,   16, 
-        M1C4,   16, 
-        M0C5,   16, 
-        M1C5,   16, 
-        TBSF,   8, 
-        GIRQ,   32, 
-        DMTP,   8, 
-        DMTD,   8, 
-        DMSH,   8, 
-        SHSB,   8, 
-        PLCS,   8, 
-        PLVL,   16, 
-        Offset (0x27E), 
-        SDWE,   8, 
-        USBH,   8, 
-        BCV4,   8, 
-        WTV0,   8, 
-        WTV1,   8, 
-        APFU,   8, 
-        SOHP,   8, 
-        GP5F,   8, 
-        NOHP,   8, 
-        TBSE,   8, 
-        WKFN,   8, 
-        PEPC,   32, 
-        VRSD,   16, 
-        PB1E,   8, 
-        GNID,   8, 
-        Offset (0x2B2), 
-        SPST,   8, 
-        Offset (0x2CD), 
-        ECLP,   8, 
-        Offset (0x320), 
-        PSME,   8, 
-        PDT1,   8, 
-        PLM1,   32, 
-        PTW1,   32, 
-        PDT2,   8, 
-        PLM2,   32, 
-        PTW2,   32, 
-        DDT1,   8, 
-        DDP1,   8, 
-        DLI1,   16, 
-        DPL1,   16, 
-        DTW1,   32, 
-        DMI1,   16, 
-        DMA1,   16, 
-        DMT1,   16, 
-        DDT2,   8, 
-        DDP2,   8, 
-        DLI2,   16, 
-        DPL2,   16, 
-        DTW2,   32, 
-        DMI2,   16, 
-        DMA2,   16, 
-        DMT2,   16, 
-        WIFE,   8, 
-        DOM1,   8, 
-        LIM1,   16, 
-        TIM1,   32, 
-        DOM2,   8, 
-        LIM2,   16, 
-        TIM2,   32, 
-        DOM3,   8, 
-        LIM3,   16, 
-        TIM3,   32, 
-        TRD0,   8, 
-        TRL0,   8, 
-        TRD1,   8, 
-        TRL1,   8, 
-        WDM1,   8, 
-        CID1,   16, 
-        WDM2,   8, 
-        CID2,   16, 
-        Offset (0x378), 
-        Offset (0x37D), 
-        SDS0,   8, 
-        SDS1,   8, 
-        SDS2,   8, 
-        SDS3,   8, 
-        SDS4,   8, 
-        SDS5,   8, 
-        SDS6,   8, 
-        SDS7,   8, 
-        SDS8,   8, 
-        SDS9,   8, 
-        SDSA,   8, 
-        TPLB,   8, 
-        TPLH,   16, 
-        WTVX,   8, 
-        WITX,   8, 
-        GPTD,   8, 
-        GDBT,   16, 
-        UTKX,   8, 
-        SPTD,   8, 
-        GEXN,   8, 
-        TBTS,   8, 
-        TBWS,   8, 
-        AICS,   8, 
-        TARS,   8, 
-        FPAT,   8, 
-        FPEN,   8, 
-        FPGN,   32, 
-        FPLV,   8, 
-        CPAD,   16, 
-        CPAB,   8, 
-        TNAT,   8, 
-        CPGN,   32, 
-        CF2T,   8, 
-        TDGS,   8, 
-        DCSC,   8, 
-        DCKE,   8, 
-        UDCK,   8, 
-        SUDK,   8, 
-        OHPN,   8, 
-        GHPN,   8, 
-        EGPC,   32, 
-        EGPV,   8, 
-        TBDT,   32, 
-        ATLB,   32, 
-        SDM0,   8, 
-        SDM1,   8, 
-        SDM2,   8, 
-        SDM3,   8, 
-        SDM4,   8, 
-        SDM5,   8, 
-        SDM6,   8, 
-        SDM7,   8, 
-        SDM8,   8, 
-        SDM9,   8, 
-        SDMA,   8, 
-        USTP,   8, 
-        SSHI,   16, 
-        SSLI,   16, 
-        SSDI,   16, 
-        FMHI,   16, 
-        FMLI,   16, 
-        FMDI,   16, 
-        FPHI,   16, 
-        FPLI,   16, 
-        FPDI,   16, 
-        M0CI,   16, 
-        M1CI,   16, 
-        M0CS,   16, 
-        M1CS,   16, 
-        M0CU,   16, 
-        M1CU,   16, 
-        CAMT,   8, 
-        IVDF,   8, 
-        IFWG,   64, 
-        IVWS,   8, 
-        IVPR,   8, 
-        DIVO,   16, 
-        DIVF,   16, 
-        IVAD,   8, 
-        IVRS,   8, 
-        IVDG,   64, 
-        DSPR,   8, 
-        DDSO,   16, 
-        DDSF,   16, 
-        DSAD,   8, 
-        DSRS,   8, 
-        DVDG,   64, 
-        EIDF,   8, 
-        Offset (0x429), 
-        GPDI,   32, 
-        Offset (0x431), 
-        CL00,   8, 
-        CL01,   8, 
-        CL02,   8, 
-        CL03,   8, 
-        L0EN,   8, 
-        L1EN,   8, 
-        L2EN,   8, 
-        L3EN,   8, 
-        CDIV,   8, 
-        C0TP,   8, 
-        C0CV,   8, 
-        C0GP,   8, 
-        C0IB,   8, 
-        C0IA,   16, 
-        C0P0,   8, 
-        C0P1,   8, 
-        C0P2,   8, 
-        C0P3,   8, 
-        C0G0,   8, 
-        C0G1,   8, 
-        C0G2,   8, 
-        C0G3,   8, 
-        C0F0,   8, 
-        C0F1,   8, 
-        C0F2,   8, 
-        C0F3,   8, 
-        C0A0,   8, 
-        C0A1,   8, 
-        C0A2,   8, 
-        C0A3,   8, 
-        C0I0,   8, 
-        C0I1,   8, 
-        C0I2,   8, 
-        C0I3,   8, 
-        C0PL,   8, 
-        C1TP,   8, 
-        C1CV,   8, 
-        C1GP,   8, 
-        C1IB,   8, 
-        C1IA,   16, 
-        C1P0,   8, 
-        C1P1,   8, 
-        C1P2,   8, 
-        C1P3,   8, 
-        C1G0,   8, 
-        C1G1,   8, 
-        C1G2,   8, 
-        C1G3,   8, 
-        C1F0,   8, 
-        C1F1,   8, 
-        C1F2,   8, 
-        C1F3,   8, 
-        C1A0,   8, 
-        C1A1,   8, 
-        C1A2,   8, 
-        C1A3,   8, 
-        C1I0,   8, 
-        C1I1,   8, 
-        C1I2,   8, 
-        C1I3,   8, 
-        C1PL,   8, 
-        C2TP,   8, 
-        C2CV,   8, 
-        C2GP,   8, 
-        C2IB,   8, 
-        C2IA,   16, 
-        C2P0,   8, 
-        C2P1,   8, 
-        C2P2,   8, 
-        C2P3,   8, 
-        C2G0,   8, 
-        C2G1,   8, 
-        C2G2,   8, 
-        C2G3,   8, 
-        C2F0,   8, 
-        C2F1,   8, 
-        C2F2,   8, 
-        C2F3,   8, 
-        C2A0,   8, 
-        C2A1,   8, 
-        C2A2,   8, 
-        C2A3,   8, 
-        C2I0,   8, 
-        C2I1,   8, 
-        C2I2,   8, 
-        C2I3,   8, 
-        C2PL,   8, 
-        C3TP,   8, 
-        C3CV,   8, 
-        C3GP,   8, 
-        C3IB,   8, 
-        C3IA,   16, 
-        C3P0,   8, 
-        C3P1,   8, 
-        C3P2,   8, 
-        C3P3,   8, 
-        C3G0,   8, 
-        C3G1,   8, 
-        C3G2,   8, 
-        C3G3,   8, 
-        C3F0,   8, 
-        C3F1,   8, 
-        C3F2,   8, 
-        C3F3,   8, 
-        C3A0,   8, 
-        C3A1,   8, 
-        C3A2,   8, 
-        C3A3,   8, 
-        C3I0,   8, 
-        C3I1,   8, 
-        C3I2,   8, 
-        C3I3,   8, 
-        C3PL,   8, 
-        L0SM,   8, 
-        L0H0,   8, 
-        L0H1,   8, 
-        L0H2,   8, 
-        L0H3,   8, 
-        L0H4,   8, 
-        L0H5,   8, 
-        L0H6,   8, 
-        L0H7,   8, 
-        L0H8,   8, 
-        L0PL,   8, 
-        L0M0,   8, 
-        L0M1,   8, 
-        L0M2,   8, 
-        L0M3,   8, 
-        L0M4,   8, 
-        L0M5,   8, 
-        L0M6,   8, 
-        L0M7,   8, 
-        L0M8,   8, 
-        L0M9,   8, 
-        L0MA,   8, 
-        L0MB,   8, 
-        L0MC,   8, 
-        L0MD,   8, 
-        L0ME,   8, 
-        L0MF,   8, 
-        L0DI,   8, 
-        L0BS,   8, 
-        L0A0,   16, 
-        L0A1,   16, 
-        L0A2,   16, 
-        L0A3,   16, 
-        L0A4,   16, 
-        L0A5,   16, 
-        L0A6,   16, 
-        L0A7,   16, 
-        L0A8,   16, 
-        L0A9,   16, 
-        L0AA,   16, 
-        L0AB,   16, 
-        L0D0,   8, 
-        L0D1,   8, 
-        L0D2,   8, 
-        L0D3,   8, 
-        L0D4,   8, 
-        L0D5,   8, 
-        L0D6,   8, 
-        L0D7,   8, 
-        L0D8,   8, 
-        L0D9,   8, 
-        L0DA,   8, 
-        L0DB,   8, 
-        L0DV,   8, 
-        L0CV,   8, 
-        L0LU,   8, 
-        L0NL,   8, 
-        L0EE,   8, 
-        L0VC,   8, 
-        L0FS,   8, 
-        L0DG,   8, 
-        L0C0,   8, 
-        L0C1,   8, 
-        L0C2,   8, 
-        L0C3,   8, 
-        L0CK,   32, 
-        L0CL,   8, 
-        L1SM,   8, 
-        L1H0,   8, 
-        L1H1,   8, 
-        L1H2,   8, 
-        L1H3,   8, 
-        L1H4,   8, 
-        L1H5,   8, 
-        L1H6,   8, 
-        L1H7,   8, 
-        L1H8,   8, 
-        L1PL,   8, 
-        L1M0,   8, 
-        L1M1,   8, 
-        L1M2,   8, 
-        L1M3,   8, 
-        L1M4,   8, 
-        L1M5,   8, 
-        L1M6,   8, 
-        L1M7,   8, 
-        L1M8,   8, 
-        L1M9,   8, 
-        L1MA,   8, 
-        L1MB,   8, 
-        L1MC,   8, 
-        L1MD,   8, 
-        L1ME,   8, 
-        L1MF,   8, 
-        L1DI,   8, 
-        L1BS,   8, 
-        L1A0,   16, 
-        L1A1,   16, 
-        L1A2,   16, 
-        L1A3,   16, 
-        L1A4,   16, 
-        L1A5,   16, 
-        L1A6,   16, 
-        L1A7,   16, 
-        L1A8,   16, 
-        L1A9,   16, 
-        L1AA,   16, 
-        L1AB,   16, 
-        L1D0,   8, 
-        L1D1,   8, 
-        L1D2,   8, 
-        L1D3,   8, 
-        L1D4,   8, 
-        L1D5,   8, 
-        L1D6,   8, 
-        L1D7,   8, 
-        L1D8,   8, 
-        L1D9,   8, 
-        L1DA,   8, 
-        L1DB,   8, 
-        L1DV,   8, 
-        L1CV,   8, 
-        L1LU,   8, 
-        L1NL,   8, 
-        L1EE,   8, 
-        L1VC,   8, 
-        L1FS,   8, 
-        L1DG,   8, 
-        L1C0,   8, 
-        L1C1,   8, 
-        L1C2,   8, 
-        L1C3,   8, 
-        L1CK,   32, 
-        L1CL,   8, 
-        L2SM,   8, 
-        L2H0,   8, 
-        L2H1,   8, 
-        L2H2,   8, 
-        L2H3,   8, 
-        L2H4,   8, 
-        L2H5,   8, 
-        L2H6,   8, 
-        L2H7,   8, 
-        L2H8,   8, 
-        L2PL,   8, 
-        L2M0,   8, 
-        L2M1,   8, 
-        L2M2,   8, 
-        L2M3,   8, 
-        L2M4,   8, 
-        L2M5,   8, 
-        L2M6,   8, 
-        L2M7,   8, 
-        L2M8,   8, 
-        L2M9,   8, 
-        L2MA,   8, 
-        L2MB,   8, 
-        L2MC,   8, 
-        L2MD,   8, 
-        L2ME,   8, 
-        L2MF,   8, 
-        L2DI,   8, 
-        L2BS,   8, 
-        L2A0,   16, 
-        L2A1,   16, 
-        L2A2,   16, 
-        L2A3,   16, 
-        L2A4,   16, 
-        L2A5,   16, 
-        L2A6,   16, 
-        L2A7,   16, 
-        L2A8,   16, 
-        L2A9,   16, 
-        L2AA,   16, 
-        L2AB,   16, 
-        L2D0,   8, 
-        L2D1,   8, 
-        L2D2,   8, 
-        L2D3,   8, 
-        L2D4,   8, 
-        L2D5,   8, 
-        L2D6,   8, 
-        L2D7,   8, 
-        L2D8,   8, 
-        L2D9,   8, 
-        L2DA,   8, 
-        L2DB,   8, 
-        L2DV,   8, 
-        L2CV,   8, 
-        L2LU,   8, 
-        L2NL,   8, 
-        L2EE,   8, 
-        L2VC,   8, 
-        L2FS,   8, 
-        L2DG,   8, 
-        L2C0,   8, 
-        L2C1,   8, 
-        L2C2,   8, 
-        L2C3,   8, 
-        L2CK,   32, 
-        L2CL,   8, 
-        L3SM,   8, 
-        L3H0,   8, 
-        L3H1,   8, 
-        L3H2,   8, 
-        L3H3,   8, 
-        L3H4,   8, 
-        L3H5,   8, 
-        L3H6,   8, 
-        L3H7,   8, 
-        L3H8,   8, 
-        L3PL,   8, 
-        L3M0,   8, 
-        L3M1,   8, 
-        L3M2,   8, 
-        L3M3,   8, 
-        L3M4,   8, 
-        L3M5,   8, 
-        L3M6,   8, 
-        L3M7,   8, 
-        L3M8,   8, 
-        L3M9,   8, 
-        L3MA,   8, 
-        L3MB,   8, 
-        L3MC,   8, 
-        L3MD,   8, 
-        L3ME,   8, 
-        L3MF,   8, 
-        L3DI,   8, 
-        L3BS,   8, 
-        L3A0,   16, 
-        L3A1,   16, 
-        L3A2,   16, 
-        L3A3,   16, 
-        L3A4,   16, 
-        L3A5,   16, 
-        L3A6,   16, 
-        L3A7,   16, 
-        L3A8,   16, 
-        L3A9,   16, 
-        L3AA,   16, 
-        L3AB,   16, 
-        L3D0,   8, 
-        L3D1,   8, 
-        L3D2,   8, 
-        L3D3,   8, 
-        L3D4,   8, 
-        L3D5,   8, 
-        L3D6,   8, 
-        L3D7,   8, 
-        L3D8,   8, 
-        L3D9,   8, 
-        L3DA,   8, 
-        L3DB,   8, 
-        L3DV,   8, 
-        L3CV,   8, 
-        L3LU,   8, 
-        L3NL,   8, 
-        L3EE,   8, 
-        L3VC,   8, 
-        L3FS,   8, 
-        L3DG,   8, 
-        L3C0,   8, 
-        L3C1,   8, 
-        L3C2,   8, 
-        L3C3,   8, 
-        L3CK,   32, 
-        L3CL,   8, 
-        ECR1,   8, 
-        Offset (0x60E), 
-        I2SC,   8, 
-        Offset (0x615), 
-        UBCB,   32, 
-        EMOD,   8, 
-        WIFC,   8, 
-        Offset (0x622), 
-        TPLS,   8, 
-        TPDB,   8, 
-        TPDH,   16, 
-        TPDS,   8, 
-        ADPM,   32, 
-        AG1L,   64, 
-        AG1H,   64, 
-        AG2L,   64, 
-        AG2H,   64, 
-        AG3L,   64, 
-        AG3H,   64, 
-        HEFE,   8, 
-        XDCE,   8, 
-        STXE,   8, 
-        STX0,   8, 
-        STX1,   8, 
-        STX2,   8, 
-        STX3,   8, 
-        STX4,   8, 
-        STX5,   8, 
-        STX6,   8, 
-        STX7,   8, 
-        STX8,   8, 
-        STX9,   8, 
-        RTVM,   8, 
-        USTC,   8, 
-        BATP,   8, 
-        TSDB,   8, 
-        DEPC,   8, 
-        PDFC,   8, 
-        IVCM,   8, 
-        HEB1,   32, 
-        RBY1,   8, 
-        RBY2,   8, 
-        SCSS,   8, 
-        HAID,   8, 
-        NCTC,   8, 
-        NCTI,   8, 
-        NCTH,   8, 
-        HSIO,   8, 
-        TPPT,   8, 
-        SHAP,   8, 
-        EIAP,   8, 
-        ZPOD,   8, 
-        SRSP,   32, 
-        CEDS,   8, 
-        EHK3,   8, 
-        EHK4,   8, 
-        EHK5,   8, 
-        EHK6,   8, 
-        EHK7,   8, 
-        EHK8,   8, 
-        VBVP,   8, 
-        VBVD,   8, 
-        VBHB,   8, 
-        VBRL,   8, 
-        SMSS,   8, 
-        VBST,   8, 
-        ADAS,   8, 
-        PPBG,   32, 
-        AEAB,   8, 
-        AHDB,   8, 
-        PBSD,   8, 
-        DPLL,   8, 
-        DPHL,   8, 
-        PWIG,   8, 
-        MESE,   8, 
-        Offset (0x6A1), 
-        XSMI,   32, 
-        PAPE,   32, 
-        PSTW,   32, 
-        MWLR,   32, 
-        UP8P,   32, 
-        MS2R,   32, 
-        MS2P,   32, 
-        UCSI,   8, 
-        UCG1,   32, 
-        UCG2,   32, 
-        WGUR,   32, 
-        WRFE,   8, 
-        WRC1,   8, 
-        WRC2,   8, 
-        WRC3,   8, 
-        WRC4,   8, 
-        AWVI,   32, 
-        Offset (0x6E1), 
-        WGWS,   8, 
-        Offset (0x6E3), 
-        C0VE,   8, 
-        C0W0,   8, 
-        C0W1,   8, 
-        C0W2,   8, 
-        C0W3,   8, 
-        C0W4,   8, 
-        C0W5,   8, 
-        C1VE,   8, 
-        C1W0,   8, 
-        C1W1,   8, 
-        C1W2,   8, 
-        C1W3,   8, 
-        C1W4,   8, 
-        C1W5,   8, 
-        C2VE,   8, 
-        C2W0,   8, 
-        C2W1,   8, 
-        C2W2,   8, 
-        C2W3,   8, 
-        C2W4,   8, 
-        C2W5,   8, 
-        C3VE,   8, 
-        C3W0,   8, 
-        C3W1,   8, 
-        C3W2,   8, 
-        C3W3,   8, 
-        C3W4,   8, 
-        C3W5,   8, 
-        L0LE,   8, 
-        L0PP,   8, 
-        L0VR,   8, 
-        L1LE,   8, 
-        L1PP,   8, 
-        L1VR,   8, 
-        L2LE,   8, 
-        L2PP,   8, 
-        L2VR,   8, 
-        L3LE,   8, 
-        L3PP,   8, 
-        L3VR,   8, 
-        WLRP,   8, 
-        SSRP,   8, 
-        WIPR,   8, 
-        TBS1,   8, 
-        TBMP,   8, 
-        FPA1,   8, 
-        FPE1,   8, 
-        FPG1,   32, 
-        FP1L,   8, 
-        CPD1,   16, 
-        CPB1,   8, 
-        CPG1,   32, 
-        UTCM,   8, 
-        USME,   8, 
-        UPT1,   8, 
-        UPT2,   8, 
-        TWIN,   8, 
-        TRWA,   8, 
-        PEWE,   8, 
-        Offset (0x74E), 
-        ELPM,   32, 
-        ELPS,   32, 
-        Offset (0x758), 
-        UCRT,   8, 
-        TBOD,   16, 
-        TSXW,   8, 
-        VRGP,   32, 
-        PVSC,   8, 
-        RTBT,   8, 
-        RTBC,   8, 
-        TBCD,   16, 
-        TBTE,   8, 
-        RWAN,   8, 
-        WDCT,   16, 
-        WLCT,   16, 
-        WDC2,   16, 
-        WMXS,   16, 
-        WMNS,   16, 
-        SSPC,   8, 
-        SSPM,   8, 
-        DGCE,   8, 
-        DCAT,   8, 
-        DCPT,   8, 
-        DCCT,   8, 
-        DCHT,   8, 
-        DCS3,   8, 
-        DCSZ,   32, 
-        DCL0,   16, 
-        DGME,   8, 
-        DMAT,   8, 
-        DMPT,   8, 
-        DMCT,   8, 
-        DMHT,   8, 
-        DMS3,   8, 
-        MCPE,   8, 
-        MCSZ,   32, 
-        MCL0,   32, 
-        PSPE,   8, 
-        PBEN,   8, 
-        WRTO,   8, 
-        SD11,   8, 
-        SD12,   8, 
-        SD13,   8, 
-        SD14,   8, 
-        SD15,   8, 
-        SD16,   8, 
-        SD21,   8, 
-        SD22,   8, 
-        SD23,   8, 
-        SD24,   8, 
-        SD25,   8, 
-        SD26,   8, 
-        SD31,   8, 
-        SD32,   8, 
-        SD33,   8, 
-        SD34,   8, 
-        SD35,   8, 
-        SD36,   8, 
-        BTSE,   8, 
-        BTBR,   8, 
-        BED2,   8, 
-        BED3,   8, 
-        BTLE,   8, 
-        BTL2,   8, 
-        BTLL,   8, 
-        POME,   8, 
-        P193,   8, 
-        PMTC,   8, 
-        Offset (0x800), 
-        MANF,   8, 
-        Offset (0x808), 
-        OADR,   64, 
-        OSIZ,   32, 
-        PSBR,   32, 
-        EBID,   32, 
+        OSYS,   16,
+        SMIF,   8,
+        PRM0,   8,
+        PRM1,   8,
+        SCIF,   8,
+        PRM2,   8,
+        PRM3,   8,
+        LCKF,   8,
+        PRM4,   8,
+        PRM5,   8,
+        P80D,   32,
+        PWRS,   8,
+        DBGU,   8,
+        THOF,   8,
+        ACT1,   8,
+        ACTT,   8,
+        PSVT,   8,
+        TC1V,   8,
+        TC2V,   8,
+        TSPV,   8,
+        CRTT,   8,
+        DTSE,   8,
+        DTS1,   8,
+        DTS2,   8,
+        DTSF,   8,
+        Offset (0x1E),
+        BNUM,   8,
+        Offset (0x20),
+        Offset (0x21),
+        Offset (0x22),
+        Offset (0x23),
+        Offset (0x24),
+        Offset (0x25),
+        REVN,   8,
+        APIC,   8,
+        TCNT,   8,
+        PCP0,   8,
+        PCP1,   8,
+        PPCM,   8,
+        PPMF,   32,
+        C67L,   8,
+        NATP,   8,
+        CMAP,   8,
+        CMBP,   8,
+        LPTP,   8,
+        FDCP,   8,
+        CMCP,   8,
+        CIRP,   8,
+        SMSC,   8,
+        W381,   8,
+        SMC1,   8,
+        EMAE,   8,
+        EMAP,   16,
+        EMAL,   16,
+        MEFE,   8,
+        DSTS,   8,
+        MORD,   8,
+        TCGP,   8,
+        PPRP,   32,
+        PPRQ,   8,
+        LPPR,   8,
+        IDEM,   8,
+        OMPR,   8,
+        APID,   8,
+        OMBR,   8,
+        OSCC,   8,
+        NEXP,   8,
+        SBV1,   8,
+        SBV2,   8,
+        ECON,   8,
+        DSEN,   8,
+        GPIC,   8,
+        CTYP,   8,
+        L01C,   8,
+        VFN0,   8,
+        VFN1,   8,
+        VFN2,   8,
+        VFN3,   8,
+        VFN4,   8,
+        VFN5,   8,
+        VFN6,   8,
+        VFN7,   8,
+        VFN8,   8,
+        VFN9,   8,
+        Offset (0x62),
+        CPFM,   8,
+        CPSP,   8,
+        CPPT,   8,
+        CPPS,   8,
+        TBAL,   32,
+        TBAH,   32,
+        RTIP,   8,
+        TSOD,   8,
+        PFLV,   8,
+        BREV,   8,
+        WCOS,   8,
+        PDTS,   8,
+        PKGA,   8,
+        PAMT,   8,
+        AC0F,   8,
+        AC1F,   8,
+        DTS3,   8,
+        DTS4,   8,
+        LTR1,   8,
+        LTR2,   8,
+        LTR3,   8,
+        LTR4,   8,
+        LTR5,   8,
+        LTR6,   8,
+        LTR7,   8,
+        LTR8,   8,
+        LTR9,   8,
+        LTRA,   8,
+        LTRB,   8,
+        LTRC,   8,
+        LTRD,   8,
+        LTRE,   8,
+        LTRF,   8,
+        LTRG,   8,
+        LTRH,   8,
+        LTRI,   8,
+        LTRJ,   8,
+        LTRK,   8,
+        LTRL,   8,
+        LTRM,   8,
+        LTRN,   8,
+        LTRO,   8,
+        OBF1,   8,
+        OBF2,   8,
+        OBF3,   8,
+        OBF4,   8,
+        OBF5,   8,
+        OBF6,   8,
+        OBF7,   8,
+        OBF8,   8,
+        OBF9,   8,
+        OBFA,   8,
+        OBFB,   8,
+        OBFC,   8,
+        OBFD,   8,
+        OBFE,   8,
+        OBFF,   8,
+        OBFG,   8,
+        OBFH,   8,
+        OBFI,   8,
+        OBFJ,   8,
+        OBFK,   8,
+        OBFL,   8,
+        OBFM,   8,
+        OBFN,   8,
+        OBFO,   8,
+        XTUB,   32,
+        XTUS,   32,
+        XMPB,   32,
+        DDRF,   8,
+        RTD3,   8,
+        PEP0,   8,
+        PEP3,   8,
+        Offset (0xEF),
+        Offset (0xF1),
+        BGMA,   64,
+        BGMS,   8,
+        BGIA,   16,
+        IRMC,   8,
+        NFCE,   8,
+        CHEN,   8,
+        S0ID,   8,
+        CTDB,   8,
+        DKSM,   8,
+        SIO1,   16,
+        SIO2,   16,
+        SPBA,   16,
+        SEC0,   32,
+        SEC1,   32,
+        SEC2,   32,
+        SEC3,   32,
+        SEC4,   32,
+        SEC5,   32,
+        SEC6,   32,
+        SEC7,   32,
+        SEC8,   32,
+        Offset (0x1F4),
+        Offset (0x200),
+        Offset (0x203),
+        XHPR,   8,
+        RIC0,   8,
+        GBSX,   8,
+        IUBE,   8,
+        IUCE,   8,
+        IUDE,   8,
+        ECNO,   8,
+        AUDD,   16,
+        IC0D,   16,
+        IC1D,   16,
+        IC1S,   16,
+        VRRD,   16,
+        PSCP,   8,
+        I20D,   16,
+        I21D,   16,
+        RCG0,   16,
+        RCG1,   16,
+        ECDB,   8,
+        P2ME,   8,
+        P2MK,   8,
+        SSH0,   16,
+        SSL0,   16,
+        SSD0,   16,
+        FMH0,   16,
+        FML0,   16,
+        FMD0,   16,
+        FPH0,   16,
+        FPL0,   16,
+        FPD0,   16,
+        SSH1,   16,
+        SSL1,   16,
+        SSD1,   16,
+        FMH1,   16,
+        FML1,   16,
+        FMD1,   16,
+        FPH1,   16,
+        FPL1,   16,
+        FPD1,   16,
+        M0C0,   16,
+        M1C0,   16,
+        M2C0,   16,
+        M0C1,   16,
+        M1C1,   16,
+        M2C1,   16,
+        M0C2,   16,
+        M1C2,   16,
+        M0C3,   16,
+        M1C3,   16,
+        M0C4,   16,
+        M1C4,   16,
+        M0C5,   16,
+        M1C5,   16,
+        TBSF,   8,
+        GIRQ,   32,
+        DMTP,   8,
+        DMTD,   8,
+        DMSH,   8,
+        SHSB,   8,
+        PLCS,   8,
+        PLVL,   16,
+        Offset (0x27E),
+        SDWE,   8,
+        USBH,   8,
+        BCV4,   8,
+        WTV0,   8,
+        WTV1,   8,
+        APFU,   8,
+        SOHP,   8,
+        GP5F,   8,
+        NOHP,   8,
+        TBSE,   8,
+        WKFN,   8,
+        PEPC,   32,
+        VRSD,   16,
+        PB1E,   8,
+        GNID,   8,
+        Offset (0x2B2),
+        SPST,   8,
+        Offset (0x2CD),
+        ECLP,   8,
+        Offset (0x320),
+        PSME,   8,
+        PDT1,   8,
+        PLM1,   32,
+        PTW1,   32,
+        PDT2,   8,
+        PLM2,   32,
+        PTW2,   32,
+        DDT1,   8,
+        DDP1,   8,
+        DLI1,   16,
+        DPL1,   16,
+        DTW1,   32,
+        DMI1,   16,
+        DMA1,   16,
+        DMT1,   16,
+        DDT2,   8,
+        DDP2,   8,
+        DLI2,   16,
+        DPL2,   16,
+        DTW2,   32,
+        DMI2,   16,
+        DMA2,   16,
+        DMT2,   16,
+        WIFE,   8,
+        DOM1,   8,
+        LIM1,   16,
+        TIM1,   32,
+        DOM2,   8,
+        LIM2,   16,
+        TIM2,   32,
+        DOM3,   8,
+        LIM3,   16,
+        TIM3,   32,
+        TRD0,   8,
+        TRL0,   8,
+        TRD1,   8,
+        TRL1,   8,
+        WDM1,   8,
+        CID1,   16,
+        WDM2,   8,
+        CID2,   16,
+        Offset (0x378),
+        Offset (0x37D),
+        SDS0,   8,
+        SDS1,   8,
+        SDS2,   8,
+        SDS3,   8,
+        SDS4,   8,
+        SDS5,   8,
+        SDS6,   8,
+        SDS7,   8,
+        SDS8,   8,
+        SDS9,   8,
+        SDSA,   8,
+        TPLB,   8,
+        TPLH,   16,
+        WTVX,   8,
+        WITX,   8,
+        GPTD,   8,
+        GDBT,   16,
+        UTKX,   8,
+        SPTD,   8,
+        GEXN,   8,
+        TBTS,   8,
+        TBWS,   8,
+        AICS,   8,
+        TARS,   8,
+        FPAT,   8,
+        FPEN,   8,
+        FPGN,   32,
+        FPLV,   8,
+        CPAD,   16,
+        CPAB,   8,
+        TNAT,   8,
+        CPGN,   32,
+        CF2T,   8,
+        TDGS,   8,
+        DCSC,   8,
+        DCKE,   8,
+        UDCK,   8,
+        SUDK,   8,
+        OHPN,   8,
+        GHPN,   8,
+        EGPC,   32,
+        EGPV,   8,
+        TBDT,   32,
+        ATLB,   32,
+        SDM0,   8,
+        SDM1,   8,
+        SDM2,   8,
+        SDM3,   8,
+        SDM4,   8,
+        SDM5,   8,
+        SDM6,   8,
+        SDM7,   8,
+        SDM8,   8,
+        SDM9,   8,
+        SDMA,   8,
+        USTP,   8,
+        SSHI,   16,
+        SSLI,   16,
+        SSDI,   16,
+        FMHI,   16,
+        FMLI,   16,
+        FMDI,   16,
+        FPHI,   16,
+        FPLI,   16,
+        FPDI,   16,
+        M0CI,   16,
+        M1CI,   16,
+        M0CS,   16,
+        M1CS,   16,
+        M0CU,   16,
+        M1CU,   16,
+        CAMT,   8,
+        IVDF,   8,
+        IFWG,   64,
+        IVWS,   8,
+        IVPR,   8,
+        DIVO,   16,
+        DIVF,   16,
+        IVAD,   8,
+        IVRS,   8,
+        IVDG,   64,
+        DSPR,   8,
+        DDSO,   16,
+        DDSF,   16,
+        DSAD,   8,
+        DSRS,   8,
+        DVDG,   64,
+        EIDF,   8,
+        Offset (0x429),
+        GPDI,   32,
+        Offset (0x439),
+        CL00,   8,
+        CL01,   8,
+        CL02,   8,
+        CL03,   8,
+        L0EN,   8,
+        L1EN,   8,
+        L2EN,   8,
+        L3EN,   8,
+        CDIV,   8,
+        C0TP,   8,
+        C0CV,   8,
+        C0GP,   8,
+        C0IB,   8,
+        C0IA,   16,
+        C0P0,   8,
+        C0P1,   8,
+        C0P2,   8,
+        C0P3,   8,
+        C0G0,   8,
+        C0G1,   8,
+        C0G2,   8,
+        C0G3,   8,
+        C0F0,   8,
+        C0F1,   8,
+        C0F2,   8,
+        C0F3,   8,
+        C0A0,   8,
+        C0A1,   8,
+        C0A2,   8,
+        C0A3,   8,
+        C0I0,   8,
+        C0I1,   8,
+        C0I2,   8,
+        C0I3,   8,
+        C0PL,   8,
+        C1TP,   8,
+        C1CV,   8,
+        C1GP,   8,
+        C1IB,   8,
+        C1IA,   16,
+        C1P0,   8,
+        C1P1,   8,
+        C1P2,   8,
+        C1P3,   8,
+        C1G0,   8,
+        C1G1,   8,
+        C1G2,   8,
+        C1G3,   8,
+        C1F0,   8,
+        C1F1,   8,
+        C1F2,   8,
+        C1F3,   8,
+        C1A0,   8,
+        C1A1,   8,
+        C1A2,   8,
+        C1A3,   8,
+        C1I0,   8,
+        C1I1,   8,
+        C1I2,   8,
+        C1I3,   8,
+        C1PL,   8,
+        C2TP,   8,
+        C2CV,   8,
+        C2GP,   8,
+        C2IB,   8,
+        C2IA,   16,
+        C2P0,   8,
+        C2P1,   8,
+        C2P2,   8,
+        C2P3,   8,
+        C2G0,   8,
+        C2G1,   8,
+        C2G2,   8,
+        C2G3,   8,
+        C2F0,   8,
+        C2F1,   8,
+        C2F2,   8,
+        C2F3,   8,
+        C2A0,   8,
+        C2A1,   8,
+        C2A2,   8,
+        C2A3,   8,
+        C2I0,   8,
+        C2I1,   8,
+        C2I2,   8,
+        C2I3,   8,
+        C2PL,   8,
+        C3TP,   8,
+        C3CV,   8,
+        C3GP,   8,
+        C3IB,   8,
+        C3IA,   16,
+        C3P0,   8,
+        C3P1,   8,
+        C3P2,   8,
+        C3P3,   8,
+        C3G0,   8,
+        C3G1,   8,
+        C3G2,   8,
+        C3G3,   8,
+        C3F0,   8,
+        C3F1,   8,
+        C3F2,   8,
+        C3F3,   8,
+        C3A0,   8,
+        C3A1,   8,
+        C3A2,   8,
+        C3A3,   8,
+        C3I0,   8,
+        C3I1,   8,
+        C3I2,   8,
+        C3I3,   8,
+        C3PL,   8,
+        L0SM,   8,
+        L0H0,   8,
+        L0H1,   8,
+        L0H2,   8,
+        L0H3,   8,
+        L0H4,   8,
+        L0H5,   8,
+        L0H6,   8,
+        L0H7,   8,
+        L0H8,   8,
+        L0PL,   8,
+        L0M0,   8,
+        L0M1,   8,
+        L0M2,   8,
+        L0M3,   8,
+        L0M4,   8,
+        L0M5,   8,
+        L0M6,   8,
+        L0M7,   8,
+        L0M8,   8,
+        L0M9,   8,
+        L0MA,   8,
+        L0MB,   8,
+        L0MC,   8,
+        L0MD,   8,
+        L0ME,   8,
+        L0MF,   8,
+        L0DI,   8,
+        L0BS,   8,
+        L0A0,   16,
+        L0A1,   16,
+        L0A2,   16,
+        L0A3,   16,
+        L0A4,   16,
+        L0A5,   16,
+        L0A6,   16,
+        L0A7,   16,
+        L0A8,   16,
+        L0A9,   16,
+        L0AA,   16,
+        L0AB,   16,
+        L0D0,   8,
+        L0D1,   8,
+        L0D2,   8,
+        L0D3,   8,
+        L0D4,   8,
+        L0D5,   8,
+        L0D6,   8,
+        L0D7,   8,
+        L0D8,   8,
+        L0D9,   8,
+        L0DA,   8,
+        L0DB,   8,
+        L0DV,   8,
+        L0CV,   8,
+        L0LU,   8,
+        L0NL,   8,
+        L0EE,   8,
+        L0VC,   8,
+        L0FS,   8,
+        L0DG,   8,
+        L0C0,   8,
+        L0C1,   8,
+        L0C2,   8,
+        L0C3,   8,
+        L0CK,   32,
+        L0CL,   8,
+        L1SM,   8,
+        L1H0,   8,
+        L1H1,   8,
+        L1H2,   8,
+        L1H3,   8,
+        L1H4,   8,
+        L1H5,   8,
+        L1H6,   8,
+        L1H7,   8,
+        L1H8,   8,
+        L1PL,   8,
+        L1M0,   8,
+        L1M1,   8,
+        L1M2,   8,
+        L1M3,   8,
+        L1M4,   8,
+        L1M5,   8,
+        L1M6,   8,
+        L1M7,   8,
+        L1M8,   8,
+        L1M9,   8,
+        L1MA,   8,
+        L1MB,   8,
+        L1MC,   8,
+        L1MD,   8,
+        L1ME,   8,
+        L1MF,   8,
+        L1DI,   8,
+        L1BS,   8,
+        L1A0,   16,
+        L1A1,   16,
+        L1A2,   16,
+        L1A3,   16,
+        L1A4,   16,
+        L1A5,   16,
+        L1A6,   16,
+        L1A7,   16,
+        L1A8,   16,
+        L1A9,   16,
+        L1AA,   16,
+        L1AB,   16,
+        L1D0,   8,
+        L1D1,   8,
+        L1D2,   8,
+        L1D3,   8,
+        L1D4,   8,
+        L1D5,   8,
+        L1D6,   8,
+        L1D7,   8,
+        L1D8,   8,
+        L1D9,   8,
+        L1DA,   8,
+        L1DB,   8,
+        L1DV,   8,
+        L1CV,   8,
+        L1LU,   8,
+        L1NL,   8,
+        L1EE,   8,
+        L1VC,   8,
+        L1FS,   8,
+        L1DG,   8,
+        L1C0,   8,
+        L1C1,   8,
+        L1C2,   8,
+        L1C3,   8,
+        L1CK,   32,
+        L1CL,   8,
+        L2SM,   8,
+        L2H0,   8,
+        L2H1,   8,
+        L2H2,   8,
+        L2H3,   8,
+        L2H4,   8,
+        L2H5,   8,
+        L2H6,   8,
+        L2H7,   8,
+        L2H8,   8,
+        L2PL,   8,
+        L2M0,   8,
+        L2M1,   8,
+        L2M2,   8,
+        L2M3,   8,
+        L2M4,   8,
+        L2M5,   8,
+        L2M6,   8,
+        L2M7,   8,
+        L2M8,   8,
+        L2M9,   8,
+        L2MA,   8,
+        L2MB,   8,
+        L2MC,   8,
+        L2MD,   8,
+        L2ME,   8,
+        L2MF,   8,
+        L2DI,   8,
+        L2BS,   8,
+        L2A0,   16,
+        L2A1,   16,
+        L2A2,   16,
+        L2A3,   16,
+        L2A4,   16,
+        L2A5,   16,
+        L2A6,   16,
+        L2A7,   16,
+        L2A8,   16,
+        L2A9,   16,
+        L2AA,   16,
+        L2AB,   16,
+        L2D0,   8,
+        L2D1,   8,
+        L2D2,   8,
+        L2D3,   8,
+        L2D4,   8,
+        L2D5,   8,
+        L2D6,   8,
+        L2D7,   8,
+        L2D8,   8,
+        L2D9,   8,
+        L2DA,   8,
+        L2DB,   8,
+        L2DV,   8,
+        L2CV,   8,
+        L2LU,   8,
+        L2NL,   8,
+        L2EE,   8,
+        L2VC,   8,
+        L2FS,   8,
+        L2DG,   8,
+        L2C0,   8,
+        L2C1,   8,
+        L2C2,   8,
+        L2C3,   8,
+        L2CK,   32,
+        L2CL,   8,
+        L3SM,   8,
+        L3H0,   8,
+        L3H1,   8,
+        L3H2,   8,
+        L3H3,   8,
+        L3H4,   8,
+        L3H5,   8,
+        L3H6,   8,
+        L3H7,   8,
+        L3H8,   8,
+        L3PL,   8,
+        L3M0,   8,
+        L3M1,   8,
+        L3M2,   8,
+        L3M3,   8,
+        L3M4,   8,
+        L3M5,   8,
+        L3M6,   8,
+        L3M7,   8,
+        L3M8,   8,
+        L3M9,   8,
+        L3MA,   8,
+        L3MB,   8,
+        L3MC,   8,
+        L3MD,   8,
+        L3ME,   8,
+        L3MF,   8,
+        L3DI,   8,
+        L3BS,   8,
+        L3A0,   16,
+        L3A1,   16,
+        L3A2,   16,
+        L3A3,   16,
+        L3A4,   16,
+        L3A5,   16,
+        L3A6,   16,
+        L3A7,   16,
+        L3A8,   16,
+        L3A9,   16,
+        L3AA,   16,
+        L3AB,   16,
+        L3D0,   8,
+        L3D1,   8,
+        L3D2,   8,
+        L3D3,   8,
+        L3D4,   8,
+        L3D5,   8,
+        L3D6,   8,
+        L3D7,   8,
+        L3D8,   8,
+        L3D9,   8,
+        L3DA,   8,
+        L3DB,   8,
+        L3DV,   8,
+        L3CV,   8,
+        L3LU,   8,
+        L3NL,   8,
+        L3EE,   8,
+        L3VC,   8,
+        L3FS,   8,
+        L3DG,   8,
+        L3C0,   8,
+        L3C1,   8,
+        L3C2,   8,
+        L3C3,   8,
+        L3CK,   32,
+        L3CL,   8,
+        ECR1,   8,
+        Offset (0x60E),
+        I2SC,   8,
+        Offset (0x615),
+        UBCB,   32,
+        EMOD,   8,
+        WIFC,   8,
+        Offset (0x622),
+        TPLS,   8,
+        TPDB,   8,
+        TPDH,   16,
+        TPDS,   8,
+        ADPM,   32,
+        AG1L,   64,
+        AG1H,   64,
+        AG2L,   64,
+        AG2H,   64,
+        AG3L,   64,
+        AG3H,   64,
+        HEFE,   8,
+        XDCE,   8,
+        STXE,   8,
+        STX0,   8,
+        STX1,   8,
+        STX2,   8,
+        STX3,   8,
+        STX4,   8,
+        STX5,   8,
+        STX6,   8,
+        STX7,   8,
+        STX8,   8,
+        STX9,   8,
+        COEM,   8,
+        RTVM,   8,
+        USTC,   8,
+        BATP,   8,
+        TSDB,   8,
+        DEPC,   8,
+        PDFC,   8,
+        IVCM,   8,
+        HEB1,   32,
+        RBY1,   8,
+        RBY2,   8,
+        SCSS,   8,
+        HAID,   8,
+        NCTC,   8,
+        NCTI,   8,
+        NCTH,   8,
+        HSIO,   8,
+        TPPT,   8,
+        SHAP,   8,
+        EIAP,   8,
+        ZPOD,   8,
+        SRSP,   32,
+        CEDS,   8,
+        EHK3,   8,
+        EHK4,   8,
+        EHK5,   8,
+        EHK6,   8,
+        EHK7,   8,
+        EHK8,   8,
+        VBVP,   8,
+        VBVD,   8,
+        VBHB,   8,
+        VBRL,   8,
+        SMSS,   8,
+        VBST,   8,
+        ADAS,   8,
+        PPBG,   32,
+        AEAB,   8,
+        AHDB,   8,
+        PBSD,   8,
+        DPLL,   8,
+        DPHL,   8,
+        PWIG,   8,
+        MESE,   8,
+        Offset (0x6A1),
+        Offset (0x6A2),
+        XSMI,   32,
+        PAPE,   32,
+        PSTW,   32,
+        MWLR,   32,
+        UP8P,   32,
+        MS2R,   32,
+        MS2P,   32,
+        UCSI,   8,
+        UCG1,   32,
+        UCG2,   32,
+        WGUR,   32,
+        WRFE,   8,
+        WRC1,   8,
+        WRC2,   8,
+        WRC3,   8,
+        WRC4,   8,
+        AWVI,   32,
+        Offset (0x6E1),
+        WGWS,   8,
+        Offset (0x6E3),
+        C0VE,   8,
+        C0W0,   8,
+        C0W1,   8,
+        C0W2,   8,
+        C0W3,   8,
+        C0W4,   8,
+        C0W5,   8,
+        C1VE,   8,
+        C1W0,   8,
+        C1W1,   8,
+        C1W2,   8,
+        C1W3,   8,
+        C1W4,   8,
+        C1W5,   8,
+        C2VE,   8,
+        C2W0,   8,
+        C2W1,   8,
+        C2W2,   8,
+        C2W3,   8,
+        C2W4,   8,
+        C2W5,   8,
+        C3VE,   8,
+        C3W0,   8,
+        C3W1,   8,
+        C3W2,   8,
+        C3W3,   8,
+        C3W4,   8,
+        C3W5,   8,
+        L0LE,   8,
+        L0PP,   8,
+        L0VR,   8,
+        L1LE,   8,
+        L1PP,   8,
+        L1VR,   8,
+        L2LE,   8,
+        L2PP,   8,
+        L2VR,   8,
+        L3LE,   8,
+        L3PP,   8,
+        L3VR,   8,
+        WLRP,   8,
+        SSRP,   8,
+        WIPR,   8,
+        TBS1,   8,
+        TBMP,   8,
+        FPA1,   8,
+        FPE1,   8,
+        FPG1,   32,
+        FP1L,   8,
+        CPD1,   16,
+        CPB1,   8,
+        CPG1,   32,
+        UTCM,   8,
+        USME,   8,
+        UPT1,   8,
+        UPT2,   8,
+        TWIN,   8,
+        TRWA,   8,
+        PEWE,   8,
+        Offset (0x74E),
+        ELPM,   32,
+        ELPS,   32,
+        Offset (0x758),
+        UCRT,   8,
+        TBOD,   16,
+        TSXW,   8,
+        VRGP,   32,
+        PVSC,   8,
+        RTBT,   8,
+        RTBC,   8,
+        TBCD,   16,
+        TBTE,   8,
+        RWAN,   8,
+        WDCT,   16,
+        WLCT,   16,
+        WDC2,   16,
+        WMXS,   16,
+        WMNS,   16,
+        SSPC,   8,
+        SSPM,   8,
+        DGCE,   8,
+        DCAT,   8,
+        DCPT,   8,
+        DCCT,   8,
+        DCHT,   8,
+        DCS3,   8,
+        DCSZ,   32,
+        DCL0,   16,
+        DGME,   8,
+        DMAT,   8,
+        DMPT,   8,
+        DMCT,   8,
+        DMHT,   8,
+        DMS3,   8,
+        MCPE,   8,
+        MCSZ,   32,
+        MCL0,   32,
+        PSPE,   8,
+        PBEN,   8,
+        WRTO,   8,
+        SD11,   8,
+        SD12,   8,
+        SD13,   8,
+        SD14,   8,
+        SD15,   8,
+        SD16,   8,
+        SD21,   8,
+        SD22,   8,
+        SD23,   8,
+        SD24,   8,
+        SD25,   8,
+        SD26,   8,
+        SD31,   8,
+        SD32,   8,
+        SD33,   8,
+        SD34,   8,
+        SD35,   8,
+        SD36,   8,
+        BTSE,   8,
+        BTBR,   8,
+        BED2,   8,
+        BED3,   8,
+        BTLE,   8,
+        BTL2,   8,
+        BTLL,   8,
+        POME,   8,
+        P193,   8,
+        PMTC,   8,
+        STAS,   8,
+        LSGN,   8,
+        PEP1,   32,
+        SRLD,   8,
+        TP0T,   8,
+        TP01,   32,
+        TP02,   32,
+        TP03,   32,
+        TP04,   32,
+        TP05,   8,
+        TP06,   8,
+        TP07,   16,
+        TP08,   32,
+        TP09,   32,
+        TP0A,   32,
+        TP0B,   32,
+        TP0C,   32,
+        TP1T,   8,
+        TP11,   32,
+        TP12,   32,
+        TP13,   32,
+        TP14,   32,
+        TP15,   8,
+        TP16,   8,
+        TP17,   16,
+        TP18,   32,
+        TP19,   32,
+        TP1A,   32,
+        TP1B,   32,
+        TP1C,   32,
+        MANF,   8,
+        Offset (0x810),
+        OADR,   64,
+        OSIZ,   32,
+        PSBR,   32,
+        EBID,   32,
         RSMP,   32
     }
 
@@ -1253,265 +1287,265 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0x001FFFFF, 
-                Zero, 
-                LNKA, 
+                0x001FFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001FFFFF, 
-                One, 
-                LNKB, 
+                0x001FFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001FFFFF, 
-                0x02, 
-                LNKC, 
+                0x001FFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001FFFFF, 
-                0x03, 
-                LNKD, 
+                0x001FFFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                Zero, 
-                LNKA, 
+                0x001DFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                One, 
-                LNKB, 
+                0x001DFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                0x02, 
-                LNKC, 
+                0x001DFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                0x03, 
-                LNKD, 
+                0x001DFFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                Zero, 
-                LNKA, 
+                0x001CFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                One, 
-                LNKB, 
+                0x001CFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                0x02, 
-                LNKC, 
+                0x001CFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                0x03, 
-                LNKD, 
+                0x001CFFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                Zero, 
-                LNKA, 
+                0x001BFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                One, 
-                LNKB, 
+                0x001BFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                0x02, 
-                LNKC, 
+                0x001BFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                0x03, 
-                LNKD, 
+                0x001BFFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0017FFFF, 
-                Zero, 
-                LNKA, 
+                0x0017FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                Zero, 
-                LNKA, 
+                0x0016FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                One, 
-                LNKB, 
+                0x0016FFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                0x02, 
-                LNKC, 
+                0x0016FFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                0x03, 
-                LNKD, 
+                0x0016FFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                Zero, 
-                LNKA, 
+                0x0014FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                One, 
-                LNKB, 
+                0x0014FFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                0x02, 
-                LNKC, 
+                0x0014FFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                0x03, 
-                LNKD, 
+                0x0014FFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                Zero, 
-                LNKA, 
+                0x0001FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                One, 
-                LNKB, 
+                0x0001FFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                0x02, 
-                LNKC, 
+                0x0001FFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                0x03, 
-                LNKD, 
+                0x0001FFFF,
+                0x03,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0002FFFF, 
-                Zero, 
-                LNKA, 
+                0x0002FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0004FFFF, 
-                Zero, 
-                LNKA, 
+                0x0004FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0005FFFF, 
-                Zero, 
-                LNKA, 
+                0x0005FFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0008FFFF, 
-                Zero, 
-                LNKA, 
+                0x0008FFFF,
+                Zero,
+                LNKA,
                 Zero
             }
         })
@@ -1519,361 +1553,361 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0x001FFFFF, 
-                Zero, 
-                Zero, 
+                0x001FFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001FFFFF, 
-                One, 
-                Zero, 
+                0x001FFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001FFFFF, 
-                0x02, 
-                Zero, 
+                0x001FFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001FFFFF, 
-                0x03, 
-                Zero, 
+                0x001FFFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001EFFFF, 
-                Zero, 
-                Zero, 
+                0x001EFFFF,
+                Zero,
+                Zero,
                 0x14
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001EFFFF, 
-                One, 
-                Zero, 
+                0x001EFFFF,
+                One,
+                Zero,
                 0x15
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001EFFFF, 
-                0x02, 
-                Zero, 
+                0x001EFFFF,
+                0x02,
+                Zero,
                 0x16
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001EFFFF, 
-                0x03, 
-                Zero, 
+                0x001EFFFF,
+                0x03,
+                Zero,
                 0x17
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                Zero, 
-                Zero, 
+                0x001DFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                One, 
-                Zero, 
+                0x001DFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                0x02, 
-                Zero, 
+                0x001DFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001DFFFF, 
-                0x03, 
-                Zero, 
+                0x001DFFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                Zero, 
-                Zero, 
+                0x001CFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                One, 
-                Zero, 
+                0x001CFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                0x02, 
-                Zero, 
+                0x001CFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001CFFFF, 
-                0x03, 
-                Zero, 
+                0x001CFFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                Zero, 
-                Zero, 
+                0x001BFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                One, 
-                Zero, 
+                0x001BFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                0x02, 
-                Zero, 
+                0x001BFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x001BFFFF, 
-                0x03, 
-                Zero, 
+                0x001BFFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0019FFFF, 
-                Zero, 
-                Zero, 
+                0x0019FFFF,
+                Zero,
+                Zero,
                 0x20
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0019FFFF, 
-                One, 
-                Zero, 
+                0x0019FFFF,
+                One,
+                Zero,
                 0x21
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0019FFFF, 
-                0x02, 
-                Zero, 
+                0x0019FFFF,
+                0x02,
+                Zero,
                 0x22
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0017FFFF, 
-                Zero, 
-                Zero, 
+                0x0017FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                Zero, 
-                Zero, 
+                0x0016FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                One, 
-                Zero, 
+                0x0016FFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                0x02, 
-                Zero, 
+                0x0016FFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0016FFFF, 
-                0x03, 
-                Zero, 
+                0x0016FFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0015FFFF, 
-                Zero, 
-                Zero, 
+                0x0015FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0015FFFF, 
-                One, 
-                Zero, 
+                0x0015FFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0015FFFF, 
-                0x02, 
-                Zero, 
+                0x0015FFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0015FFFF, 
-                0x03, 
-                Zero, 
+                0x0015FFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                Zero, 
-                Zero, 
+                0x0014FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                One, 
-                Zero, 
+                0x0014FFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                0x02, 
-                Zero, 
+                0x0014FFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0014FFFF, 
-                0x03, 
-                Zero, 
+                0x0014FFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0013FFFF, 
-                Zero, 
-                Zero, 
+                0x0013FFFF,
+                Zero,
+                Zero,
                 0x14
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                Zero, 
-                Zero, 
+                0x0001FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                One, 
-                Zero, 
+                0x0001FFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                0x02, 
-                Zero, 
+                0x0001FFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0001FFFF, 
-                0x03, 
-                Zero, 
+                0x0001FFFF,
+                0x03,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0002FFFF, 
-                Zero, 
-                Zero, 
+                0x0002FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0004FFFF, 
-                Zero, 
-                Zero, 
+                0x0004FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0005FFFF, 
-                Zero, 
-                Zero, 
+                0x0005FFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0x0008FFFF, 
-                Zero, 
-                Zero, 
+                0x0008FFFF,
+                Zero,
+                Zero,
                 0x10
             }
         })
@@ -1881,33 +1915,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKA, 
+                0xFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKB, 
+                0xFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKC, 
+                0xFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKD, 
+                0xFFFF,
+                0x03,
+                LNKD,
                 Zero
             }
         })
@@ -1915,33 +1949,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x13
             }
         })
@@ -1949,33 +1983,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKB, 
+                0xFFFF,
+                Zero,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKC, 
+                0xFFFF,
+                One,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKD, 
+                0xFFFF,
+                0x02,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKA, 
+                0xFFFF,
+                0x03,
+                LNKA,
                 Zero
             }
         })
@@ -1983,33 +2017,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x10
             }
         })
@@ -2017,33 +2051,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKC, 
+                0xFFFF,
+                Zero,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKD, 
+                0xFFFF,
+                One,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKA, 
+                0xFFFF,
+                0x02,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKB, 
+                0xFFFF,
+                0x03,
+                LNKB,
                 Zero
             }
         })
@@ -2051,33 +2085,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x11
             }
         })
@@ -2085,33 +2119,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKD, 
+                0xFFFF,
+                Zero,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKA, 
+                0xFFFF,
+                One,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKB, 
+                0xFFFF,
+                0x02,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKC, 
+                0xFFFF,
+                0x03,
+                LNKC,
                 Zero
             }
         })
@@ -2119,33 +2153,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x12
             }
         })
@@ -2153,33 +2187,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKA, 
+                0xFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKB, 
+                0xFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKC, 
+                0xFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKD, 
+                0xFFFF,
+                0x03,
+                LNKD,
                 Zero
             }
         })
@@ -2187,33 +2221,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x13
             }
         })
@@ -2221,33 +2255,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKB, 
+                0xFFFF,
+                Zero,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKC, 
+                0xFFFF,
+                One,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKD, 
+                0xFFFF,
+                0x02,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKA, 
+                0xFFFF,
+                0x03,
+                LNKA,
                 Zero
             }
         })
@@ -2255,33 +2289,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x10
             }
         })
@@ -2289,33 +2323,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKC, 
+                0xFFFF,
+                Zero,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKD, 
+                0xFFFF,
+                One,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKA, 
+                0xFFFF,
+                0x02,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKB, 
+                0xFFFF,
+                0x03,
+                LNKB,
                 Zero
             }
         })
@@ -2323,33 +2357,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x11
             }
         })
@@ -2357,33 +2391,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKD, 
+                0xFFFF,
+                Zero,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKA, 
+                0xFFFF,
+                One,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKB, 
+                0xFFFF,
+                0x02,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKC, 
+                0xFFFF,
+                0x03,
+                LNKC,
                 Zero
             }
         })
@@ -2391,33 +2425,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x12
             }
         })
@@ -2425,33 +2459,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKA, 
+                0xFFFF,
+                Zero,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKB, 
+                0xFFFF,
+                One,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKC, 
+                0xFFFF,
+                0x02,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKD, 
+                0xFFFF,
+                0x03,
+                LNKD,
                 Zero
             }
         })
@@ -2459,33 +2493,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x13
             }
         })
@@ -2493,33 +2527,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKB, 
+                0xFFFF,
+                Zero,
+                LNKB,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKC, 
+                0xFFFF,
+                One,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKD, 
+                0xFFFF,
+                0x02,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKA, 
+                0xFFFF,
+                0x03,
+                LNKA,
                 Zero
             }
         })
@@ -2527,33 +2561,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x11
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x10
             }
         })
@@ -2561,33 +2595,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                LNKC, 
+                0xFFFF,
+                Zero,
+                LNKC,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                LNKD, 
+                0xFFFF,
+                One,
+                LNKD,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                LNKA, 
+                0xFFFF,
+                0x02,
+                LNKA,
                 Zero
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                LNKB, 
+                0xFFFF,
+                0x03,
+                LNKB,
                 Zero
             }
         })
@@ -2595,33 +2629,33 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x04)
             {
-                0xFFFF, 
-                Zero, 
-                Zero, 
+                0xFFFF,
+                Zero,
+                Zero,
                 0x12
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                One, 
-                Zero, 
+                0xFFFF,
+                One,
+                Zero,
                 0x13
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x02, 
-                Zero, 
+                0xFFFF,
+                0x02,
+                Zero,
                 0x10
-            }, 
+            },
 
             Package (0x04)
             {
-                0xFFFF, 
-                0x03, 
-                Zero, 
+                0xFFFF,
+                0x03,
+                Zero,
                 0x11
             }
         })
@@ -2666,70 +2700,70 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (HBUS, PCI_Config, Zero, 0x0100)
             Field (HBUS, DWordAcc, NoLock, Preserve)
             {
-                Offset (0x40), 
-                EPEN,   1, 
-                    ,   11, 
-                EPBR,   20, 
-                Offset (0x48), 
-                MHEN,   1, 
-                    ,   14, 
-                MHBR,   17, 
-                Offset (0x50), 
-                GCLK,   1, 
-                Offset (0x54), 
-                D0EN,   1, 
-                D1F2,   1, 
-                D1F1,   1, 
-                D1F0,   1, 
-                Offset (0x60), 
-                PXEN,   1, 
-                PXSZ,   2, 
-                    ,   23, 
-                PXBR,   6, 
-                Offset (0x68), 
-                DIEN,   1, 
-                    ,   11, 
-                DIBR,   20, 
-                Offset (0x70), 
-                    ,   20, 
-                MEBR,   12, 
-                Offset (0x80), 
-                PMLK,   1, 
-                    ,   3, 
-                PM0H,   2, 
-                Offset (0x81), 
-                PM1L,   2, 
-                    ,   2, 
-                PM1H,   2, 
-                Offset (0x82), 
-                PM2L,   2, 
-                    ,   2, 
-                PM2H,   2, 
-                Offset (0x83), 
-                PM3L,   2, 
-                    ,   2, 
-                PM3H,   2, 
-                Offset (0x84), 
-                PM4L,   2, 
-                    ,   2, 
-                PM4H,   2, 
-                Offset (0x85), 
-                PM5L,   2, 
-                    ,   2, 
-                PM5H,   2, 
-                Offset (0x86), 
-                PM6L,   2, 
-                    ,   2, 
-                PM6H,   2, 
-                Offset (0x87), 
-                Offset (0xA8), 
-                    ,   20, 
-                TUUD,   19, 
-                Offset (0xBC), 
-                    ,   20, 
-                TLUD,   12, 
-                Offset (0xC8), 
-                    ,   7, 
+                Offset (0x40),
+                EPEN,   1,
+                    ,   11,
+                EPBR,   20,
+                Offset (0x48),
+                MHEN,   1,
+                    ,   14,
+                MHBR,   17,
+                Offset (0x50),
+                GCLK,   1,
+                Offset (0x54),
+                D0EN,   1,
+                D1F2,   1,
+                D1F1,   1,
+                D1F0,   1,
+                Offset (0x60),
+                PXEN,   1,
+                PXSZ,   2,
+                    ,   23,
+                PXBR,   6,
+                Offset (0x68),
+                DIEN,   1,
+                    ,   11,
+                DIBR,   20,
+                Offset (0x70),
+                    ,   20,
+                MEBR,   12,
+                Offset (0x80),
+                PMLK,   1,
+                    ,   3,
+                PM0H,   2,
+                Offset (0x81),
+                PM1L,   2,
+                    ,   2,
+                PM1H,   2,
+                Offset (0x82),
+                PM2L,   2,
+                    ,   2,
+                PM2H,   2,
+                Offset (0x83),
+                PM3L,   2,
+                    ,   2,
+                PM3H,   2,
+                Offset (0x84),
+                PM4L,   2,
+                    ,   2,
+                PM4H,   2,
+                Offset (0x85),
+                PM5L,   2,
+                    ,   2,
+                PM5H,   2,
+                Offset (0x86),
+                PM6L,   2,
+                    ,   2,
+                PM6H,   2,
+                Offset (0x87),
+                Offset (0xA8),
+                    ,   20,
+                TUUD,   19,
+                Offset (0xBC),
+                    ,   20,
+                TLUD,   12,
+                Offset (0xC8),
+                    ,   7,
                 HTSE,   1
             }
 
@@ -3367,108 +3401,108 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     {
         Return (Package (0x67)
         {
-            0x32, 
-            0x32, 
-            One, 
-            0x02, 
-            0x03, 
-            0x04, 
-            0x05, 
-            0x06, 
-            0x07, 
-            0x08, 
-            0x09, 
-            0x0A, 
-            0x0B, 
-            0x0C, 
-            0x0D, 
-            0x0E, 
-            0x0F, 
-            0x10, 
-            0x11, 
-            0x12, 
-            0x13, 
-            0x14, 
-            0x15, 
-            0x16, 
-            0x17, 
-            0x18, 
-            0x19, 
-            0x1A, 
-            0x1B, 
-            0x1C, 
-            0x1D, 
-            0x1E, 
-            0x1F, 
-            0x20, 
-            0x21, 
-            0x22, 
-            0x23, 
-            0x24, 
-            0x25, 
-            0x26, 
-            0x27, 
-            0x28, 
-            0x29, 
-            0x2A, 
-            0x2B, 
-            0x2C, 
-            0x2D, 
-            0x2E, 
-            0x2F, 
-            0x30, 
-            0x31, 
-            0x32, 
-            0x33, 
-            0x34, 
-            0x35, 
-            0x36, 
-            0x37, 
-            0x38, 
-            0x39, 
-            0x3A, 
-            0x3B, 
-            0x3C, 
-            0x3D, 
-            0x3E, 
-            0x3F, 
-            0x40, 
-            0x41, 
-            0x42, 
-            0x43, 
-            0x44, 
-            0x45, 
-            0x46, 
-            0x47, 
-            0x48, 
-            0x49, 
-            0x4A, 
-            0x4B, 
-            0x4C, 
-            0x4D, 
-            0x4E, 
-            0x4F, 
-            0x50, 
-            0x51, 
-            0x52, 
-            0x53, 
-            0x54, 
-            0x55, 
-            0x56, 
-            0x57, 
-            0x58, 
-            0x59, 
-            0x5A, 
-            0x5B, 
-            0x5C, 
-            0x5D, 
-            0x5E, 
-            0x5F, 
-            0x60, 
-            0x61, 
-            0x62, 
-            0x63, 
-            0x63, 
+            0x32,
+            0x32,
+            One,
+            0x02,
+            0x03,
+            0x04,
+            0x05,
+            0x06,
+            0x07,
+            0x08,
+            0x09,
+            0x0A,
+            0x0B,
+            0x0C,
+            0x0D,
+            0x0E,
+            0x0F,
+            0x10,
+            0x11,
+            0x12,
+            0x13,
+            0x14,
+            0x15,
+            0x16,
+            0x17,
+            0x18,
+            0x19,
+            0x1A,
+            0x1B,
+            0x1C,
+            0x1D,
+            0x1E,
+            0x1F,
+            0x20,
+            0x21,
+            0x22,
+            0x23,
+            0x24,
+            0x25,
+            0x26,
+            0x27,
+            0x28,
+            0x29,
+            0x2A,
+            0x2B,
+            0x2C,
+            0x2D,
+            0x2E,
+            0x2F,
+            0x30,
+            0x31,
+            0x32,
+            0x33,
+            0x34,
+            0x35,
+            0x36,
+            0x37,
+            0x38,
+            0x39,
+            0x3A,
+            0x3B,
+            0x3C,
+            0x3D,
+            0x3E,
+            0x3F,
+            0x40,
+            0x41,
+            0x42,
+            0x43,
+            0x44,
+            0x45,
+            0x46,
+            0x47,
+            0x48,
+            0x49,
+            0x4A,
+            0x4B,
+            0x4C,
+            0x4D,
+            0x4E,
+            0x4F,
+            0x50,
+            0x51,
+            0x52,
+            0x53,
+            0x54,
+            0x55,
+            0x56,
+            0x57,
+            0x58,
+            0x59,
+            0x5A,
+            0x5B,
+            0x5C,
+            0x5D,
+            0x5E,
+            0x5F,
+            0x60,
+            0x61,
+            0x62,
+            0x63,
+            0x63,
             0x64
         })
     }
@@ -3476,15 +3510,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     OperationRegion (RSRS, SystemMemory, RSMP, 0x1000)
     Field (RSRS, ByteAcc, NoLock, Preserve)
     {
-        REVI,   8, 
-        Offset (0x0C), 
-        GUI0,   32, 
-        GUI1,   32, 
-        GUI2,   32, 
-        GUI3,   32, 
-        Offset (0x430), 
-        CSZE,   32, 
-        GWAS,   32, 
+        REVI,   8,
+        Offset (0x0C),
+        GUI0,   32,
+        GUI1,   32,
+        GUI2,   32,
+        GUI3,   32,
+        Offset (0x430),
+        CSZE,   32,
+        GWAS,   32,
         GWSI,   8
     }
 
@@ -3516,10 +3550,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         {
                             Return (Package (0x05)
                             {
-                                0xC350, 
-                                Ones, 
-                                Ones, 
-                                0xC350, 
+                                0xC350,
+                                Ones,
+                                Ones,
+                                0xC350,
                                 Ones
                             })
                         }
@@ -3555,220 +3589,220 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     OperationRegion (PNVA, SystemMemory, PNVB, PNVL)
     Field (PNVA, AnyAcc, Lock, Preserve)
     {
-        PCHS,   16, 
-        PCHG,   16, 
-        RPA1,   32, 
-        RPA2,   32, 
-        RPA3,   32, 
-        RPA4,   32, 
-        RPA5,   32, 
-        RPA6,   32, 
-        RPA7,   32, 
-        RPA8,   32, 
-        RPA9,   32, 
-        RPAA,   32, 
-        RPAB,   32, 
-        RPAC,   32, 
-        RPAD,   32, 
-        RPAE,   32, 
-        RPAF,   32, 
-        RPAG,   32, 
-        RPAH,   32, 
-        RPAI,   32, 
-        RPAJ,   32, 
-        RPAK,   32, 
-        RPAL,   32, 
-        RPAM,   32, 
-        RPAN,   32, 
-        RPAO,   32, 
-        NHLA,   64, 
-        NHLL,   32, 
-        ADFM,   32, 
-        SBRG,   32, 
-        GPEM,   32, 
-        G2L0,   32, 
-        G2L1,   32, 
-        G2L2,   32, 
-        G2L3,   32, 
-        G2L4,   32, 
-        G2L5,   32, 
-        G2L6,   32, 
-        G2L7,   32, 
-        G2L8,   32, 
-        G2L9,   32, 
-        PML1,   16, 
-        PML2,   16, 
-        PML3,   16, 
-        PML4,   16, 
-        PML5,   16, 
-        PML6,   16, 
-        PML7,   16, 
-        PML8,   16, 
-        PML9,   16, 
-        PMLA,   16, 
-        PMLB,   16, 
-        PMLC,   16, 
-        PMLD,   16, 
-        PMLE,   16, 
-        PMLF,   16, 
-        PMLG,   16, 
-        PMLH,   16, 
-        PMLI,   16, 
-        PMLJ,   16, 
-        PMLK,   16, 
-        PMLL,   16, 
-        PMLM,   16, 
-        PMLN,   16, 
-        PMLO,   16, 
-        PNL1,   16, 
-        PNL2,   16, 
-        PNL3,   16, 
-        PNL4,   16, 
-        PNL5,   16, 
-        PNL6,   16, 
-        PNL7,   16, 
-        PNL8,   16, 
-        PNL9,   16, 
-        PNLA,   16, 
-        PNLB,   16, 
-        PNLC,   16, 
-        PNLD,   16, 
-        PNLE,   16, 
-        PNLF,   16, 
-        PNLG,   16, 
-        PNLH,   16, 
-        PNLI,   16, 
-        PNLJ,   16, 
-        PNLK,   16, 
-        PNLL,   16, 
-        PNLM,   16, 
-        PNLN,   16, 
-        PNLO,   16, 
-        U0C0,   32, 
-        U1C0,   32, 
-        XHPC,   8, 
-        XRPC,   8, 
-        XSPC,   8, 
-        XSPA,   8, 
-        HPTB,   32, 
-        HPTE,   8, 
-        SMD0,   8, 
-        SMD1,   8, 
-        SMD2,   8, 
-        SMD3,   8, 
-        SMD4,   8, 
-        SMD5,   8, 
-        SMD6,   8, 
-        SMD7,   8, 
-        SMD8,   8, 
-        SMD9,   8, 
-        SMDA,   8, 
-        SIR0,   8, 
-        SIR1,   8, 
-        SIR2,   8, 
-        SIR3,   8, 
-        SIR4,   8, 
-        SIR5,   8, 
-        SIR6,   8, 
-        SIR7,   8, 
-        SIR8,   8, 
-        SIR9,   8, 
-        SIRA,   8, 
-        SB00,   64, 
-        SB01,   64, 
-        SB02,   64, 
-        SB03,   64, 
-        SB04,   64, 
-        SB05,   64, 
-        SB06,   64, 
-        SB07,   64, 
-        SB08,   64, 
-        SB09,   64, 
-        SB0A,   64, 
-        SB10,   64, 
-        SB11,   64, 
-        SB12,   64, 
-        SB13,   64, 
-        SB14,   64, 
-        SB15,   64, 
-        SB16,   64, 
-        SB17,   64, 
-        SB18,   64, 
-        SB19,   64, 
-        SB1A,   64, 
-        GPEN,   8, 
-        SGIR,   8, 
-        NIT1,   8, 
-        NIT2,   8, 
-        NIT3,   8, 
-        NPM1,   8, 
-        NPM2,   8, 
-        NPM3,   8, 
-        NPC1,   8, 
-        NPC2,   8, 
-        NPC3,   8, 
-        NL11,   16, 
-        NL12,   16, 
-        NL13,   16, 
-        ND21,   8, 
-        ND22,   8, 
-        ND23,   8, 
-        ND11,   32, 
-        ND12,   32, 
-        ND13,   32, 
-        NLR1,   16, 
-        NLR2,   16, 
-        NLR3,   16, 
-        NLD1,   32, 
-        NLD2,   32, 
-        NLD3,   32, 
-        NEA1,   16, 
-        NEA2,   16, 
-        NEA3,   16, 
-        NEB1,   16, 
-        NEB2,   16, 
-        NEB3,   16, 
-        NEC1,   16, 
-        NEC2,   16, 
-        NEC3,   16, 
-        NRA1,   16, 
-        NRA2,   16, 
-        NRA3,   16, 
-        NMB1,   32, 
-        NMB2,   32, 
-        NMB3,   32, 
-        NMV1,   32, 
-        NMV2,   32, 
-        NMV3,   32, 
-        NPB1,   32, 
-        NPB2,   32, 
-        NPB3,   32, 
-        NPV1,   32, 
-        NPV2,   32, 
-        NPV3,   32, 
-        NRP1,   32, 
-        NRP2,   32, 
-        NRP3,   32, 
-        Offset (0x262), 
-        SXRB,   32, 
-        SXRS,   32, 
-        CIOE,   8, 
-        CIOI,   8, 
-        TAEN,   8, 
-        TIRQ,   8, 
-        XWMB,   32, 
-        EMH4,   8, 
-        EMDS,   8, 
-        CSKU,   8, 
-        ITA0,   16, 
-        ITA1,   16, 
-        ITA2,   16, 
-        ITA3,   16, 
-        ITS0,   8, 
-        ITS1,   8, 
-        ITS2,   8, 
-        ITS3,   8, 
-        PMBS,   16, 
+        PCHS,   16,
+        PCHG,   16,
+        RPA1,   32,
+        RPA2,   32,
+        RPA3,   32,
+        RPA4,   32,
+        RPA5,   32,
+        RPA6,   32,
+        RPA7,   32,
+        RPA8,   32,
+        RPA9,   32,
+        RPAA,   32,
+        RPAB,   32,
+        RPAC,   32,
+        RPAD,   32,
+        RPAE,   32,
+        RPAF,   32,
+        RPAG,   32,
+        RPAH,   32,
+        RPAI,   32,
+        RPAJ,   32,
+        RPAK,   32,
+        RPAL,   32,
+        RPAM,   32,
+        RPAN,   32,
+        RPAO,   32,
+        NHLA,   64,
+        NHLL,   32,
+        ADFM,   32,
+        SBRG,   32,
+        GPEM,   32,
+        G2L0,   32,
+        G2L1,   32,
+        G2L2,   32,
+        G2L3,   32,
+        G2L4,   32,
+        G2L5,   32,
+        G2L6,   32,
+        G2L7,   32,
+        G2L8,   32,
+        G2L9,   32,
+        PML1,   16,
+        PML2,   16,
+        PML3,   16,
+        PML4,   16,
+        PML5,   16,
+        PML6,   16,
+        PML7,   16,
+        PML8,   16,
+        PML9,   16,
+        PMLA,   16,
+        PMLB,   16,
+        PMLC,   16,
+        PMLD,   16,
+        PMLE,   16,
+        PMLF,   16,
+        PMLG,   16,
+        PMLH,   16,
+        PMLI,   16,
+        PMLJ,   16,
+        PMLK,   16,
+        PMLL,   16,
+        PMLM,   16,
+        PMLN,   16,
+        PMLO,   16,
+        PNL1,   16,
+        PNL2,   16,
+        PNL3,   16,
+        PNL4,   16,
+        PNL5,   16,
+        PNL6,   16,
+        PNL7,   16,
+        PNL8,   16,
+        PNL9,   16,
+        PNLA,   16,
+        PNLB,   16,
+        PNLC,   16,
+        PNLD,   16,
+        PNLE,   16,
+        PNLF,   16,
+        PNLG,   16,
+        PNLH,   16,
+        PNLI,   16,
+        PNLJ,   16,
+        PNLK,   16,
+        PNLL,   16,
+        PNLM,   16,
+        PNLN,   16,
+        PNLO,   16,
+        U0C0,   32,
+        U1C0,   32,
+        XHPC,   8,
+        XRPC,   8,
+        XSPC,   8,
+        XSPA,   8,
+        HPTB,   32,
+        HPTE,   8,
+        SMD0,   8,
+        SMD1,   8,
+        SMD2,   8,
+        SMD3,   8,
+        SMD4,   8,
+        SMD5,   8,
+        SMD6,   8,
+        SMD7,   8,
+        SMD8,   8,
+        SMD9,   8,
+        SMDA,   8,
+        SIR0,   8,
+        SIR1,   8,
+        SIR2,   8,
+        SIR3,   8,
+        SIR4,   8,
+        SIR5,   8,
+        SIR6,   8,
+        SIR7,   8,
+        SIR8,   8,
+        SIR9,   8,
+        SIRA,   8,
+        SB00,   64,
+        SB01,   64,
+        SB02,   64,
+        SB03,   64,
+        SB04,   64,
+        SB05,   64,
+        SB06,   64,
+        SB07,   64,
+        SB08,   64,
+        SB09,   64,
+        SB0A,   64,
+        SB10,   64,
+        SB11,   64,
+        SB12,   64,
+        SB13,   64,
+        SB14,   64,
+        SB15,   64,
+        SB16,   64,
+        SB17,   64,
+        SB18,   64,
+        SB19,   64,
+        SB1A,   64,
+        GPEN,   8,
+        SGIR,   8,
+        NIT1,   8,
+        NIT2,   8,
+        NIT3,   8,
+        NPM1,   8,
+        NPM2,   8,
+        NPM3,   8,
+        NPC1,   8,
+        NPC2,   8,
+        NPC3,   8,
+        NL11,   16,
+        NL12,   16,
+        NL13,   16,
+        ND21,   8,
+        ND22,   8,
+        ND23,   8,
+        ND11,   32,
+        ND12,   32,
+        ND13,   32,
+        NLR1,   16,
+        NLR2,   16,
+        NLR3,   16,
+        NLD1,   32,
+        NLD2,   32,
+        NLD3,   32,
+        NEA1,   16,
+        NEA2,   16,
+        NEA3,   16,
+        NEB1,   16,
+        NEB2,   16,
+        NEB3,   16,
+        NEC1,   16,
+        NEC2,   16,
+        NEC3,   16,
+        NRA1,   16,
+        NRA2,   16,
+        NRA3,   16,
+        NMB1,   32,
+        NMB2,   32,
+        NMB3,   32,
+        NMV1,   32,
+        NMV2,   32,
+        NMV3,   32,
+        NPB1,   32,
+        NPB2,   32,
+        NPB3,   32,
+        NPV1,   32,
+        NPV2,   32,
+        NPV3,   32,
+        NRP1,   32,
+        NRP2,   32,
+        NRP3,   32,
+        Offset (0x262),
+        SXRB,   32,
+        SXRS,   32,
+        CIOE,   8,
+        CIOI,   8,
+        TAEN,   8,
+        TIRQ,   8,
+        XWMB,   32,
+        EMH4,   8,
+        EMDS,   8,
+        CSKU,   8,
+        ITA0,   16,
+        ITA1,   16,
+        ITA2,   16,
+        ITA3,   16,
+        ITS0,   8,
+        ITS1,   8,
+        ITS2,   8,
+        ITS3,   8,
+        PMBS,   16,
         PWRM,   32
     }
 
@@ -3778,81 +3812,81 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x06)
             {
-                0x00AF0000, 
-                0x18, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AF0000,
+                0x18,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AF0000, 
-                0x18, 
-                0x04C0, 
-                0xD4, 
-                0x30, 
+                0x00AF0000,
+                0x18,
+                0x04C0,
+                0xD4,
+                0x30,
                 0x0144
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AE0000,
+                0x18,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x04C0, 
-                0xD4, 
-                0x30, 
+                0x00AE0000,
+                0x18,
+                0x04C0,
+                0xD4,
+                0x30,
                 0x0144
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x0580, 
-                0xD8, 
-                0x40, 
+                0x00AE0000,
+                0x18,
+                0x0580,
+                0xD8,
+                0x40,
                 0x0148
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AC0000, 
-                0x18, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AC0000,
+                0x18,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AC0000, 
-                0x08, 
-                0x04C0, 
-                0xD4, 
-                0x30, 
+                0x00AC0000,
+                0x08,
+                0x04C0,
+                0xD4,
+                0x30,
                 0x0144
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AD0000, 
-                0x0C, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AD0000,
+                0x0C,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
             }
         })
@@ -3860,115 +3894,115 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Package (0x06)
             {
-                0x00AF0000, 
-                0x18, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AF0000,
+                0x18,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AF0000, 
-                0x18, 
-                0x04C0, 
-                0xD4, 
-                0x2C, 
+                0x00AF0000,
+                0x18,
+                0x04C0,
+                0xD4,
+                0x2C,
                 0x0144
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AE0000,
+                0x18,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x04C0, 
-                0xD4, 
-                0x2C, 
+                0x00AE0000,
+                0x18,
+                0x04C0,
+                0xD4,
+                0x2C,
                 0x0144
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x0D, 
-                0x0580, 
-                0xD8, 
-                0x38, 
+                0x00AE0000,
+                0x0D,
+                0x0580,
+                0xD8,
+                0x38,
                 0x0148
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x05E8, 
-                0xDC, 
-                0x40, 
+                0x00AE0000,
+                0x18,
+                0x05E8,
+                0xDC,
+                0x40,
                 0x014C
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x06A8, 
-                0xE0, 
-                0x4C, 
+                0x00AE0000,
+                0x18,
+                0x06A8,
+                0xE0,
+                0x4C,
                 0x0150
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AE0000, 
-                0x18, 
-                0x0768, 
-                0xE4, 
-                0x58, 
+                0x00AE0000,
+                0x18,
+                0x0768,
+                0xE4,
+                0x58,
                 0x0154
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AC0000, 
-                0x0B, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AC0000,
+                0x0B,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
-            }, 
+            },
 
             Package (0x06)
             {
-                0x00AD0000, 
-                0x0C, 
-                0x0400, 
-                0xD0, 
-                0x20, 
+                0x00AD0000,
+                0x0C,
+                0x0400,
+                0xD0,
+                0x20,
                 0x0140
             }
         })
         Name (RXEV, Package (0x0A)
         {
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x18){}, 
-            Buffer (0x0B){}, 
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x18){},
+            Buffer (0x0B){},
             Buffer (0x0C){}
         })
     }
@@ -4042,7 +4076,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Local0 = GGRP (Arg0)
             Local1 = GNMB (Arg0)
-            If ((((GPEM >> (Local0 * 0x02)) & 0x03) == 
+            If ((((GPEM >> (Local0 * 0x02)) & 0x03) ==
                 Zero))
             {
                 Return (0x6F)
@@ -4086,7 +4120,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Local0 = GGRP (Arg0)
             Local1 = GNMB (Arg0)
-            Local2 = ((GADR (Local0, 0x02) + (Local1 * 0x08)) + 
+            Local2 = ((GADR (Local0, 0x02) + (Local1 * 0x08)) +
                 0x04)
             OperationRegion (PDW1, SystemMemory, Local2, 0x04)
             Field (PDW1, AnyAcc, NoLock, Preserve)
@@ -4101,7 +4135,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Local0 = GGRP (Arg0)
             Local1 = GNMB (Arg0)
-            Local2 = ((GADR (Local0, 0x02) + (Local1 * 0x08)) + 
+            Local2 = ((GADR (Local0, 0x02) + (Local1 * 0x08)) +
                 0x04)
             OperationRegion (PDW1, SystemMemory, Local2, 0x04)
             Field (PDW1, AnyAcc, NoLock, Preserve)
@@ -4120,8 +4154,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   28, 
-                TEMP,   1, 
+                    ,   28,
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4136,8 +4170,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   1, 
-                TEMP,   1, 
+                    ,   1,
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4152,7 +4186,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                TEMP,   1, 
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4167,7 +4201,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                TEMP,   1, 
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4182,8 +4216,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   23, 
-                TEMP,   1, 
+                    ,   23,
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4198,8 +4232,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   23, 
-                TEMP,   1, 
+                    ,   23,
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4214,8 +4248,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   10, 
-                TEMP,   3, 
+                    ,   10,
+                TEMP,   3,
                 Offset (0x04)
             }
 
@@ -4230,8 +4264,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   10, 
-                TEMP,   3, 
+                    ,   10,
+                TEMP,   3,
                 Offset (0x04)
             }
 
@@ -4287,7 +4321,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 TEMP,   32
             }
 
-            Return (((TEMP >> ((Local1 & 0x07) * 0x04)) & 
+            Return (((TEMP >> ((Local1 & 0x07) * 0x04)) &
                 0x03))
         }
 
@@ -4299,8 +4333,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   20, 
-                TEMP,   1, 
+                    ,   20,
+                TEMP,   1,
                 Offset (0x04)
             }
 
@@ -4311,13 +4345,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         {
             Local0 = GGRP (Arg0)
             Local1 = GNMB (Arg0)
-            Local2 = ((GADR (Local0, 0x02) + (Local1 * 0x08)) + 
+            Local2 = ((GADR (Local0, 0x02) + (Local1 * 0x08)) +
                 0x04)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   10, 
-                TEMP,   4, 
+                    ,   10,
+                TEMP,   4,
                 Offset (0x04)
             }
 
@@ -4341,7 +4375,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             Local0 = GGRP (Arg0)
             Local1 = GNMB (Arg0)
             Local4 = ((Local1 >> 0x05) * 0x04)
-            If ((((GPEM >> (Local0 * 0x02)) & 0x03) == 
+            If ((((GPEM >> (Local0 * 0x02)) & 0x03) ==
                 Zero))
             {
                 OperationRegion (GPPX, SystemMemory, (GADR (Local0, 0x05) + Local4), 0x04)
@@ -4370,8 +4404,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (GPPX, SystemMemory, Local2, 0x24)
             Field (GPPX, AnyAcc, NoLock, Preserve)
             {
-                STSX,   32, 
-                Offset (0x20), 
+                STSX,   32,
+                Offset (0x20),
                 GENX,   32
             }
 
@@ -4386,10 +4420,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   9, 
-                RDIS,   1, 
-                    ,   15, 
-                RCFG,   2, 
+                    ,   9,
+                RDIS,   1,
+                    ,   15,
+                RCFG,   2,
                 Offset (0x04)
             }
 
@@ -4409,10 +4443,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PDW0, SystemMemory, Local2, 0x04)
             Field (PDW0, AnyAcc, NoLock, Preserve)
             {
-                    ,   9, 
-                RDIS,   1, 
-                    ,   15, 
-                RCFG,   2, 
+                    ,   9,
+                RDIS,   1,
+                    ,   15,
+                RCFG,   2,
                 Offset (0x04)
             }
 
@@ -4484,10 +4518,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             Field (THBA, DWordAcc, NoLock, Preserve)
             {
-                DO00,   32, 
-                Offset (0x10), 
-                DO10,   32, 
-                Offset (0x30), 
+                DO00,   32,
+                Offset (0x10),
+                DO10,   32,
+                Offset (0x30),
                 DO30,   32
             }
 
@@ -4728,18 +4762,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (LPC, PCI_Config, Zero, 0x0100)
             Field (LPC, AnyAcc, NoLock, Preserve)
             {
-                Offset (0x02), 
-                CDID,   16, 
-                Offset (0x08), 
-                CRID,   8, 
-                Offset (0x80), 
-                IOD0,   8, 
-                IOD1,   8, 
-                Offset (0xA0), 
-                    ,   9, 
-                PRBL,   1, 
-                Offset (0xDC), 
-                    ,   2, 
+                Offset (0x02),
+                CDID,   16,
+                Offset (0x08),
+                CRID,   8,
+                Offset (0x80),
+                IOD0,   8,
+                IOD1,   8,
+                Offset (0xA0),
+                    ,   9,
+                PRBL,   1,
+                Offset (0xDC),
+                    ,   2,
                 ESPI,   1
             }
         }
@@ -5231,51 +5265,51 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PMIO, SystemIO, PMBS, 0x60)
         Field (PMIO, ByteAcc, NoLock, Preserve)
         {
-            Offset (0x01), 
-            PBSS,   1, 
-            Offset (0x40), 
-                ,   17, 
+            Offset (0x01),
+            PBSS,   1,
+            Offset (0x40),
+                ,   17,
             GPEC,   1
         }
 
         OperationRegion (TCBA, SystemIO, TCBS (), 0x10)
         Field (TCBA, ByteAcc, NoLock, Preserve)
         {
-            Offset (0x04), 
-                ,   9, 
+            Offset (0x04),
+                ,   9,
             CPSC,   1
         }
 
         OperationRegion (PWMR, SystemMemory, PWRM, 0x0800)
         Field (PWMR, AnyAcc, NoLock, Preserve)
         {
-            ACWA,   32, 
-            DCWA,   32, 
-            ACET,   32, 
-            DCET,   32, 
-            Offset (0xE0), 
-            Offset (0xE2), 
-            DWLE,   1, 
-            HWLE,   1, 
-            Offset (0x31C), 
-                ,   13, 
-            SLS0,   1, 
-                ,   8, 
+            ACWA,   32,
+            DCWA,   32,
+            ACET,   32,
+            DCET,   32,
+            Offset (0xE0),
+            Offset (0xE2),
+            DWLE,   1,
+            HWLE,   1,
+            Offset (0x31C),
+                ,   13,
+            SLS0,   1,
+                ,   8,
             XSQD,   1
         }
 
         OperationRegion (PMST, SystemMemory, PWRM, 0x80)
         Field (PMST, DWordAcc, NoLock, Preserve)
         {
-            Offset (0x18), 
-                ,   25, 
-            USBP,   1, 
-            Offset (0x1C), 
-            Offset (0x1F), 
-            PMFS,   1, 
-            Offset (0x20), 
-            MPMC,   32, 
-                ,   20, 
+            Offset (0x18),
+                ,   25,
+            USBP,   1,
+            Offset (0x1C),
+            Offset (0x1F),
+            PMFS,   1,
+            Offset (0x20),
+            MPMC,   32,
+                ,   20,
             UWAB,   1
         }
     }
@@ -5306,10 +5340,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             Field (GLBA, ByteAcc, NoLock, Preserve)
             {
-                Offset (0xCC), 
-                Offset (0xCD), 
-                PMEE,   1, 
-                    ,   6, 
+                Offset (0xCC),
+                Offset (0xCD),
+                PMEE,   1,
+                    ,   6,
                 PMES,   1
             }
 
@@ -5347,25 +5381,25 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (XPRT, PCI_Config, Zero, 0x0100)
             Field (XPRT, AnyAcc, NoLock, Preserve)
             {
-                DVID,   16, 
-                Offset (0x10), 
-                XADL,   32, 
-                XADH,   32, 
-                Offset (0x50), 
-                    ,   2, 
-                STGE,   1, 
-                Offset (0xA2), 
-                    ,   2, 
+                DVID,   16,
+                Offset (0x10),
+                XADL,   32,
+                XADH,   32,
+                Offset (0x50),
+                    ,   2,
+                STGE,   1,
+                Offset (0xA2),
+                    ,   2,
                 D3HE,   1
             }
 
             Field (XPRT, ByteAcc, NoLock, Preserve)
             {
-                Offset (0x74), 
-                D0D3,   2, 
-                Offset (0x75), 
-                PMEE,   1, 
-                    ,   6, 
+                Offset (0x74),
+                D0D3,   2,
+                Offset (0x75),
+                PMEE,   1,
+                    ,   6,
                 PMES,   1
             }
 
@@ -5379,12 +5413,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (XMIO, SystemMemory, Local0, 0x9000)
                 Field (XMIO, AnyAcc, Lock, Preserve)
                 {
-                    Offset (0x550), 
-                    PCCS,   1, 
-                        ,   4, 
-                    PPLS,   4, 
-                    PTPP,   1, 
-                    Offset (0x8420), 
+                    Offset (0x550),
+                    PCCS,   1,
+                        ,   4,
+                    PPLS,   4,
+                    PTPP,   1,
+                    Offset (0x8420),
                     PRTM,   2
                 }
 
@@ -5496,9 +5530,9 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (XHCP, SystemMemory, (GPCB () + 0x000A0000), 0x0100)
             Field (XHCP, AnyAcc, Lock, Preserve)
             {
-                Offset (0x04), 
-                PDBM,   16, 
-                Offset (0x10), 
+                Offset (0x04),
+                PDBM,   16,
+                Offset (0x10),
                 MEMB,   64
             }
 
@@ -5545,8 +5579,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (MC11, SystemMemory, XWMB, 0x9000)
                 Field (MC11, DWordAcc, Lock, Preserve)
                 {
-                    Offset (0x81C4), 
-                        ,   2, 
+                    Offset (0x81C4),
+                        ,   2,
                     UPSW,   2
                 }
 
@@ -5585,10 +5619,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (MC11, SystemMemory, XWMB, 0x9000)
                 Field (MC11, DWordAcc, Lock, Preserve)
                 {
-                    Offset (0x81A0), 
-                    LFU3,   6, 
-                    Offset (0x81C4), 
-                        ,   2, 
+                    Offset (0x81A0),
+                    LFU3,   6,
+                    Offset (0x81C4),
+                        ,   2,
                     UPSW,   2
                 }
 
@@ -5605,73 +5639,73 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (UPSC, SystemMemory, (XWMB + U3PS), 0x0100)
                 Field (UPSC, DWordAcc, Lock, Preserve)
                 {
-                        ,   5, 
-                    PLS1,   4, 
-                        ,   13, 
-                    PLC1,   1, 
-                    Offset (0x03), 
-                    CAS1,   1, 
-                    Offset (0x10), 
-                        ,   5, 
-                    PLS2,   4, 
-                        ,   13, 
-                    PLC2,   1, 
-                    Offset (0x13), 
-                    CAS2,   1, 
-                    Offset (0x20), 
-                        ,   5, 
-                    PLS3,   4, 
-                        ,   13, 
-                    PLC3,   1, 
-                    Offset (0x23), 
-                    CAS3,   1, 
-                    Offset (0x30), 
-                        ,   5, 
-                    PLS4,   4, 
-                        ,   13, 
-                    PLC4,   1, 
-                    Offset (0x33), 
-                    CAS4,   1, 
-                    Offset (0x40), 
-                        ,   5, 
-                    PLS5,   4, 
-                        ,   13, 
-                    PLC5,   1, 
-                    Offset (0x43), 
-                    CAS5,   1, 
-                    Offset (0x50), 
-                        ,   5, 
-                    PLS6,   4, 
-                        ,   13, 
-                    PLC6,   1, 
-                    Offset (0x53), 
-                    CAS6,   1, 
-                    Offset (0x60), 
-                    Offset (0x63), 
-                    CAS7,   1, 
-                    Offset (0x70), 
-                    Offset (0x73), 
-                    CAS8,   1, 
-                    Offset (0x80), 
-                    Offset (0x83), 
-                    CAS9,   1, 
-                    Offset (0x90), 
-                    Offset (0x93), 
+                        ,   5,
+                    PLS1,   4,
+                        ,   13,
+                    PLC1,   1,
+                    Offset (0x03),
+                    CAS1,   1,
+                    Offset (0x10),
+                        ,   5,
+                    PLS2,   4,
+                        ,   13,
+                    PLC2,   1,
+                    Offset (0x13),
+                    CAS2,   1,
+                    Offset (0x20),
+                        ,   5,
+                    PLS3,   4,
+                        ,   13,
+                    PLC3,   1,
+                    Offset (0x23),
+                    CAS3,   1,
+                    Offset (0x30),
+                        ,   5,
+                    PLS4,   4,
+                        ,   13,
+                    PLC4,   1,
+                    Offset (0x33),
+                    CAS4,   1,
+                    Offset (0x40),
+                        ,   5,
+                    PLS5,   4,
+                        ,   13,
+                    PLC5,   1,
+                    Offset (0x43),
+                    CAS5,   1,
+                    Offset (0x50),
+                        ,   5,
+                    PLS6,   4,
+                        ,   13,
+                    PLC6,   1,
+                    Offset (0x53),
+                    CAS6,   1,
+                    Offset (0x60),
+                    Offset (0x63),
+                    CAS7,   1,
+                    Offset (0x70),
+                    Offset (0x73),
+                    CAS8,   1,
+                    Offset (0x80),
+                    Offset (0x83),
+                    CAS9,   1,
+                    Offset (0x90),
+                    Offset (0x93),
                     CASA,   1
                 }
 
                 Field (UPSC, DWordAcc, Lock, Preserve)
                 {
-                    PSC1,   32, 
-                    Offset (0x10), 
-                    PSC2,   32, 
-                    Offset (0x20), 
-                    PSC3,   32, 
-                    Offset (0x30), 
-                    PSC4,   32, 
-                    Offset (0x40), 
-                    PSC5,   32, 
-                    Offset (0x50), 
+                    PSC1,   32,
+                    Offset (0x10),
+                    PSC2,   32,
+                    Offset (0x20),
+                    PSC3,   32,
+                    Offset (0x30),
+                    PSC4,   32,
+                    Offset (0x40),
+                    PSC5,   32,
+                    Offset (0x50),
                     PSC6,   32
                 }
 
@@ -5746,7 +5780,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                     D0D3 = Zero
                     D3HE = Zero
                 }
-                ElseIf (((((((CAS1 || CAS2) || CAS3) || CAS4) || 
+                ElseIf (((((((CAS1 || CAS2) || CAS3) || CAS4) ||
                     CAS5) || CAS6) || ((PCHV () == SPTH) && (((CAS7 || CAS8) || CAS9) || CASA))))
                 {
                     D3HE = Zero
@@ -6012,18 +6046,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (OTGD, PCI_Config, Zero, 0x0100)
             Field (OTGD, DWordAcc, NoLock, Preserve)
             {
-                DVID,   16, 
-                Offset (0x10), 
+                DVID,   16,
+                Offset (0x10),
                 XDCB,   64
             }
 
             Field (OTGD, ByteAcc, NoLock, Preserve)
             {
-                Offset (0x84), 
-                D0I3,   2, 
-                Offset (0x85), 
-                PMEE,   1, 
-                    ,   6, 
+                Offset (0x84),
+                D0I3,   2,
+                Offset (0x85),
+                PMEE,   1,
+                    ,   6,
                 PMES,   1
             }
 
@@ -6048,18 +6082,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                             OperationRegion (XDBW, SystemMemory, XDBA (), 0x00110000)
                             Field (XDBW, WordAcc, NoLock, Preserve)
                             {
-                                Offset (0x10F810), 
-                                Offset (0x10F811), 
-                                U2CP,   2, 
-                                U3CP,   2, 
-                                Offset (0x10F818), 
-                                PUPS,   2, 
-                                    ,   1, 
-                                PURC,   1, 
-                                Offset (0x10F81A), 
-                                Offset (0x10F81C), 
-                                    ,   3, 
-                                UXPE,   2, 
+                                Offset (0x10F810),
+                                Offset (0x10F811),
+                                U2CP,   2,
+                                U3CP,   2,
+                                Offset (0x10F818),
+                                PUPS,   2,
+                                    ,   1,
+                                PURC,   1,
+                                Offset (0x10F81A),
+                                Offset (0x10F81C),
+                                    ,   3,
+                                UXPE,   2,
                                 Offset (0x10F81E)
                             }
 
@@ -6158,17 +6192,17 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 OperationRegion (XDBD, SystemMemory, XDBA (), 0x00110000)
                                 Field (XDBD, DWordAcc, NoLock, Preserve)
                                 {
-                                    Offset (0xC704), 
-                                        ,   30, 
-                                    CSFR,   1, 
+                                    Offset (0xC704),
+                                        ,   30,
+                                    CSFR,   1,
                                     Offset (0xC708)
                                 }
 
                                 OperationRegion (XDW2, SystemMemory, XDBA (), 0x00110000)
                                 Field (XDW2, WordAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x10F820), 
-                                        ,   13, 
+                                    Offset (0x10F820),
+                                        ,   13,
                                     OTHC,   1
                                 }
 
@@ -6194,8 +6228,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 OperationRegion (XD22, SystemMemory, XDBA (), 0x00110000)
                                 Field (XD22, WordAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x10F818), 
-                                    P2PS,   2, 
+                                    Offset (0x10F818),
+                                    P2PS,   2,
                                     Offset (0x10F81A)
                                 }
 
@@ -6272,10 +6306,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             Field (HDAR, ByteAcc, NoLock, Preserve)
             {
-                Offset (0x54), 
-                Offset (0x55), 
-                PMEE,   1, 
-                    ,   6, 
+                Offset (0x54),
+                Offset (0x55),
+                PMEE,   1,
+                    ,   6,
                 PMES,   1
             }
 
@@ -6455,56 +6489,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -6628,10 +6662,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -6716,56 +6750,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -6889,10 +6923,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -6977,56 +7011,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -7150,10 +7184,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -7238,56 +7272,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -7411,10 +7445,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -7499,56 +7533,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -7672,10 +7706,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -7760,56 +7794,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -7933,10 +7967,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -8021,56 +8055,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -8194,10 +8228,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -8282,56 +8316,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -8455,10 +8489,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -8543,56 +8577,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -8716,10 +8750,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -8804,56 +8838,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -8977,10 +9011,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -9065,56 +9099,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -9238,10 +9272,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -9326,56 +9360,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -9499,10 +9533,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -9587,56 +9621,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -9760,10 +9794,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -9848,56 +9882,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -10021,10 +10055,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -10109,56 +10143,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -10282,10 +10316,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -10370,56 +10404,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -10543,10 +10577,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -10631,56 +10665,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -10804,10 +10838,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -10892,56 +10926,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -11065,10 +11099,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -11153,56 +11187,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -11326,10 +11360,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -11414,56 +11448,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -11587,10 +11621,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -11675,56 +11709,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -11848,10 +11882,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -11936,56 +11970,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -12109,10 +12143,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -12197,56 +12231,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -12370,10 +12404,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -12458,56 +12492,56 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (PXCS, PCI_Config, Zero, 0x0480)
             Field (PXCS, AnyAcc, NoLock, Preserve)
             {
-                VDID,   32, 
-                Offset (0x50), 
-                L0SE,   1, 
-                    ,   3, 
-                LDIS,   1, 
-                Offset (0x51), 
-                Offset (0x52), 
-                    ,   13, 
-                LASX,   1, 
-                Offset (0x5A), 
-                ABPX,   1, 
-                    ,   2, 
-                PDCX,   1, 
-                    ,   2, 
-                PDSX,   1, 
-                Offset (0x5B), 
-                Offset (0x60), 
-                Offset (0x62), 
-                PSPX,   1, 
-                Offset (0xA4), 
-                D3HT,   2, 
-                Offset (0xD8), 
-                    ,   30, 
-                HPEX,   1, 
-                PMEX,   1, 
-                Offset (0xE2), 
-                    ,   2, 
-                L23E,   1, 
-                L23R,   1, 
-                Offset (0x324), 
-                    ,   3, 
-                LEDM,   1, 
-                Offset (0x420), 
-                    ,   30, 
+                VDID,   32,
+                Offset (0x50),
+                L0SE,   1,
+                    ,   3,
+                LDIS,   1,
+                Offset (0x51),
+                Offset (0x52),
+                    ,   13,
+                LASX,   1,
+                Offset (0x5A),
+                ABPX,   1,
+                    ,   2,
+                PDCX,   1,
+                    ,   2,
+                PDSX,   1,
+                Offset (0x5B),
+                Offset (0x60),
+                Offset (0x62),
+                PSPX,   1,
+                Offset (0xA4),
+                D3HT,   2,
+                Offset (0xD8),
+                    ,   30,
+                HPEX,   1,
+                PMEX,   1,
+                Offset (0xE2),
+                    ,   2,
+                L23E,   1,
+                L23R,   1,
+                Offset (0x324),
+                    ,   3,
+                LEDM,   1,
+                Offset (0x420),
+                    ,   30,
                 DPGE,   1
             }
 
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
-                Offset (0xDC), 
-                    ,   30, 
-                HPSX,   1, 
+                Offset (0xDC),
+                    ,   30,
+                HPSX,   1,
                 PMSX,   1
             }
 
             Name (LTRV, Package (0x04)
             {
-                Zero, 
-                Zero, 
-                Zero, 
+                Zero,
+                Zero,
+                Zero,
                 Zero
             })
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
@@ -12631,10 +12665,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                                 {
                                     Return (Package (0x05)
                                     {
-                                        0xC350, 
-                                        Ones, 
-                                        Ones, 
-                                        0xC350, 
+                                        0xC350,
+                                        Ones,
+                                        Ones,
+                                        0xC350,
                                         Ones
                                     })
                                 }
@@ -12767,7 +12801,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (EPAC, SystemMemory, (GPCB () + 0x000B8308), 0x08)
                 Field (EPAC, DWordAcc, Lock, Preserve)
                 {
-                    CAIR,   32, 
+                    CAIR,   32,
                     CADR,   32
                 }
 
@@ -12932,22 +12966,22 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 Name (PCMD, Zero)
                 Name (RSTG, Package (0x04)
                 {
-                    Zero, 
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (PWRG, Package (0x04)
                 {
-                    Zero, 
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (SCLK, Package (0x03)
                 {
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (NCRN, Zero)
@@ -13089,10 +13123,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         OperationRegion (MCRC, SystemMemory, (GPCB () + 0x000B833C), 0x04)
                         Field (MCRC, AnyAcc, NoLock, Preserve)
                         {
-                            SCSO,   8, 
-                            Offset (0x02), 
-                            TCSO,   8, 
-                                ,   7, 
+                            SCSO,   8,
+                            Offset (0x02),
+                            TCSO,   8,
+                                ,   7,
                             RE,     1
                         }
 
@@ -13119,10 +13153,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         OperationRegion (MCRC, SystemMemory, (GPCB () + 0x000B833C), 0x04)
                         Field (MCRC, AnyAcc, NoLock, Preserve)
                         {
-                            SCSO,   8, 
-                            Offset (0x02), 
-                            TCSO,   8, 
-                                ,   7, 
+                            SCSO,   8,
+                            Offset (0x02),
+                            TCSO,   8,
+                                ,   7,
                             RE,     1
                         }
 
@@ -13227,22 +13261,22 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 Name (PCMD, Zero)
                 Name (RSTG, Package (0x04)
                 {
-                    Zero, 
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (PWRG, Package (0x04)
                 {
-                    Zero, 
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (SCLK, Package (0x03)
                 {
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (NCRN, Zero)
@@ -13384,10 +13418,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         OperationRegion (MCRC, SystemMemory, (GPCB () + 0x000B833C), 0x04)
                         Field (MCRC, AnyAcc, NoLock, Preserve)
                         {
-                            SCSO,   8, 
-                            Offset (0x02), 
-                            TCSO,   8, 
-                                ,   7, 
+                            SCSO,   8,
+                            Offset (0x02),
+                            TCSO,   8,
+                                ,   7,
                             RE,     1
                         }
 
@@ -13414,10 +13448,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         OperationRegion (MCRC, SystemMemory, (GPCB () + 0x000B833C), 0x04)
                         Field (MCRC, AnyAcc, NoLock, Preserve)
                         {
-                            SCSO,   8, 
-                            Offset (0x02), 
-                            TCSO,   8, 
-                                ,   7, 
+                            SCSO,   8,
+                            Offset (0x02),
+                            TCSO,   8,
+                                ,   7,
                             RE,     1
                         }
 
@@ -13522,22 +13556,22 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 Name (PCMD, Zero)
                 Name (RSTG, Package (0x04)
                 {
-                    Zero, 
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (PWRG, Package (0x04)
                 {
-                    Zero, 
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (SCLK, Package (0x03)
                 {
-                    Zero, 
-                    Zero, 
+                    Zero,
+                    Zero,
                     Zero
                 })
                 Name (NCRN, Zero)
@@ -13679,10 +13713,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         OperationRegion (MCRC, SystemMemory, (GPCB () + 0x000B833C), 0x04)
                         Field (MCRC, AnyAcc, NoLock, Preserve)
                         {
-                            SCSO,   8, 
-                            Offset (0x02), 
-                            TCSO,   8, 
-                                ,   7, 
+                            SCSO,   8,
+                            Offset (0x02),
+                            TCSO,   8,
+                                ,   7,
                             RE,     1
                         }
 
@@ -13709,10 +13743,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         OperationRegion (MCRC, SystemMemory, (GPCB () + 0x000B833C), 0x04)
                         Field (MCRC, AnyAcc, NoLock, Preserve)
                         {
-                            SCSO,   8, 
-                            Offset (0x02), 
-                            TCSO,   8, 
-                                ,   7, 
+                            SCSO,   8,
+                            Offset (0x02),
+                            TCSO,   8,
+                                ,   7,
                             RE,     1
                         }
 
@@ -13837,7 +13871,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                     If ((DerefOf (Arg0 [Zero]) == One))
                     {
                         ADBG (Concatenate ("POFF GPIO=", ToHexString (DerefOf (Arg0 [0x02]))))
-                        SGOV (DerefOf (Arg0 [0x02]), (DerefOf (Arg0 [0x03]) ^ 
+                        SGOV (DerefOf (Arg0 [0x02]), (DerefOf (Arg0 [0x03]) ^
                             One))
                     }
 
@@ -14967,12 +15001,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (EMPC, SystemMemory, EMPB, 0x0100)
                 Field (EMPC, DWordAcc, NoLock, Preserve)
                 {
-                    Offset (0x04), 
-                        ,   1, 
-                    MSE,    1, 
-                    Offset (0x10), 
-                    BAR0,   64, 
-                    Offset (0x84), 
+                    Offset (0x04),
+                        ,   1,
+                    MSE,    1,
+                    Offset (0x10),
+                    BAR0,   64,
+                    Offset (0x84),
                     PSTA,   32
                 }
 
@@ -14991,9 +15025,9 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (EMMI, SystemMemory, Arg3, Arg4)
                 Field (EMMI, DWordAcc, NoLock, Preserve)
                 {
-                    Offset (0x834), 
-                    FDLL,   8, 
-                    Offset (0x840), 
+                    Offset (0x834),
+                    FDLL,   8,
+                    Offset (0x840),
                     ADLL,   8
                 }
 
@@ -15023,10 +15057,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (SCSR, PCI_Config, Zero, 0x0100)
                 Field (SCSR, WordAcc, NoLock, Preserve)
                 {
-                    Offset (0x84), 
-                    PSTA,   32, 
-                    Offset (0xA2), 
-                        ,   2, 
+                    Offset (0x84),
+                    PSTA,   32,
+                    Offset (0xA2),
+                        ,   2,
                     PGEN,   1
                 }
 
@@ -15147,10 +15181,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                 OperationRegion (SCSR, PCI_Config, Zero, 0x0100)
                 Field (SCSR, WordAcc, NoLock, Preserve)
                 {
-                    Offset (0x84), 
-                    PSTA,   32, 
-                    Offset (0xA2), 
-                        ,   2, 
+                    Offset (0x84),
+                    PSTA,   32,
+                    Offset (0xA2),
+                        ,   2,
                     PGEN,   1
                 }
 
@@ -15677,7 +15711,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             Name (_DEP, Package (0x02)  // _DEP: Dependencies
             {
-                ^PCI0.UA00, 
+                ^PCI0.UA00,
                 PEPD
             })
             Name (SBUF, ResourceTemplate ()
@@ -16061,8 +16095,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             OperationRegion (OR01, GenericSerialBus, Zero, 0x0100)
             Field (OR01, BufferAcc, NoLock, Preserve)
             {
-                Connection (I2Z0), 
-                AccessAs (BufferAcc, AttribRawProcessBytes (0x02)), 
+                Connection (I2Z0),
+                AccessAs (BufferAcc, AttribRawProcessBytes (0x02)),
                 SAN0,   8
             }
 
@@ -16411,25 +16445,25 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             {
                 Name (BPKG, Package (0x14)
                 {
-                    Zero, 
-                    Zero, 
-                    0xB090, 
-                    0xB6DA, 
-                    One, 
-                    0x1D93, 
-                    0x1A7C, 
-                    0x054C, 
-                    Zero, 
-                    0x03E8, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0x03E8, 
-                    0x03E8, 
-                    One, 
-                    One, 
-                    "SDS-BAT             ", 
-                    "1234567890", 
-                    "BAT ", 
+                    Zero,
+                    Zero,
+                    0xB090,
+                    0xB6DA,
+                    One,
+                    0x1D93,
+                    0x1A7C,
+                    0x054C,
+                    Zero,
+                    0x03E8,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0x03E8,
+                    0x03E8,
+                    One,
+                    One,
+                    "SDS-BAT             ",
+                    "1234567890",
+                    "BAT ",
                     "SDS-BAT-MANUFACTURER"
                 })
                 Local0 = ^^_SAN.RQST (0x02, 0x02, One, Zero, One)
@@ -16493,9 +16527,9 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             {
                 Name (PKG1, Package (0x04)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 Local0 = ^^_SAN.RQST (0x02, 0x03, One, Zero, One)
@@ -16863,6 +16897,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     {
         Device (WSID)
         {
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                _SSH
+            })
             Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
             {
                 If ((0x94 <= OMBR))
@@ -17853,13 +17891,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                             {
                                 Name (PBUF, Package (0x08)
                                 {
-                                    "SYSTEM_SENSOR_USB", 
-                                    0x64, 
-                                    "SYSTEM_TPAD_PMI_TPM_SSD", 
-                                    0x14, 
-                                    "SYSTEM_KB_TOUCH_AUDIO_FAN", 
-                                    0x0A, 
-                                    "CPU_SA", 
+                                    "SYSTEM_SENSOR_USB",
+                                    0x64,
+                                    "SYSTEM_TPAD_PMI_TPM_SSD",
+                                    0x14,
+                                    "SYSTEM_KB_TOUCH_AUDIO_FAN",
+                                    0x0A,
+                                    "CPU_SA",
                                     0x32
                                 })
                                 Return (PBUF) /* \_SB_.PCI0.I2C1.PA01._DSM.PBUF */
@@ -17868,13 +17906,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                             {
                                 Name (VBUF, Package (0x08)
                                 {
-                                    "CPU_CLOCK", 
-                                    0x19, 
-                                    "SYSTEM_AUDIO_TOUCH_IO", 
-                                    0x14, 
-                                    "SYSTEM_KB_TOUCH_AUDIO_FAN", 
-                                    0x0A, 
-                                    "SYSTEM_KEYBOARD", 
+                                    "CPU_CLOCK",
+                                    0x19,
+                                    "SYSTEM_AUDIO_TOUCH_IO",
+                                    0x14,
+                                    "SYSTEM_KB_TOUCH_AUDIO_FAN",
+                                    0x0A,
+                                    "SYSTEM_KEYBOARD",
                                     0x64
                                 })
                                 Return (VBUF) /* \_SB_.PCI0.I2C1.PA01._DSM.VBUF */
@@ -17982,13 +18020,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         {
                             Name (PBUF, Package (0x08)
                             {
-                                "SYSTEM_SENSOR_USB", 
-                                0x64, 
-                                "AUDIO", 
-                                0x14, 
-                                "WLAN_BT", 
-                                0x28, 
-                                "DISPLAY_BACKLIGHT", 
+                                "SYSTEM_SENSOR_USB",
+                                0x64,
+                                "AUDIO",
+                                0x14,
+                                "WLAN_BT",
+                                0x28,
+                                "DISPLAY_BACKLIGHT",
                                 0x14
                             })
                             Return (PBUF) /* \_SB_.PCI0.I2C1.PA02._DSM.PBUF */
@@ -18095,13 +18133,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         {
                             Name (PBUF, Package (0x08)
                             {
-                                "TOUCH", 
-                                0x32, 
-                                "DISPLAY_PANEL", 
-                                0x32, 
-                                "CAMERA_SENSOR", 
-                                0x64, 
-                                "SYSTEM_TPAD_PMI_TPM_SSD", 
+                                "TOUCH",
+                                0x32,
+                                "DISPLAY_PANEL",
+                                0x32,
+                                "CAMERA_SENSOR",
+                                0x64,
+                                "SYSTEM_TPAD_PMI_TPM_SSD",
                                 0x14
                             })
                             Return (PBUF) /* \_SB_.PCI0.I2C1.PA03._DSM.PBUF */
@@ -18211,13 +18249,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                             {
                                 Name (PBUF, Package (0x08)
                                 {
-                                    "WLAN_BT", 
-                                    0x28, 
-                                    "GPU", 
-                                    0x14, 
-                                    "CPU_CORES", 
-                                    0x14, 
-                                    "SYSTEM", 
+                                    "WLAN_BT",
+                                    0x28,
+                                    "GPU",
+                                    0x14,
+                                    "CPU_CORES",
+                                    0x14,
+                                    "SYSTEM",
                                     0x0A
                                 })
                                 Return (PBUF) /* \_SB_.PCI0.I2C1.PA04._DSM.PBUF */
@@ -18226,13 +18264,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                             {
                                 Name (VBUF, Package (0x08)
                                 {
-                                    "SYSTEM_PMI", 
-                                    0x64, 
-                                    "GPU", 
-                                    0x14, 
-                                    "CPU_MEMORY_IO", 
-                                    0x19, 
-                                    "CPU_IO", 
+                                    "SYSTEM_PMI",
+                                    0x64,
+                                    "GPU",
+                                    0x14,
+                                    "CPU_MEMORY_IO",
+                                    0x19,
+                                    "CPU_IO",
                                     0x19
                                 })
                                 Return (VBUF) /* \_SB_.PCI0.I2C1.PA04._DSM.VBUF */
@@ -18340,13 +18378,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         {
                             Name (PBUF, Package (0x08)
                             {
-                                "SENSORS", 
-                                0x64, 
-                                "CPU_SA", 
-                                0x32, 
-                                "STORAGE_SSD", 
-                                0x0A, 
-                                "CPU_CORES", 
+                                "SENSORS",
+                                0x64,
+                                "CPU_SA",
+                                0x32,
+                                "STORAGE_SSD",
+                                0x0A,
+                                "CPU_CORES",
                                 0x14
                             })
                             Return (PBUF) /* \_SB_.PCI0.I2C1.PA05._DSM.PBUF */
@@ -18453,13 +18491,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         {
                             Name (PBUF, Package (0x08)
                             {
-                                "NONE", 
-                                0x0A, 
-                                "NONE", 
-                                0x0A, 
-                                "USB", 
-                                0x05, 
-                                "SYSTEM", 
+                                "NONE",
+                                0x0A,
+                                "NONE",
+                                0x0A,
+                                "USB",
+                                0x05,
+                                "SYSTEM",
                                 0x0A
                             })
                             Return (PBUF) /* \_SB_.PCI0.I2C1.PA06._DSM.PBUF */
@@ -18581,17 +18619,17 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (ITSS, SystemMemory, 0xFDC43100, 0x0208)
         Field (ITSS, ByteAcc, NoLock, Preserve)
         {
-            PARC,   8, 
-            PBRC,   8, 
-            PCRC,   8, 
-            PDRC,   8, 
-            PERC,   8, 
-            PFRC,   8, 
-            PGRC,   8, 
-            PHRC,   8, 
-            Offset (0x200), 
-                ,   1, 
-                ,   1, 
+            PARC,   8,
+            PBRC,   8,
+            PCRC,   8,
+            PDRC,   8,
+            PERC,   8,
+            PFRC,   8,
+            PGRC,   8,
+            PHRC,   8,
+            Offset (0x200),
+                ,   1,
+                ,   1,
             SCGE,   1
         }
     }
@@ -18820,7 +18858,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
         Return (Package (0x02)
         {
-            Zero, 
+            Zero,
             Zero
         })
     }
@@ -19018,11 +19056,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     OperationRegion (MBAR, SystemMemory, (\_SB.PCI0.GMHB () + 0x5000), 0x1000)
     Field (MBAR, ByteAcc, NoLock, Preserve)
     {
-        Offset (0x938), 
-        PWRU,   4, 
-        Offset (0x9A0), 
-        PPL1,   15, 
-        PL1E,   1, 
+        Offset (0x938),
+        PWRU,   4,
+        Offset (0x9A0),
+        PPL1,   15,
+        PL1E,   1,
         CLP1,   1
     }
 
@@ -19355,7 +19393,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         Name (PICM, Zero)
         Name (PRWP, Package (0x02)
         {
-            Zero, 
+            Zero,
             Zero
         })
         Method (GPRW, 2, NotSerialized)
@@ -19434,7 +19472,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             {
                 Package (0x02)
                 {
-                    "en", 
+                    "en",
                     Unicode ("Enclave Page Cache 1.0")
                 }
             })
@@ -19522,340 +19560,340 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     {
         Name (CPC2, Package (0x15)
         {
-            0x15, 
-            0x02, 
+            0x15,
+            0x02,
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
                     0x00000000000000CE, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
+                Register (SystemMemory,
                     0x00,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000000, // Address
                     ,)
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
+                Register (SystemMemory,
                     0x00,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000000, // Address
                     ,)
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
+                Register (SystemMemory,
                     0x00,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000000, // Address
                     ,)
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x40,               // Bit Width
                     0x00,               // Bit Offset
                     0x00000000000000E7, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x40,               // Bit Width
                     0x00,               // Bit Offset
                     0x00000000000000E8, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x02,               // Bit Width
                     0x01,               // Bit Offset
                     0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
-            One, 
+            One,
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x0A,               // Bit Width
                     0x20,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             Zero
         })
         Name (CPOC, Package (0x15)
         {
-            0x15, 
-            0x02, 
-            0xFF, 
+            0x15,
+            0x02,
+            0xFF,
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
                     0x00000000000000CE, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
                     0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
+                Register (SystemMemory,
                     0x00,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000000, // Address
                     ,)
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
+                Register (SystemMemory,
                     0x00,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000000, // Address
                     ,)
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
+                Register (SystemMemory,
                     0x00,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000000, // Address
                     ,)
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x40,               // Bit Width
                     0x00,               // Bit Offset
                     0x00000000000000E7, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x40,               // Bit Width
                     0x00,               // Bit Offset
                     0x00000000000000E8, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x02,               // Bit Width
                     0x01,               // Bit Offset
                     0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
                     0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
-            One, 
+            One,
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x0A,               // Bit Width
                     0x20,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             ResourceTemplate ()
             {
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
                     0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
-            }, 
+            },
 
             Zero
         })
@@ -19880,7 +19918,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             Name (_PUR, Package (0x02)  // _PUR: Processor Utilization Request
             {
-                One, 
+                One,
                 Zero
             })
         }
@@ -20031,7 +20069,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             P8XH (One, L01C)
             If (((\_SB.PCI0.RP01.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP01.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != One) || 
+                If (((TBTS != One) || ((TBSE != One) ||
                     (TBS1 != One))))
                 {
                     Sleep (0x64)
@@ -20046,7 +20084,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP01.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != One) || 
+                    If (((TBTS != One) || ((TBSE != One) ||
                         (TBS1 != One))))
                     {
                         Notify (\_SB.PCI0.RP01, Zero) // Bus Check
@@ -20060,7 +20098,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP02.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP02.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x02) || 
+                If (((TBTS != One) || ((TBSE != 0x02) ||
                     (TBS1 != 0x02))))
                 {
                     Sleep (0x64)
@@ -20075,7 +20113,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP02.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x02) || 
+                    If (((TBTS != One) || ((TBSE != 0x02) ||
                         (TBS1 != 0x02))))
                     {
                         Notify (\_SB.PCI0.RP02, Zero) // Bus Check
@@ -20089,7 +20127,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP03.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP03.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x03) || 
+                If (((TBTS != One) || ((TBSE != 0x03) ||
                     (TBS1 != 0x03))))
                 {
                     Sleep (0x64)
@@ -20104,7 +20142,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP03.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x03) || 
+                    If (((TBTS != One) || ((TBSE != 0x03) ||
                         (TBS1 != 0x03))))
                     {
                         Notify (\_SB.PCI0.RP03, Zero) // Bus Check
@@ -20118,7 +20156,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP04.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP04.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x04) || 
+                If (((TBTS != One) || ((TBSE != 0x04) ||
                     (TBS1 != 0x04))))
                 {
                     Sleep (0x64)
@@ -20133,7 +20171,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP04.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x04) || 
+                    If (((TBTS != One) || ((TBSE != 0x04) ||
                         (TBS1 != 0x04))))
                     {
                         Notify (\_SB.PCI0.RP04, Zero) // Bus Check
@@ -20147,7 +20185,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP05.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP05.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x05) || 
+                If (((TBTS != One) || ((TBSE != 0x05) ||
                     (TBS1 != 0x05))))
                 {
                     Sleep (0x64)
@@ -20162,7 +20200,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP05.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x05) || 
+                    If (((TBTS != One) || ((TBSE != 0x05) ||
                         (TBS1 != 0x05))))
                     {
                         Notify (\_SB.PCI0.RP05, Zero) // Bus Check
@@ -20176,7 +20214,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP06.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP06.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x06) || 
+                If (((TBTS != One) || ((TBSE != 0x06) ||
                     (TBS1 != 0x06))))
                 {
                     Sleep (0x64)
@@ -20191,7 +20229,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP06.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x06) || 
+                    If (((TBTS != One) || ((TBSE != 0x06) ||
                         (TBS1 != 0x06))))
                     {
                         Notify (\_SB.PCI0.RP06, Zero) // Bus Check
@@ -20205,7 +20243,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP07.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP07.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x07) || 
+                If (((TBTS != One) || ((TBSE != 0x07) ||
                     (TBS1 != 0x07))))
                 {
                     Sleep (0x64)
@@ -20228,7 +20266,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP08.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP08.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x08) || 
+                If (((TBTS != One) || ((TBSE != 0x08) ||
                     (TBS1 != 0x08))))
                 {
                     Sleep (0x64)
@@ -20251,7 +20289,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP09.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP09.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x09) || 
+                If (((TBTS != One) || ((TBSE != 0x09) ||
                     (TBS1 != 0x09))))
                 {
                     Sleep (0x64)
@@ -20266,7 +20304,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP09.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x09) || 
+                    If (((TBTS != One) || ((TBSE != 0x09) ||
                         (TBS1 != 0x09))))
                     {
                         Notify (\_SB.PCI0.RP09, Zero) // Bus Check
@@ -20280,7 +20318,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP10.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP10.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x0A) || 
+                If (((TBTS != One) || ((TBSE != 0x0A) ||
                     (TBS1 != 0x0A))))
                 {
                     Sleep (0x64)
@@ -20295,7 +20333,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP10.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x0A) || 
+                    If (((TBTS != One) || ((TBSE != 0x0A) ||
                         (TBS1 != 0x0A))))
                     {
                         Notify (\_SB.PCI0.RP10, Zero) // Bus Check
@@ -20309,7 +20347,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP11.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP11.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x0B) || 
+                If (((TBTS != One) || ((TBSE != 0x0B) ||
                     (TBS1 != 0x0B))))
                 {
                     Sleep (0x64)
@@ -20324,7 +20362,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP11.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x0B) || 
+                    If (((TBTS != One) || ((TBSE != 0x0B) ||
                         (TBS1 != 0x0B))))
                     {
                         Notify (\_SB.PCI0.RP11, Zero) // Bus Check
@@ -20338,7 +20376,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP12.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP12.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x0C) || 
+                If (((TBTS != One) || ((TBSE != 0x0C) ||
                     (TBS1 != 0x0C))))
                 {
                     Sleep (0x64)
@@ -20353,7 +20391,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP12.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x0C) || 
+                    If (((TBTS != One) || ((TBSE != 0x0C) ||
                         (TBS1 != 0x0C))))
                     {
                         Notify (\_SB.PCI0.RP12, Zero) // Bus Check
@@ -20367,7 +20405,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP13.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP13.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x0D) || 
+                If (((TBTS != One) || ((TBSE != 0x0D) ||
                     (TBS1 != 0x0D))))
                 {
                     Sleep (0x64)
@@ -20382,7 +20420,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP13.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x0D) || 
+                    If (((TBTS != One) || ((TBSE != 0x0D) ||
                         (TBS1 != 0x0D))))
                     {
                         Notify (\_SB.PCI0.RP13, Zero) // Bus Check
@@ -20396,7 +20434,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP14.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP14.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x0E) || 
+                If (((TBTS != One) || ((TBSE != 0x0E) ||
                     (TBS1 != 0x0E))))
                 {
                     Sleep (0x64)
@@ -20411,7 +20449,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP14.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x0E) || 
+                    If (((TBTS != One) || ((TBSE != 0x0E) ||
                         (TBS1 != 0x0E))))
                     {
                         Notify (\_SB.PCI0.RP14, Zero) // Bus Check
@@ -20425,7 +20463,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP15.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP15.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x0F) || 
+                If (((TBTS != One) || ((TBSE != 0x0F) ||
                     (TBS1 != 0x0F))))
                 {
                     Sleep (0x64)
@@ -20440,7 +20478,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP15.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x0F) || 
+                    If (((TBTS != One) || ((TBSE != 0x0F) ||
                         (TBS1 != 0x0F))))
                     {
                         Notify (\_SB.PCI0.RP15, Zero) // Bus Check
@@ -20454,7 +20492,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP16.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP16.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x10) || 
+                If (((TBTS != One) || ((TBSE != 0x10) ||
                     (TBS1 != 0x10))))
                 {
                     Sleep (0x64)
@@ -20469,7 +20507,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP16.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x10) || 
+                    If (((TBTS != One) || ((TBSE != 0x10) ||
                         (TBS1 != 0x10))))
                     {
                         Notify (\_SB.PCI0.RP16, Zero) // Bus Check
@@ -20483,7 +20521,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP17.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP17.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x11) || 
+                If (((TBTS != One) || ((TBSE != 0x11) ||
                     (TBS1 != 0x11))))
                 {
                     Sleep (0x64)
@@ -20498,7 +20536,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP17.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x11) || 
+                    If (((TBTS != One) || ((TBSE != 0x11) ||
                         (TBS1 != 0x11))))
                     {
                         Notify (\_SB.PCI0.RP17, Zero) // Bus Check
@@ -20512,7 +20550,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP18.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP18.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x12) || 
+                If (((TBTS != One) || ((TBSE != 0x12) ||
                     (TBS1 != 0x12))))
                 {
                     Sleep (0x64)
@@ -20527,7 +20565,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP18.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x12) || 
+                    If (((TBTS != One) || ((TBSE != 0x12) ||
                         (TBS1 != 0x12))))
                     {
                         Notify (\_SB.PCI0.RP18, Zero) // Bus Check
@@ -20541,7 +20579,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP19.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP19.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x13) || 
+                If (((TBTS != One) || ((TBSE != 0x13) ||
                     (TBS1 != 0x13))))
                 {
                     Sleep (0x64)
@@ -20556,7 +20594,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP19.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x13) || 
+                    If (((TBTS != One) || ((TBSE != 0x13) ||
                         (TBS1 != 0x13))))
                     {
                         Notify (\_SB.PCI0.RP19, Zero) // Bus Check
@@ -20570,7 +20608,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP20.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP20.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x14) || 
+                If (((TBTS != One) || ((TBSE != 0x14) ||
                     (TBS1 != 0x14))))
                 {
                     Sleep (0x64)
@@ -20585,7 +20623,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP20.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x14) || 
+                    If (((TBTS != One) || ((TBSE != 0x14) ||
                         (TBS1 != 0x14))))
                     {
                         Notify (\_SB.PCI0.RP20, Zero) // Bus Check
@@ -20599,7 +20637,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP21.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP21.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x21) || 
+                If (((TBTS != One) || ((TBSE != 0x21) ||
                     (TBS1 != 0x21))))
                 {
                     Sleep (0x64)
@@ -20614,7 +20652,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP21.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x21) || 
+                    If (((TBTS != One) || ((TBSE != 0x21) ||
                         (TBS1 != 0x21))))
                     {
                         Notify (\_SB.PCI0.RP21, Zero) // Bus Check
@@ -20628,7 +20666,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP22.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP22.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x22) || 
+                If (((TBTS != One) || ((TBSE != 0x22) ||
                     (TBS1 != 0x22))))
                 {
                     Sleep (0x64)
@@ -20643,7 +20681,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP22.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x22) || 
+                    If (((TBTS != One) || ((TBSE != 0x22) ||
                         (TBS1 != 0x22))))
                     {
                         Notify (\_SB.PCI0.RP22, Zero) // Bus Check
@@ -20657,7 +20695,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP23.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP23.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x23) || 
+                If (((TBTS != One) || ((TBSE != 0x23) ||
                     (TBS1 != 0x23))))
                 {
                     Sleep (0x64)
@@ -20672,7 +20710,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP23.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x23) || 
+                    If (((TBTS != One) || ((TBSE != 0x23) ||
                         (TBS1 != 0x23))))
                     {
                         Notify (\_SB.PCI0.RP23, Zero) // Bus Check
@@ -20686,7 +20724,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
             If (((\_SB.PCI0.RP24.VDID != 0xFFFFFFFF) && \_SB.PCI0.RP24.HPSX))
             {
-                If (((TBTS != One) || ((TBSE != 0x24) || 
+                If (((TBTS != One) || ((TBSE != 0x24) ||
                     (TBS1 != 0x24))))
                 {
                     Sleep (0x64)
@@ -20701,7 +20739,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
                         \_SB.PCI0.RP24.L0SE = Zero
                     }
 
-                    If (((TBTS != One) || ((TBSE != 0x24) || 
+                    If (((TBTS != One) || ((TBSE != 0x24) ||
                         (TBS1 != 0x24))))
                     {
                         Notify (\_SB.PCI0.RP24, Zero) // Bus Check
@@ -20984,8 +21022,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21044,8 +21082,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21104,8 +21142,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21164,8 +21202,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21224,8 +21262,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21284,8 +21322,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21344,8 +21382,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21404,8 +21442,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21464,8 +21502,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21524,8 +21562,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21584,8 +21622,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21644,8 +21682,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21704,8 +21742,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21764,8 +21802,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21824,8 +21862,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21884,8 +21922,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -21944,8 +21982,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -22004,8 +22042,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -22064,8 +22102,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -22124,8 +22162,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
         OperationRegion (PCCX, PCI_Config, 0x09, 0x04)
         Field (PCCX, ByteAcc, NoLock, Preserve)
         {
-            PIXX,   8, 
-            SCCX,   8, 
+            PIXX,   8,
+            SCCX,   8,
             BCCX,   8
         }
 
@@ -22462,1131 +22500,1131 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             {
                 Package (0x03)
                 {
-                    "\\_PR.PR00", 
-                    Zero, 
+                    "\\_PR.PR00",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR01", 
-                    Zero, 
+                    "\\_PR.PR01",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR02", 
-                    Zero, 
+                    "\\_PR.PR02",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR03", 
-                    Zero, 
+                    "\\_PR.PR03",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR04", 
-                    Zero, 
+                    "\\_PR.PR04",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR05", 
-                    Zero, 
+                    "\\_PR.PR05",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR06", 
-                    Zero, 
+                    "\\_PR.PR06",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR07", 
-                    Zero, 
+                    "\\_PR.PR07",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
-                    One, 
+                    "\\_SB.PCI0.GFX0",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.UA00", 
-                    One, 
+                    "\\_SB.PCI0.UA00",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.UA01", 
-                    Zero, 
+                    "\\_SB.PCI0.UA01",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.I2C0", 
-                    One, 
+                    "\\_SB.PCI0.I2C0",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.I2C1", 
-                    One, 
+                    "\\_SB.PCI0.I2C1",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.XHC", 
-                    One, 
+                    "\\_SB.PCI0.XHC",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.HDAS", 
-                    One, 
+                    "\\_SB.PCI0.HDAS",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.PEMC", 
-                    Zero, 
+                    "\\_SB.PCI0.PEMC",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.PSDC", 
-                    Zero, 
+                    "\\_SB.PCI0.PSDC",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.I2C2", 
-                    One, 
+                    "\\_SB.PCI0.I2C2",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.I2C3", 
-                    One, 
+                    "\\_SB.PCI0.I2C3",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.I2C4", 
-                    Zero, 
+                    "\\_SB.PCI0.I2C4",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.I2C5", 
-                    Zero, 
+                    "\\_SB.PCI0.I2C5",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.UA02", 
-                    Zero, 
+                    "\\_SB.PCI0.UA02",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SPI0", 
-                    One, 
+                    "\\_SB.PCI0.SPI0",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SPI1", 
-                    Zero, 
+                    "\\_SB.PCI0.SPI1",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP01.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP01.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP02.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP02.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP03.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP03.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP04.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP04.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP05.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP05.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP06.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP06.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP07.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP07.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP08.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP08.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP09.PXSX", 
-                    One, 
+                    "\\_SB.PCI0.RP09.PXSX",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP10.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP10.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP11.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP11.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP12.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP12.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP13.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP13.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP14.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP14.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP15.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP15.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP16.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP16.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP17.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP17.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP18.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP18.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP19.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP19.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP20.PXSX", 
-                    Zero, 
+                    "\\_SB.PCI0.RP20.PXSX",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB._SSH", 
-                    One, 
+                    "\\_SB._SSH",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.ISP0", 
-                    One, 
+                    "\\_SB.PCI0.ISP0",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.PRT0",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.PRT1",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.PRT2",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.PRT3",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT4", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.PRT4",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT5", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.PRT5",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.NVM1", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.NVM1",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.NVM2", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.NVM2",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.NVM3", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.NVM3",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.VOL0", 
-                    Zero, 
+                    "\\_SB.PCI0.SAT0.VOL0",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR08", 
-                    Zero, 
+                    "\\_PR.PR08",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR09", 
-                    Zero, 
+                    "\\_PR.PR09",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR10", 
-                    Zero, 
+                    "\\_PR.PR10",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR11", 
-                    Zero, 
+                    "\\_PR.PR11",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR12", 
-                    Zero, 
+                    "\\_PR.PR12",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR13", 
-                    Zero, 
+                    "\\_PR.PR13",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR14", 
-                    Zero, 
+                    "\\_PR.PR14",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_PR.PR15", 
-                    Zero, 
+                    "\\_PR.PR15",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             Zero
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.HECI", 
-                    One, 
+                    "\\_SB.PCI0.HECI",
+                    One,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x03)
                         {
-                            0xFF, 
-                            Zero, 
+                            0xFF,
+                            Zero,
                             0x81
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GLAN", 
-                    Zero, 
+                    "\\_SB.PCI0.GLAN",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP12", 
-                    Zero, 
+                    "\\_SB.PCI0.RP12",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "USB\\VID_8087&PID_0AC9&MI*", 
-                    Zero, 
+                    "USB\\VID_8087&PID_0AC9&MI*",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x02
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.RP10", 
-                    Zero, 
+                    "\\_SB.PCI0.RP10",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "Reserved For TBT RP", 
-                    Zero, 
+                    "Reserved For TBT RP",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "Reserved For TBT xHci", 
-                    Zero, 
+                    "Reserved For TBT xHci",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "Reserved For Multi TBT RP", 
-                    Zero, 
+                    "Reserved For Multi TBT RP",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
-                }, 
+                },
 
                 Package (0x03)
                 {
-                    "Reserved For Multi TBT xHci", 
-                    Zero, 
+                    "Reserved For Multi TBT xHci",
+                    Zero,
                     Package (0x02)
                     {
-                        Zero, 
+                        Zero,
                         Package (0x02)
                         {
-                            0xFF, 
+                            0xFF,
                             0x03
                         }
                     }
@@ -23596,26 +23634,26 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.RP07.PXSX", 
+                    "\\_SB.PCI0.RP07.PXSX",
                     Package (0x01)
                     {
                         Package (0x03)
                         {
                             Package (0x05)
                             {
-                                One, 
-                                0x08, 
-                                Zero, 
-                                One, 
+                                One,
+                                0x08,
+                                Zero,
+                                One,
                                 0xB2
-                            }, 
+                            },
 
                             Package (0x03)
                             {
-                                Zero, 
-                                0xCD, 
+                                Zero,
+                                0xCD,
                                 One
-                            }, 
+                            },
 
                             0x000186A0
                         }
@@ -24060,18 +24098,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
 
     Name (_S0, Package (0x04)  // _S0_: S0 System State
     {
-        Zero, 
-        Zero, 
-        Zero, 
+        Zero,
+        Zero,
+        Zero,
         Zero
     })
     If (SS1)
     {
         Name (_S1, Package (0x04)  // _S1_: S1 System State
         {
-            One, 
-            Zero, 
-            Zero, 
+            One,
+            Zero,
+            Zero,
             Zero
         })
     }
@@ -24080,9 +24118,9 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     {
         Name (_S3, Package (0x04)  // _S3_: S3 System State
         {
-            0x05, 
-            Zero, 
-            Zero, 
+            0x05,
+            Zero,
+            Zero,
             Zero
         })
     }
@@ -24091,18 +24129,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000000)
     {
         Name (_S4, Package (0x04)  // _S4_: S4 System State
         {
-            0x06, 
-            Zero, 
-            Zero, 
+            0x06,
+            Zero,
+            Zero,
             Zero
         })
     }
 
     Name (_S5, Package (0x04)  // _S5_: S5 System State
     {
-        0x07, 
-        Zero, 
-        Zero, 
+        0x07,
+        Zero,
+        Zero,
         Zero
     })
     Method (PTS, 1, NotSerialized)

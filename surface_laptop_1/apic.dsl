@@ -1,13 +1,13 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
- * 
- * Disassembly of apic.dat, Tue May 11 03:12:41 2021
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
+ *
+ * Disassembly of apic.dat, Sun Sep 25 19:27:23 2022
  *
  * ACPI Data Table [APIC]
  *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue
+ * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
  */
 
 [000h 0000   4]                    Signature : "APIC"    [Multiple APIC Description Table (MADT)]

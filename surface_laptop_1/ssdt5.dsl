@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210105 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
- * 
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
+ *
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt5.dat, Tue May 11 03:12:41 2021
+ * Disassembly of ssdt5.dat, Sun Sep 25 19:27:23 2022
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00003151 (12625)
+ *     Length           0x000033BF (13247)
  *     Revision         0x02
- *     Checksum         0x46
+ *     Checksum         0x00
  *     OEM ID           "SaSsdt"
  *     OEM Table ID     "SaSsdt "
  *     OEM Revision     0x00003000 (12288)
@@ -31,134 +31,148 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     External (OSYS, IntObj)
     External (PBCL, MethodObj)    // 0 Arguments
     External (PBCM, MethodObj)    // 1 Arguments
+    External (PLD1, MethodObj)    // 0 Arguments
+    External (PLD2, MethodObj)    // 0 Arguments
     External (PNHM, IntObj)
     External (S0ID, UnknownObj)
+    External (WCOS, UnknownObj)
 
     OperationRegion (SANV, SystemMemory, 0x8BEB3418, 0x01F7)
     Field (SANV, AnyAcc, Lock, Preserve)
     {
-        ASLB,   32, 
-        IMON,   8, 
-        IGDS,   8, 
-        IBTT,   8, 
-        IPAT,   8, 
-        IPSC,   8, 
-        IBIA,   8, 
-        ISSC,   8, 
-        IDMS,   8, 
-        IF1E,   8, 
-        HVCO,   8, 
-        GSMI,   8, 
-        PAVP,   8, 
-        CADL,   8, 
-        CSTE,   16, 
-        NSTE,   16, 
-        NDID,   8, 
-        DID1,   32, 
-        DID2,   32, 
-        DID3,   32, 
-        DID4,   32, 
-        DID5,   32, 
-        DID6,   32, 
-        DID7,   32, 
-        DID8,   32, 
-        DID9,   32, 
-        DIDA,   32, 
-        DIDB,   32, 
-        DIDC,   32, 
-        DIDD,   32, 
-        DIDE,   32, 
-        DIDF,   32, 
-        DIDX,   32, 
-        NXD1,   32, 
-        NXD2,   32, 
-        NXD3,   32, 
-        NXD4,   32, 
-        NXD5,   32, 
-        NXD6,   32, 
-        NXD7,   32, 
-        NXD8,   32, 
-        NXDX,   32, 
-        LIDS,   8, 
-        KSV0,   32, 
-        KSV1,   8, 
-        BRTL,   8, 
-        ALSE,   8, 
-        ALAF,   8, 
-        LLOW,   8, 
-        LHIH,   8, 
-        ALFP,   8, 
-        IMTP,   8, 
-        EDPV,   8, 
-        SGMD,   8, 
-        SGFL,   8, 
-        SGGP,   8, 
-        HRE0,   8, 
-        HRG0,   32, 
-        HRA0,   8, 
-        PWE0,   8, 
-        PWG0,   32, 
-        PWA0,   8, 
-        P1GP,   8, 
-        HRE1,   8, 
-        HRG1,   32, 
-        HRA1,   8, 
-        PWE1,   8, 
-        PWG1,   32, 
-        PWA1,   8, 
-        P2GP,   8, 
-        HRE2,   8, 
-        HRG2,   32, 
-        HRA2,   8, 
-        PWE2,   8, 
-        PWG2,   32, 
-        PWA2,   8, 
-        DLPW,   16, 
-        DLHR,   16, 
-        EECP,   8, 
-        XBAS,   32, 
-        GBAS,   16, 
-        NVGA,   32, 
-        NVHA,   32, 
-        AMDA,   32, 
-        LTRX,   8, 
-        OBFX,   8, 
-        LTRY,   8, 
-        OBFY,   8, 
-        LTRZ,   8, 
-        OBFZ,   8, 
-        SMSL,   16, 
-        SNSL,   16, 
-        P0UB,   8, 
-        P1UB,   8, 
-        P2UB,   8, 
-        PCSL,   8, 
-        PBGE,   8, 
-        M64B,   64, 
-        M64L,   64, 
-        CPEX,   32, 
-        EEC1,   8, 
-        EEC2,   8, 
-        SBN0,   8, 
-        SBN1,   8, 
-        SBN2,   8, 
-        M32B,   32, 
-        M32L,   32, 
-        P0WK,   32, 
-        P1WK,   32, 
-        P2WK,   32, 
-        CKM0,   32, 
-        CKM1,   32, 
-        CKM2,   32, 
-        DLAO,   16, 
-        DLAL,   16, 
-        GSCE,   8, 
-        Offset (0x1F4), 
+        ASLB,   32,
+        IMON,   8,
+        IGDS,   8,
+        IBTT,   8,
+        IPAT,   8,
+        IPSC,   8,
+        IBIA,   8,
+        ISSC,   8,
+        IDMS,   8,
+        IF1E,   8,
+        HVCO,   8,
+        GSMI,   8,
+        PAVP,   8,
+        CADL,   8,
+        CSTE,   16,
+        NSTE,   16,
+        NDID,   8,
+        DID1,   32,
+        DID2,   32,
+        DID3,   32,
+        DID4,   32,
+        DID5,   32,
+        DID6,   32,
+        DID7,   32,
+        DID8,   32,
+        DID9,   32,
+        DIDA,   32,
+        DIDB,   32,
+        DIDC,   32,
+        DIDD,   32,
+        DIDE,   32,
+        DIDF,   32,
+        DIDX,   32,
+        NXD1,   32,
+        NXD2,   32,
+        NXD3,   32,
+        NXD4,   32,
+        NXD5,   32,
+        NXD6,   32,
+        NXD7,   32,
+        NXD8,   32,
+        NXDX,   32,
+        LIDS,   8,
+        KSV0,   32,
+        KSV1,   8,
+        BRTL,   8,
+        ALSE,   8,
+        ALAF,   8,
+        LLOW,   8,
+        LHIH,   8,
+        ALFP,   8,
+        IMTP,   8,
+        EDPV,   8,
+        SGMD,   8,
+        SGFL,   8,
+        SGGP,   8,
+        HRE0,   8,
+        HRG0,   32,
+        HRA0,   8,
+        PWE0,   8,
+        PWG0,   32,
+        PWA0,   8,
+        P1GP,   8,
+        HRE1,   8,
+        HRG1,   32,
+        HRA1,   8,
+        PWE1,   8,
+        PWG1,   32,
+        PWA1,   8,
+        P2GP,   8,
+        HRE2,   8,
+        HRG2,   32,
+        HRA2,   8,
+        PWE2,   8,
+        PWG2,   32,
+        PWA2,   8,
+        DLPW,   16,
+        DLHR,   16,
+        EECP,   8,
+        XBAS,   32,
+        GBAS,   16,
+        NVGA,   32,
+        NVHA,   32,
+        AMDA,   32,
+        LTRX,   8,
+        OBFX,   8,
+        LTRY,   8,
+        OBFY,   8,
+        LTRZ,   8,
+        OBFZ,   8,
+        SMSL,   16,
+        SNSL,   16,
+        P0UB,   8,
+        P1UB,   8,
+        P2UB,   8,
+        PCSL,   8,
+        PBGE,   8,
+        M64B,   64,
+        M64L,   64,
+        CPEX,   32,
+        EEC1,   8,
+        EEC2,   8,
+        SBN0,   8,
+        SBN1,   8,
+        SBN2,   8,
+        M32B,   32,
+        M32L,   32,
+        P0WK,   32,
+        P1WK,   32,
+        P2WK,   32,
+        CKM0,   32,
+        CKM1,   32,
+        CKM2,   32,
+        DLAO,   16,
+        DLAL,   16,
+        GSCE,   8,
+        DIDY,   32,
+        NXDY,   32,
+        Offset (0x1F4),
         Offset (0x1F7)
     }
 
     Scope (\_SB.PCI0.GFX0)
     {
+        Name (DPLD, Package (0x01)
+        {
+            Buffer (0x14)
+            {
+                /* 0000 */  0x82, 0x00, 0x00, 0x00, 0x20, 0x03, 0xD0, 0x07,  // .... ...
+                /* 0008 */  0x41, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x80, 0x01,  // A.......
+                /* 0010 */  0x00, 0x00, 0x00, 0x00                           // ....
+            }
+        })
         Method (_DOS, 1, NotSerialized)  // _DOS: Disable Output Switching
         {
             DSEN = (Arg0 & 0x07)
@@ -173,13 +187,20 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
 
         Method (_DOD, 0, NotSerialized)  // _DOD: Display Output Devices
         {
-            If ((IMTP == One))
+            If ((WCOS == Zero))
             {
-                NDID = One
+                If ((IMTP == One))
+                {
+                    NDID = One
+                }
+                Else
+                {
+                    NDID = Zero
+                }
             }
             Else
             {
-                NDID = Zero
+                NDID = 0x02
             }
 
             If ((DIDL != Zero))
@@ -279,7 +300,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP2, Package (0x02)
                 {
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP2 [Zero] = (0x00010000 | DID1)
@@ -299,8 +320,8 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP3, Package (0x03)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP3 [Zero] = (0x00010000 | DID1)
@@ -321,9 +342,9 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP4, Package (0x04)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP4 [Zero] = (0x00010000 | DID1)
@@ -345,10 +366,10 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP5, Package (0x05)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP5 [Zero] = (0x00010000 | DID1)
@@ -371,11 +392,11 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP6, Package (0x06)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP6 [Zero] = (0x00010000 | DID1)
@@ -399,12 +420,12 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP7, Package (0x07)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP7 [Zero] = (0x00010000 | DID1)
@@ -429,13 +450,13 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP8, Package (0x08)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP8 [Zero] = (0x00010000 | DID1)
@@ -461,14 +482,14 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMP9, Package (0x09)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMP9 [Zero] = (0x00010000 | DID1)
@@ -495,15 +516,15 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPA, Package (0x0A)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPA [Zero] = (0x00010000 | DID1)
@@ -531,16 +552,16 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPB, Package (0x0B)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPB [Zero] = (0x00010000 | DID1)
@@ -569,17 +590,17 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPC, Package (0x0C)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPC [Zero] = (0x00010000 | DID1)
@@ -609,18 +630,18 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPD, Package (0x0D)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPD [Zero] = (0x00010000 | DID1)
@@ -651,19 +672,19 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPE, Package (0x0E)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPE [Zero] = (0x00010000 | DID1)
@@ -695,20 +716,20 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPF, Package (0x0F)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPF [Zero] = (0x00010000 | DID1)
@@ -741,21 +762,21 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (TMPG, Package (0x10)
                 {
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
-                    0xFFFFFFFF, 
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
+                    0xFFFFFFFF,
                     0xFFFFFFFF
                 })
                 TMPG [Zero] = (0x00010000 | DID1)
@@ -832,6 +853,17 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 If (((0x0F00 & DID2) == 0x0400))
                 {
+                    If ((WCOS == One))
+                    {
+                        If (((0x0F & DID2) == One))
+                        {
+                            EDPV = 0x02
+                            NXDY = NXD2 /* \NXD2 */
+                            DIDY = DID2 /* \DID2 */
+                            Return (0x02)
+                        }
+                    }
+
                     EDPV = 0x02
                     NXDX = NXD2 /* \NXD2 */
                     DIDX = DID2 /* \DID2 */
@@ -1575,108 +1607,108 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     Return (Package (0x67)
                     {
-                        0x50, 
-                        0x32, 
-                        Zero, 
-                        One, 
-                        0x02, 
-                        0x03, 
-                        0x04, 
-                        0x05, 
-                        0x06, 
-                        0x07, 
-                        0x08, 
-                        0x09, 
-                        0x0A, 
-                        0x0B, 
-                        0x0C, 
-                        0x0D, 
-                        0x0E, 
-                        0x0F, 
-                        0x10, 
-                        0x11, 
-                        0x12, 
-                        0x13, 
-                        0x14, 
-                        0x15, 
-                        0x16, 
-                        0x17, 
-                        0x18, 
-                        0x19, 
-                        0x1A, 
-                        0x1B, 
-                        0x1C, 
-                        0x1D, 
-                        0x1E, 
-                        0x1F, 
-                        0x20, 
-                        0x21, 
-                        0x22, 
-                        0x23, 
-                        0x24, 
-                        0x25, 
-                        0x26, 
-                        0x27, 
-                        0x28, 
-                        0x29, 
-                        0x2A, 
-                        0x2B, 
-                        0x2C, 
-                        0x2D, 
-                        0x2E, 
-                        0x2F, 
-                        0x30, 
-                        0x31, 
-                        0x32, 
-                        0x33, 
-                        0x34, 
-                        0x35, 
-                        0x36, 
-                        0x37, 
-                        0x38, 
-                        0x39, 
-                        0x3A, 
-                        0x3B, 
-                        0x3C, 
-                        0x3D, 
-                        0x3E, 
-                        0x3F, 
-                        0x40, 
-                        0x41, 
-                        0x42, 
-                        0x43, 
-                        0x44, 
-                        0x45, 
-                        0x46, 
-                        0x47, 
-                        0x48, 
-                        0x49, 
-                        0x4A, 
-                        0x4B, 
-                        0x4C, 
-                        0x4D, 
-                        0x4E, 
-                        0x4F, 
-                        0x50, 
-                        0x51, 
-                        0x52, 
-                        0x53, 
-                        0x54, 
-                        0x55, 
-                        0x56, 
-                        0x57, 
-                        0x58, 
-                        0x59, 
-                        0x5A, 
-                        0x5B, 
-                        0x5C, 
-                        0x5D, 
-                        0x5E, 
-                        0x5F, 
-                        0x60, 
-                        0x61, 
-                        0x62, 
-                        0x63, 
+                        0x50,
+                        0x32,
+                        Zero,
+                        One,
+                        0x02,
+                        0x03,
+                        0x04,
+                        0x05,
+                        0x06,
+                        0x07,
+                        0x08,
+                        0x09,
+                        0x0A,
+                        0x0B,
+                        0x0C,
+                        0x0D,
+                        0x0E,
+                        0x0F,
+                        0x10,
+                        0x11,
+                        0x12,
+                        0x13,
+                        0x14,
+                        0x15,
+                        0x16,
+                        0x17,
+                        0x18,
+                        0x19,
+                        0x1A,
+                        0x1B,
+                        0x1C,
+                        0x1D,
+                        0x1E,
+                        0x1F,
+                        0x20,
+                        0x21,
+                        0x22,
+                        0x23,
+                        0x24,
+                        0x25,
+                        0x26,
+                        0x27,
+                        0x28,
+                        0x29,
+                        0x2A,
+                        0x2B,
+                        0x2C,
+                        0x2D,
+                        0x2E,
+                        0x2F,
+                        0x30,
+                        0x31,
+                        0x32,
+                        0x33,
+                        0x34,
+                        0x35,
+                        0x36,
+                        0x37,
+                        0x38,
+                        0x39,
+                        0x3A,
+                        0x3B,
+                        0x3C,
+                        0x3D,
+                        0x3E,
+                        0x3F,
+                        0x40,
+                        0x41,
+                        0x42,
+                        0x43,
+                        0x44,
+                        0x45,
+                        0x46,
+                        0x47,
+                        0x48,
+                        0x49,
+                        0x4A,
+                        0x4B,
+                        0x4C,
+                        0x4D,
+                        0x4E,
+                        0x4F,
+                        0x50,
+                        0x51,
+                        0x52,
+                        0x53,
+                        0x54,
+                        0x55,
+                        0x56,
+                        0x57,
+                        0x58,
+                        0x59,
+                        0x5A,
+                        0x5B,
+                        0x5C,
+                        0x5D,
+                        0x5E,
+                        0x5F,
+                        0x60,
+                        0x61,
+                        0x62,
+                        0x63,
                         0x64
                     })
                 }
@@ -1702,6 +1734,213 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
             {
                 Return (BRTL) /* \BRTL */
+            }
+
+            Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+            {
+                If (CondRefOf (\PLD1))
+                {
+                    Return (PLD1 ())
+                }
+                Else
+                {
+                    Return (DPLD) /* \_SB_.PCI0.GFX0.DPLD */
+                }
+            }
+        }
+
+        Device (DD2F)
+        {
+            Method (_ADR, 0, Serialized)  // _ADR: Address
+            {
+                If ((EDPV == Zero))
+                {
+                    Return (0x1F)
+                }
+
+                If ((EDPV == One))
+                {
+                    Return (0x1F)
+                }
+                Else
+                {
+                    Return ((0xFFFF & DIDY))
+                }
+            }
+
+            Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
+            {
+                If ((EDPV == Zero))
+                {
+                    Return (Zero)
+                }
+
+                If ((EDPV == One))
+                {
+                    Return (Zero)
+                }
+                Else
+                {
+                    Return (CDDS (DIDY))
+                }
+            }
+
+            Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
+            {
+                If ((((SGMD & 0x7F) == One) && CondRefOf (SNXD)))
+                {
+                    Return (NXDY) /* \NXDY */
+                }
+
+                Return (NDDS (DIDY))
+            }
+
+            Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
+            {
+                DSST (Arg0)
+            }
+
+            Method (_BCL, 0, NotSerialized)  // _BCL: Brightness Control Levels
+            {
+                If (CondRefOf (\PBCL))
+                {
+                    Return (PBCL ())
+                }
+                Else
+                {
+                    Return (Package (0x67)
+                    {
+                        0x50,
+                        0x32,
+                        Zero,
+                        One,
+                        0x02,
+                        0x03,
+                        0x04,
+                        0x05,
+                        0x06,
+                        0x07,
+                        0x08,
+                        0x09,
+                        0x0A,
+                        0x0B,
+                        0x0C,
+                        0x0D,
+                        0x0E,
+                        0x0F,
+                        0x10,
+                        0x11,
+                        0x12,
+                        0x13,
+                        0x14,
+                        0x15,
+                        0x16,
+                        0x17,
+                        0x18,
+                        0x19,
+                        0x1A,
+                        0x1B,
+                        0x1C,
+                        0x1D,
+                        0x1E,
+                        0x1F,
+                        0x20,
+                        0x21,
+                        0x22,
+                        0x23,
+                        0x24,
+                        0x25,
+                        0x26,
+                        0x27,
+                        0x28,
+                        0x29,
+                        0x2A,
+                        0x2B,
+                        0x2C,
+                        0x2D,
+                        0x2E,
+                        0x2F,
+                        0x30,
+                        0x31,
+                        0x32,
+                        0x33,
+                        0x34,
+                        0x35,
+                        0x36,
+                        0x37,
+                        0x38,
+                        0x39,
+                        0x3A,
+                        0x3B,
+                        0x3C,
+                        0x3D,
+                        0x3E,
+                        0x3F,
+                        0x40,
+                        0x41,
+                        0x42,
+                        0x43,
+                        0x44,
+                        0x45,
+                        0x46,
+                        0x47,
+                        0x48,
+                        0x49,
+                        0x4A,
+                        0x4B,
+                        0x4C,
+                        0x4D,
+                        0x4E,
+                        0x4F,
+                        0x50,
+                        0x51,
+                        0x52,
+                        0x53,
+                        0x54,
+                        0x55,
+                        0x56,
+                        0x57,
+                        0x58,
+                        0x59,
+                        0x5A,
+                        0x5B,
+                        0x5C,
+                        0x5D,
+                        0x5E,
+                        0x5F,
+                        0x60,
+                        0x61,
+                        0x62,
+                        0x63,
+                        0x64
+                    })
+                }
+            }
+
+            Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
+            {
+                If (((Arg0 >= Zero) && (Arg0 <= 0x64)))
+                {
+                    \_SB.PCI0.GFX0.AINT (One, Arg0)
+                    BRTL = Arg0
+                }
+            }
+
+            Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
+            {
+                Return (BRTL) /* \BRTL */
+            }
+
+            Method (_PLD, 0, NotSerialized)  // _PLD: Physical Location of Device
+            {
+                If (CondRefOf (\PLD2))
+                {
+                    Return (PLD2 ())
+                }
+                Else
+                {
+                    Return (DPLD) /* \_SB_.PCI0.GFX0.DPLD */
+                }
             }
         }
 
@@ -1903,10 +2142,10 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             OperationRegion (MCHP, PCI_Config, 0x40, 0xC0)
             Field (MCHP, AnyAcc, NoLock, Preserve)
             {
-                Offset (0x14), 
-                AUDE,   8, 
-                Offset (0x60), 
-                TASM,   10, 
+                Offset (0x14),
+                AUDE,   8,
+                Offset (0x60),
+                TASM,   10,
                 Offset (0x62)
             }
         }
@@ -1914,182 +2153,182 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
         OperationRegion (IGDP, PCI_Config, 0x40, 0xC0)
         Field (IGDP, AnyAcc, NoLock, Preserve)
         {
-            Offset (0x10), 
-                ,   1, 
-            GIVD,   1, 
-                ,   2, 
-            GUMA,   3, 
-            Offset (0x12), 
-            Offset (0x14), 
-                ,   4, 
-            GMFN,   1, 
-            Offset (0x18), 
-            Offset (0xA4), 
-            ASLE,   8, 
-            Offset (0xA8), 
-            GSSE,   1, 
-            GSSB,   14, 
-            GSES,   1, 
-            Offset (0xB0), 
-                ,   12, 
-            CDVL,   1, 
-            Offset (0xB2), 
-            Offset (0xB5), 
-            LBPC,   8, 
-            Offset (0xBC), 
+            Offset (0x10),
+                ,   1,
+            GIVD,   1,
+                ,   2,
+            GUMA,   3,
+            Offset (0x12),
+            Offset (0x14),
+                ,   4,
+            GMFN,   1,
+            Offset (0x18),
+            Offset (0xA4),
+            ASLE,   8,
+            Offset (0xA8),
+            GSSE,   1,
+            GSSB,   14,
+            GSES,   1,
+            Offset (0xB0),
+                ,   12,
+            CDVL,   1,
+            Offset (0xB2),
+            Offset (0xB5),
+            LBPC,   8,
+            Offset (0xBC),
             ASLS,   32
         }
 
         OperationRegion (IGDM, SystemMemory, ASLB, 0x2000)
         Field (IGDM, AnyAcc, NoLock, Preserve)
         {
-            SIGN,   128, 
-            SIZE,   32, 
-            OVER,   32, 
-            SVER,   256, 
-            VVER,   128, 
-            GVER,   128, 
-            MBOX,   32, 
-            DMOD,   32, 
-            PCON,   32, 
-            DVER,   64, 
-            Offset (0x100), 
-            DRDY,   32, 
-            CSTS,   32, 
-            CEVT,   32, 
-            Offset (0x120), 
-            DIDL,   32, 
-            DDL2,   32, 
-            DDL3,   32, 
-            DDL4,   32, 
-            DDL5,   32, 
-            DDL6,   32, 
-            DDL7,   32, 
-            DDL8,   32, 
-            CPDL,   32, 
-            CPL2,   32, 
-            CPL3,   32, 
-            CPL4,   32, 
-            CPL5,   32, 
-            CPL6,   32, 
-            CPL7,   32, 
-            CPL8,   32, 
-            CADL,   32, 
-            CAL2,   32, 
-            CAL3,   32, 
-            CAL4,   32, 
-            CAL5,   32, 
-            CAL6,   32, 
-            CAL7,   32, 
-            CAL8,   32, 
-            NADL,   32, 
-            NDL2,   32, 
-            NDL3,   32, 
-            NDL4,   32, 
-            NDL5,   32, 
-            NDL6,   32, 
-            NDL7,   32, 
-            NDL8,   32, 
-            ASLP,   32, 
-            TIDX,   32, 
-            CHPD,   32, 
-            CLID,   32, 
-            CDCK,   32, 
-            SXSW,   32, 
-            EVTS,   32, 
-            CNOT,   32, 
-            NRDY,   32, 
-            DDL9,   32, 
-            DD10,   32, 
-            DD11,   32, 
-            DD12,   32, 
-            DD13,   32, 
-            DD14,   32, 
-            DD15,   32, 
-            CPL9,   32, 
-            CP10,   32, 
-            CP11,   32, 
-            CP12,   32, 
-            CP13,   32, 
-            CP14,   32, 
-            CP15,   32, 
-            Offset (0x200), 
-            SCIE,   1, 
-            GEFC,   4, 
-            GXFC,   3, 
-            GESF,   8, 
-            Offset (0x204), 
-            PARM,   32, 
-            DSLP,   32, 
-            Offset (0x300), 
-            ARDY,   32, 
-            ASLC,   32, 
-            TCHE,   32, 
-            ALSI,   32, 
-            BCLP,   32, 
-            PFIT,   32, 
-            CBLV,   32, 
-            BCLM,   320, 
-            CPFM,   32, 
-            EPFM,   32, 
-            PLUT,   592, 
-            PFMB,   32, 
-            CCDV,   32, 
-            PCFT,   32, 
-            SROT,   32, 
-            IUER,   32, 
-            FDSP,   64, 
-            FDSS,   32, 
-            STAT,   32, 
-            Offset (0x400), 
-            GVD1,   49152, 
-            PHED,   32, 
+            SIGN,   128,
+            SIZE,   32,
+            OVER,   32,
+            SVER,   256,
+            VVER,   128,
+            GVER,   128,
+            MBOX,   32,
+            DMOD,   32,
+            PCON,   32,
+            DVER,   64,
+            Offset (0x100),
+            DRDY,   32,
+            CSTS,   32,
+            CEVT,   32,
+            Offset (0x120),
+            DIDL,   32,
+            DDL2,   32,
+            DDL3,   32,
+            DDL4,   32,
+            DDL5,   32,
+            DDL6,   32,
+            DDL7,   32,
+            DDL8,   32,
+            CPDL,   32,
+            CPL2,   32,
+            CPL3,   32,
+            CPL4,   32,
+            CPL5,   32,
+            CPL6,   32,
+            CPL7,   32,
+            CPL8,   32,
+            CADL,   32,
+            CAL2,   32,
+            CAL3,   32,
+            CAL4,   32,
+            CAL5,   32,
+            CAL6,   32,
+            CAL7,   32,
+            CAL8,   32,
+            NADL,   32,
+            NDL2,   32,
+            NDL3,   32,
+            NDL4,   32,
+            NDL5,   32,
+            NDL6,   32,
+            NDL7,   32,
+            NDL8,   32,
+            ASLP,   32,
+            TIDX,   32,
+            CHPD,   32,
+            CLID,   32,
+            CDCK,   32,
+            SXSW,   32,
+            EVTS,   32,
+            CNOT,   32,
+            NRDY,   32,
+            DDL9,   32,
+            DD10,   32,
+            DD11,   32,
+            DD12,   32,
+            DD13,   32,
+            DD14,   32,
+            DD15,   32,
+            CPL9,   32,
+            CP10,   32,
+            CP11,   32,
+            CP12,   32,
+            CP13,   32,
+            CP14,   32,
+            CP15,   32,
+            Offset (0x200),
+            SCIE,   1,
+            GEFC,   4,
+            GXFC,   3,
+            GESF,   8,
+            Offset (0x204),
+            PARM,   32,
+            DSLP,   32,
+            Offset (0x300),
+            ARDY,   32,
+            ASLC,   32,
+            TCHE,   32,
+            ALSI,   32,
+            BCLP,   32,
+            PFIT,   32,
+            CBLV,   32,
+            BCLM,   320,
+            CPFM,   32,
+            EPFM,   32,
+            PLUT,   592,
+            PFMB,   32,
+            CCDV,   32,
+            PCFT,   32,
+            SROT,   32,
+            IUER,   32,
+            FDSP,   64,
+            FDSS,   32,
+            STAT,   32,
+            Offset (0x400),
+            GVD1,   49152,
+            PHED,   32,
             BDDC,   2048
         }
 
         Name (DBTB, Package (0x15)
         {
-            Zero, 
-            0x07, 
-            0x38, 
-            0x01C0, 
-            0x0E00, 
-            0x3F, 
-            0x01C7, 
-            0x0E07, 
-            0x01F8, 
-            0x0E38, 
-            0x0FC0, 
-            Zero, 
-            Zero, 
-            Zero, 
-            Zero, 
-            Zero, 
-            0x7000, 
-            0x7007, 
-            0x7038, 
-            0x71C0, 
+            Zero,
+            0x07,
+            0x38,
+            0x01C0,
+            0x0E00,
+            0x3F,
+            0x01C7,
+            0x0E07,
+            0x01F8,
+            0x0E38,
+            0x0FC0,
+            Zero,
+            Zero,
+            Zero,
+            Zero,
+            Zero,
+            0x7000,
+            0x7007,
+            0x7038,
+            0x71C0,
             0x7E00
         })
         Name (CDCT, Package (0x05)
         {
             Package (0x02)
             {
-                0xE4, 
+                0xE4,
                 0x0140
-            }, 
+            },
 
             Package (0x02)
             {
-                0xDE, 
+                0xDE,
                 0x014D
-            }, 
+            },
 
             Package (0x02)
             {
-                0xDE, 
+                0xDE,
                 0x014D
-            }, 
+            },
 
             Package (0x02)
             {
