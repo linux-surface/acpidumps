@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190816 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20230628 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt5.dat, Sat Oct 26 11:48:06 2019
+ * Disassembly of ssdt5.dat, Mon Nov 13 20:06:43 2023
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x000033E3 (13283)
  *     Revision         0x02
- *     Checksum         0x3C
+ *     Checksum         0x28
  *     OEM ID           "SaSsdt"
  *     OEM Table ID     "SaSsdt "
  *     OEM Revision     0x00003000 (12288)
@@ -38,7 +38,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     External (PBCL, MethodObj)    // 0 Arguments
     External (PNHM, IntObj)
 
-    OperationRegion (SANV, SystemMemory, 0x7BFB3B18, 0x01F4)
+    OperationRegion (SANV, SystemMemory, 0x7BBA9018, 0x01F4)
     Field (SANV, AnyAcc, Lock, Preserve)
     {
         ASLB,   32, 
@@ -2626,7 +2626,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            If ((Arg0 == ToUUID ("3e5b41c6-eb1d-4260-9d15-c71fbadae414")))
+            If ((Arg0 == ToUUID ("3e5b41c6-eb1d-4260-9d15-c71fbadae414") /* Unknown UUID */))
             {
                 If (((PCHS == PCHN) && ((Arg2 == 0x12) || (Arg2 == 0x13))))
                 {
@@ -2883,7 +2883,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     {
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            If ((Arg0 == ToUUID ("9a9e6ab4-e3fc-475d-ad1c-c4789e4cfe90")))
+            If ((Arg0 == ToUUID ("9a9e6ab4-e3fc-475d-ad1c-c4789e4cfe90") /* Unknown UUID */))
             {
                 If ((Arg2 == Zero))
                 {

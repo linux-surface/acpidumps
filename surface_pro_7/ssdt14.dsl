@@ -1,160 +1,732 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190816 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20230628 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt14.dat, Sat Oct 26 11:48:06 2019
+ * Disassembly of ssdt14.dat, Mon Nov 13 20:06:43 2023
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000317 (791)
+ *     Length           0x00000AB0 (2736)
  *     Revision         0x02
- *     Checksum         0xFA
+ *     Checksum         0xC2
  *     OEM ID           "PmRef"
- *     OEM Table ID     "ApHwp"
+ *     OEM Table ID     "ApPsd"
  *     OEM Revision     0x00003000 (12288)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20181003 (538447875)
  */
-DefinitionBlock ("", "SSDT", 2, "PmRef", "ApHwp", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "PmRef", "ApPsd", 0x00003000)
 {
-    External (_SB_.PR00, ProcessorObj)
-    External (_SB_.PR00._CPC, MethodObj)    // 0 Arguments
-    External (_SB_.PR01, ProcessorObj)
-    External (_SB_.PR02, ProcessorObj)
-    External (_SB_.PR03, ProcessorObj)
-    External (_SB_.PR04, ProcessorObj)
-    External (_SB_.PR05, ProcessorObj)
-    External (_SB_.PR06, ProcessorObj)
-    External (_SB_.PR07, ProcessorObj)
-    External (_SB_.PR08, ProcessorObj)
-    External (_SB_.PR09, ProcessorObj)
-    External (_SB_.PR10, ProcessorObj)
-    External (_SB_.PR11, ProcessorObj)
-    External (_SB_.PR12, ProcessorObj)
-    External (_SB_.PR13, ProcessorObj)
-    External (_SB_.PR14, ProcessorObj)
-    External (_SB_.PR15, ProcessorObj)
+    External (_SB_.CFGD, FieldUnitObj)
+    External (_SB_.PR00, DeviceObj)
+    External (_SB_.PR01, DeviceObj)
+    External (_SB_.PR02, DeviceObj)
+    External (_SB_.PR03, DeviceObj)
+    External (_SB_.PR04, DeviceObj)
+    External (_SB_.PR05, DeviceObj)
+    External (_SB_.PR06, DeviceObj)
+    External (_SB_.PR07, DeviceObj)
+    External (_SB_.PR08, DeviceObj)
+    External (_SB_.PR09, DeviceObj)
+    External (_SB_.PR10, DeviceObj)
+    External (_SB_.PR11, DeviceObj)
+    External (_SB_.PR12, DeviceObj)
+    External (_SB_.PR13, DeviceObj)
+    External (_SB_.PR14, DeviceObj)
+    External (_SB_.PR15, DeviceObj)
+    External (PC00, IntObj)
+    External (TCNT, FieldUnitObj)
 
     Scope (\_SB.PR01)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = One
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR01.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR01.SPSD */
         }
     }
 
     Scope (\_SB.PR02)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x02
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR02.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR02.SPSD */
         }
     }
 
     Scope (\_SB.PR03)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x03
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR03.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR03.SPSD */
         }
     }
 
     Scope (\_SB.PR04)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x04
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR04.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR04.SPSD */
         }
     }
 
     Scope (\_SB.PR05)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x05
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR05.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR05.SPSD */
         }
     }
 
     Scope (\_SB.PR06)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x06
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR06.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR06.SPSD */
         }
     }
 
     Scope (\_SB.PR07)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x07
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR07.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR07.SPSD */
         }
     }
 
     Scope (\_SB.PR08)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x08
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR08.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR08.SPSD */
         }
     }
 
     Scope (\_SB.PR09)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x09
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR09.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR09.SPSD */
         }
     }
 
     Scope (\_SB.PR10)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x0A
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR10.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR10.SPSD */
         }
     }
 
     Scope (\_SB.PR11)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x0B
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR11.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR11.SPSD */
         }
     }
 
     Scope (\_SB.PR12)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x0C
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR12.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR12.SPSD */
         }
     }
 
     Scope (\_SB.PR13)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x0D
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR13.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR13.SPSD */
         }
     }
 
     Scope (\_SB.PR14)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x0E
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR14.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR14.SPSD */
         }
     }
 
     Scope (\_SB.PR15)
     {
-        Method (_CPC, 0, NotSerialized)  // _CPC: Continuous Performance Control
+        Name (HPSD, Package (0x01)
         {
-            Return (\_SB.PR00._CPC ())
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFE, 
+                0x80
+            }
+        })
+        Name (SPSD, Package (0x01)
+        {
+            Package (0x05)
+            {
+                0x05, 
+                Zero, 
+                Zero, 
+                0xFC, 
+                0x80
+            }
+        })
+        Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
+        {
+            If ((\_SB.CFGD & 0x02000000))
+            {
+                DerefOf (HPSD [Zero]) [0x02] = 0x0F
+                DerefOf (HPSD [Zero]) [0x04] = One
+            }
+            Else
+            {
+                DerefOf (HPSD [Zero]) [0x04] = TCNT /* External reference */
+                DerefOf (SPSD [Zero]) [0x04] = TCNT /* External reference */
+            }
+
+            If ((PC00 & 0x0800))
+            {
+                Return (HPSD) /* \_SB_.PR15.HPSD */
+            }
+
+            Return (SPSD) /* \_SB_.PR15.SPSD */
         }
     }
 }

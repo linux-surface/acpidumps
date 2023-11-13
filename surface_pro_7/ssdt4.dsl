@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190816 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20230628 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt4.dat, Sat Oct 26 11:48:06 2019
+ * Disassembly of ssdt4.dat, Mon Nov 13 20:06:43 2023
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -160,7 +160,7 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "RTD3_JL", 0x00001000)
     {
         Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
         {
-            ToUUID ("5025030f-842f-4ab4-a561-99a5189762d0"), 
+            ToUUID ("5025030f-842f-4ab4-a561-99a5189762d0") /* Unknown UUID */, 
             Package (0x01)
             {
                 Package (0x02)

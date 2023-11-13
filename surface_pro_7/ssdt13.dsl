@@ -1,45 +1,38 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190816 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20230628 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ssdt13.dat, Sat Oct 26 11:48:06 2019
+ * Disassembly of ssdt13.dat, Mon Nov 13 20:06:43 2023
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000394 (916)
+ *     Length           0x00000437 (1079)
  *     Revision         0x02
- *     Checksum         0x35
+ *     Checksum         0xCF
  *     OEM ID           "PmRef"
- *     OEM Table ID     "Cpu0Cst"
- *     OEM Revision     0x00003001 (12289)
+ *     OEM Table ID     "Cpu0Ist"
+ *     OEM Revision     0x00003000 (12288)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20181003 (538447875)
  */
-DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Cst", 0x00003001)
+DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Ist", 0x00003000)
 {
-    External (_SB_.CFGD, UnknownObj)
+    External (_SB_.CPPC, FieldUnitObj)
+    External (_SB_.OSCP, IntObj)
     External (_SB_.PR00, DeviceObj)
-    External (C6LT, UnknownObj)
-    External (C6MW, UnknownObj)
-    External (C7LT, UnknownObj)
-    External (C7MW, UnknownObj)
-    External (CDLT, UnknownObj)
-    External (CDLV, UnknownObj)
-    External (CDMW, UnknownObj)
-    External (CDPW, UnknownObj)
-    External (CFGD, UnknownObj)
-    External (FEMD, UnknownObj)
-    External (FMBL, UnknownObj)
-    External (PC00, UnknownObj)
-    External (PFLV, UnknownObj)
-    External (PWRS, UnknownObj)
+    External (TCNT, FieldUnitObj)
 
     Scope (\_SB.PR00)
     {
-        Name (C1TM, Package (0x04)
+        Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
+        {
+            Return (\_SB.CPPC) /* External reference */
+        }
+
+        Name (_PCT, Package (0x02)  // _PCT: Performance Control
         {
             ResourceTemplate ()
             {
@@ -50,155 +43,291 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Cst", 0x00003001)
                     ,)
             }, 
 
-            One, 
-            One, 
-            0x03E8
-        })
-        Name (C6TM, Package (0x04)
-        {
             ResourceTemplate ()
             {
-                Register (SystemIO, 
-                    0x08,               // Bit Width
+                Register (FFixedHW, 
+                    0x00,               // Bit Width
                     0x00,               // Bit Offset
-                    0x0000000000001815, // Address
+                    0x0000000000000000, // Address
                     ,)
-            }, 
-
-            0x02, 
-            Zero, 
-            0x015E
-        })
-        Name (C7TM, Package (0x04)
-        {
-            ResourceTemplate ()
-            {
-                Register (SystemIO, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000001816, // Address
-                    ,)
-            }, 
-
-            0x02, 
-            Zero, 
-            0xC8
-        })
-        Name (CDTM, Package (0x04)
-        {
-            ResourceTemplate ()
-            {
-                Register (SystemIO, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000001816, // Address
-                    ,)
-            }, 
-
-            0x03, 
-            Zero, 
-            Zero
-        })
-        Name (MWES, ResourceTemplate ()
-        {
-            Register (FFixedHW, 
-                0x01,               // Bit Width
-                0x02,               // Bit Offset
-                0x0000000000000000, // Address
-                0x01,               // Access Size
-                )
-        })
-        Name (AC2V, Zero)
-        Name (AC3V, Zero)
-        Name (C3ST, Package (0x04)
-        {
-            0x03, 
-            Package (0x00){}, 
-            Package (0x00){}, 
-            Package (0x00){}
-        })
-        Name (C2ST, Package (0x03)
-        {
-            0x02, 
-            Package (0x00){}, 
-            Package (0x00){}
-        })
-        Name (C1ST, Package (0x02)
-        {
-            One, 
-            Package (0x00){}
-        })
-        Name (CSTF, Zero)
-        Method (_CST, 0, Serialized)  // _CST: C-States
-        {
-            If (!CSTF)
-            {
-                C6TM [0x02] = C6LT /* External reference */
-                C7TM [0x02] = C7LT /* External reference */
-                CDTM [0x02] = CDLT /* External reference */
-                CDTM [0x03] = CDPW /* External reference */
-                DerefOf (CDTM [Zero]) [0x07] = CDLV /* External reference */
-                If (((CFGD & 0x0800) && (PC00 & 0x0200)))
-                {
-                    C1TM [Zero] = MWES /* \_SB_.PR00.MWES */
-                    C6TM [Zero] = MWES /* \_SB_.PR00.MWES */
-                    C7TM [Zero] = MWES /* \_SB_.PR00.MWES */
-                    CDTM [Zero] = MWES /* \_SB_.PR00.MWES */
-                    DerefOf (C6TM [Zero]) [0x07] = C6MW /* External reference */
-                    DerefOf (C7TM [Zero]) [0x07] = C7MW /* External reference */
-                    DerefOf (CDTM [Zero]) [0x07] = CDMW /* External reference */
-                }
-                ElseIf (((CFGD & 0x0800) && (PC00 & 0x0100)))
-                {
-                    C1TM [Zero] = MWES /* \_SB_.PR00.MWES */
-                }
-
-                CSTF = Ones
             }
-
-            AC2V = Zero
-            AC3V = Zero
-            C3ST [One] = C1TM /* \_SB_.PR00.C1TM */
-            If ((CFGD & 0x20))
+        })
+        Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
+        {
+            If ((\_SB.OSCP & 0x0400))
             {
-                C3ST [0x02] = C7TM /* \_SB_.PR00.C7TM */
-                AC2V = Ones
-            }
-            ElseIf ((CFGD & 0x10))
-            {
-                C3ST [0x02] = C6TM /* \_SB_.PR00.C6TM */
-                AC2V = Ones
-            }
-
-            If ((CFGD & 0x4000))
-            {
-                C3ST [0x03] = CDTM /* \_SB_.PR00.CDTM */
-                AC3V = Ones
-            }
-
-            If ((AC2V && AC3V))
-            {
-                Return (C3ST) /* \_SB_.PR00.C3ST */
-            }
-            ElseIf (AC2V)
-            {
-                C2ST [One] = DerefOf (C3ST [One])
-                C2ST [0x02] = DerefOf (C3ST [0x02])
-                Return (C2ST) /* \_SB_.PR00.C2ST */
-            }
-            ElseIf (AC3V)
-            {
-                C2ST [One] = DerefOf (C3ST [One])
-                C2ST [0x02] = DerefOf (C3ST [0x03])
-                DerefOf (C2ST [0x02]) [One] = 0x02
-                Return (C2ST) /* \_SB_.PR00.C2ST */
+                Return (TPSS) /* \_SB_.PR00.TPSS */
             }
             Else
             {
-                C1ST [One] = DerefOf (C3ST [One])
-                Return (C1ST) /* \_SB_.PR00.C1ST */
+                Return (LPSS) /* \_SB_.PR00.LPSS */
             }
         }
+
+        Name (LPSS, Package (0x0D)
+        {
+            Package (0x06)
+            {
+                0x000005DD, 
+                0x00003A98, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00002500, 
+                0x00002500
+            }, 
+
+            Package (0x06)
+            {
+                0x000005DC, 
+                0x00003A98, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000F00, 
+                0x00000F00
+            }, 
+
+            Package (0x06)
+            {
+                0x00000578, 
+                0x000035DF, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000E00, 
+                0x00000E00
+            }, 
+
+            Package (0x06)
+            {
+                0x00000514, 
+                0x0000313F, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000D00, 
+                0x00000D00
+            }, 
+
+            Package (0x06)
+            {
+                0x000004B0, 
+                0x00002D49, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000C00, 
+                0x00000C00
+            }, 
+
+            Package (0x06)
+            {
+                0x0000044C, 
+                0x000028D8, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000B00, 
+                0x00000B00
+            }, 
+
+            Package (0x06)
+            {
+                0x000003E8, 
+                0x0000247F, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000A00, 
+                0x00000A00
+            }, 
+
+            Package (0x06)
+            {
+                0x00000384, 
+                0x000020CC, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000900, 
+                0x00000900
+            }, 
+
+            Package (0x06)
+            {
+                0x00000320, 
+                0x00001CA1, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000800, 
+                0x00000800
+            }, 
+
+            Package (0x06)
+            {
+                0x000002BC, 
+                0x0000188E, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000700, 
+                0x00000700
+            }, 
+
+            Package (0x06)
+            {
+                0x00000258, 
+                0x00001519, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000600, 
+                0x00000600
+            }, 
+
+            Package (0x06)
+            {
+                0x000001F4, 
+                0x00001132, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000500, 
+                0x00000500
+            }, 
+
+            Package (0x06)
+            {
+                0x00000190, 
+                0x00000D63, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000400, 
+                0x00000400
+            }
+        })
+        Name (TPSS, Package (0x0D)
+        {
+            Package (0x06)
+            {
+                0x000005DD, 
+                0x00003A98, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00002500, 
+                0x00002500
+            }, 
+
+            Package (0x06)
+            {
+                0x000005DC, 
+                0x00003A98, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000F00, 
+                0x00000F00
+            }, 
+
+            Package (0x06)
+            {
+                0x00000578, 
+                0x000035DF, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000E00, 
+                0x00000E00
+            }, 
+
+            Package (0x06)
+            {
+                0x00000514, 
+                0x0000313F, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000D00, 
+                0x00000D00
+            }, 
+
+            Package (0x06)
+            {
+                0x000004B0, 
+                0x00002D49, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000C00, 
+                0x00000C00
+            }, 
+
+            Package (0x06)
+            {
+                0x0000044C, 
+                0x000028D8, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000B00, 
+                0x00000B00
+            }, 
+
+            Package (0x06)
+            {
+                0x000003E8, 
+                0x0000247F, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000A00, 
+                0x00000A00
+            }, 
+
+            Package (0x06)
+            {
+                0x00000384, 
+                0x000020CC, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000900, 
+                0x00000900
+            }, 
+
+            Package (0x06)
+            {
+                0x00000320, 
+                0x00001CA1, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000800, 
+                0x00000800
+            }, 
+
+            Package (0x06)
+            {
+                0x000002BC, 
+                0x0000188E, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000700, 
+                0x00000700
+            }, 
+
+            Package (0x06)
+            {
+                0x00000258, 
+                0x00001519, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000600, 
+                0x00000600
+            }, 
+
+            Package (0x06)
+            {
+                0x000001F4, 
+                0x00001132, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000500, 
+                0x00000500
+            }, 
+
+            Package (0x06)
+            {
+                0x00000190, 
+                0x00000D63, 
+                0x0000000A, 
+                0x0000000A, 
+                0x00000400, 
+                0x00000400
+            }
+        })
     }
 }
 

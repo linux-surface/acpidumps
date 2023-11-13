@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190816 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
+ * AML/ASL+ Disassembler version 20230628 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of dsdt.dat, Sat Oct 26 11:48:06 2019
+ * Disassembly of dsdt.dat, Mon Nov 13 20:06:43 2023
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0001CB6D (117613)
+ *     Length           0x0001C11E (114974)
  *     Revision         0x02
- *     Checksum         0xEF
+ *     Checksum         0x75
  *     OEM ID           "MSFT  "
  *     OEM Table ID     "MSFT    "
  *     OEM Revision     0x00000002 (2)
@@ -66,7 +66,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     External (_SB_.PCI0.GFX0.GSSE, UnknownObj)
     External (_SB_.PCI0.GFX0.STAT, UnknownObj)
     External (_SB_.PCI0.GFX0.TCHE, UnknownObj)
-    External (_SB_.PCI0.HDAS, DeviceObj)
     External (_SB_.PCI0.HDAS.PPMS, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.HDAS.PS0X, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.HDAS.PS3X, MethodObj)    // 0 Arguments
@@ -79,14 +78,9 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     External (_SB_.PCI0.M64B, UnknownObj)
     External (_SB_.PCI0.M64L, UnknownObj)
     External (_SB_.PCI0.PAUD.PUAM, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.PEG0, DeviceObj)
     External (_SB_.PCI0.PEG0.HPME, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.PEG0.PEGP, DeviceObj)
-    External (_SB_.PCI0.PEG1, DeviceObj)
     External (_SB_.PCI0.PEG1.HPME, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.PEG2, DeviceObj)
     External (_SB_.PCI0.PEG2.HPME, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.PEG3, DeviceObj)
     External (_SB_.PCI0.PEG3.HPME, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.RP01.PPRW, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.RP02.PPRW, MethodObj)    // 0 Arguments
@@ -227,9 +221,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     External (_SB_.TPWR, DeviceObj)
     External (_SB_.TRPD, UnknownObj)
     External (_SB_.TRPF, UnknownObj)
-    External (_TZ_.ETMD, IntObj)
-    External (_TZ_.TZ00, DeviceObj)
     External (ALSE, UnknownObj)
+    External (BCLE, IntObj)
     External (BGIA, IntObj)
     External (BGMA, IntObj)
     External (BGMS, IntObj)
@@ -293,6 +286,13 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     External (TRE2, UnknownObj)
     External (TRE3, UnknownObj)
     External (TRTD, UnknownObj)
+    External (XBAS, UnknownObj)
+
+    Method (ADBG, 1, Serialized)
+    {
+        Debug = Arg0
+        Return (Zero)
+    }
 
     Method (UDBG, 7, Serialized)
     {
@@ -330,14 +330,14 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     Name (SS2, Zero)
     Name (SS3, Zero)
     Name (SS4, One)
-    OperationRegion (MNVS, SystemMemory, 0x7BF99000, 0x0040)
+    OperationRegion (MNVS, SystemMemory, 0x7BB91000, 0x0043)
     Field (MNVS, AnyAcc, Lock, Preserve)
     {
         SBFF,   32, 
         STDH,   72, 
-        STSM,   72, 
+        SHSD,   72, 
         SIDH,   72, 
-        SFUH,   72, 
+        SEDH,   72, 
         OMPR,   16, 
         OMBR,   8, 
         PTSM,   16, 
@@ -345,10 +345,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         RSMP,   32, 
         SAMS,   72, 
         SSHP,   32, 
-        SACS,   8
+        SACS,   8, 
+        CANS,   8, 
+        TZSM,   16
     }
 
-    OperationRegion (GNVS, SystemMemory, 0x7BFAC000, 0x07FA)
+    OperationRegion (GNVS, SystemMemory, 0x7BBA4000, 0x07FA)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         OSYS,   16, 
@@ -1297,7 +1299,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         SPEP,   32
     }
 
-    OperationRegion (SNVS, SystemMemory, 0x7BFAB000, 0x001C)
+    OperationRegion (SNVS, SystemMemory, 0x7BBA3000, 0x001C)
     Field (SNVS, AnyAcc, Lock, Preserve)
     {
         REMK,   32, 
@@ -1324,7 +1326,9 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         CSZE,   32, 
         GWAS,   32, 
         GWSI,   8, 
-        GWDS,   32
+        GWDS,   32, 
+        GWRE,   32, 
+        SCAP,   64
     }
 
     Scope (_SB)
@@ -1343,7 +1347,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             CreateWordField (TIME, 0x0A, TMZN)
             CreateByteField (TIME, 0x0C, DASV)
             CreateField (TIME, 0x68, 0x18, PAD2)
-            Name (SGCP, 0xF7)
+            Name (SGCP, 0x000001F7)
             Method (_INI, 0, Serialized)  // _INI: Initialize
             {
                 ISOK = Zero
@@ -3745,6 +3749,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 {
                     Name (_ADR, 0x00050000)  // _ADR: Address
                 }
+
+                Device (GNA0)
+                {
+                    Name (_ADR, 0x00080000)  // _ADR: Address
+                }
             }
         }
     }
@@ -3811,7 +3820,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         }
     }
 
-    Name (PNVB, 0x7BFB3098)
+    Name (PNVB, 0x7BBA9D18)
     Name (PNVL, 0x0234)
     OperationRegion (PNVA, SystemMemory, PNVB, PNVL)
     Field (PNVA, AnyAcc, Lock, Preserve)
@@ -4760,15 +4769,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         {
             If ((PCHS == PCHL))
             {
-                Return (DerefOf (DerefOf (GPCL [Arg0]) [Arg1]))
+                Local0 = (Arg0 % 0x10)
+                Return (DerefOf (DerefOf (GPCL [Local0]) [Arg1]))
             }
             ElseIf ((PCHS == PCHN))
             {
-                Return (DerefOf (DerefOf (GPCN [Arg0]) [Arg1]))
+                Local0 = (Arg0 % 0x12)
+                Return (DerefOf (DerefOf (GPCN [Local0]) [Arg1]))
             }
             Else
             {
-                Return (DerefOf (DerefOf (GPCH [Arg0]) [Arg1]))
+                Local0 = (Arg0 % 0x12)
+                Return (DerefOf (DerefOf (GPCH [Local0]) [Arg1]))
             }
         }
 
@@ -6084,14 +6096,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Zero, 
                 Zero
             })
-            ADBG ("PMC IPC")
-            ADBG (Concatenate ("Command: ", ToHexString (Arg0)))
-            ADBG (Concatenate ("SubCmdId: ", ToHexString (Arg1)))
-            ADBG (Concatenate ("Size: ", ToHexString (Arg2)))
-            ADBG (Concatenate ("WBuff0: ", ToHexString (Arg3)))
-            ADBG (Concatenate ("WBuff1: ", ToHexString (Arg4)))
-            ADBG (Concatenate ("WBuff2: ", ToHexString (Arg5)))
-            ADBG (Concatenate ("WBuff3: ", ToHexString (Arg6)))
             If ((Arg2 > 0x10))
             {
                 ADBG ("CmdSize>16 Error")
@@ -6129,15 +6133,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             If ((IERR == One))
             {
-                ADBG ("IPC Error:")
-                ADBG (IERC)
-                ADBG (Arg0)
-                ADBG (Arg1)
-                ADBG (Arg2)
-                ADBG (Arg3)
-                ADBG (Arg4)
-                ADBG (Arg5)
-                ADBG (Arg6)
                 RPKG [Zero] = 0x02
                 Return (RPKG) /* \IPCS.RPKG */
             }
@@ -6151,13 +6146,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
         Method (SCOC, 3, Serialized)
         {
-            ADBG ("SCOC")
-            ADBG (Concatenate ("Clock Number: ", ToHexString (Arg0)))
-            ADBG (Concatenate ("Enable/Disable: ", ToHexString (Arg1)))
-            ADBG (Concatenate ("RootPort ", ToHexString (Arg2)))
             If ((PCHS == PCHL))
             {
-                ADBG ("ERROR Use SPCO")
                 Return (Zero)
             }
 
@@ -6187,7 +6177,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         {
             If (((PCHS == PCHN) || (PCHS == PCHH)))
             {
-                ADBG ("ERROR Use SCOC")
                 Return (Zero)
             }
 
@@ -6457,6 +6446,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_PS0, 0, Serialized)  // _PS0: Power State 0
             {
+                ADBG ("XHC D0")
                 If ((DVID == 0xFFFF))
                 {
                     Return (Zero)
@@ -6470,6 +6460,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_PS3, 0, Serialized)  // _PS3: Power State 3
             {
+                ADBG ("XHC D3")
                 If ((DVID == 0xFFFF))
                 {
                     Return (Zero)
@@ -6483,7 +6474,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (CUID, 1, Serialized)
             {
-                If ((Arg0 == ToUUID ("7c9512a9-1705-4cb4-af7d-506a2423ab71")))
+                If ((Arg0 == ToUUID ("7c9512a9-1705-4cb4-af7d-506a2423ab71") /* Unknown UUID */))
                 {
                     Return (One)
                 }
@@ -6496,6 +6487,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Name (_ADR, Zero)  // _ADR: Address
                 Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                 {
+                    ADBG ("XHC RHUB PS0")
                     If ((DVID == 0xFFFF))
                     {
                         Return (Zero)
@@ -6503,6 +6495,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If (CondRefOf (\_SB.PCI0.XHC.RHUB.PS0X))
                     {
+                        ADBG ("XHC CSD0")
                         CSD0 (0x16)
                         PS0X ()
                     }
@@ -6510,6 +6503,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (_PS2, 0, Serialized)  // _PS2: Power State 2
                 {
+                    ADBG ("XHC RHUB PS2")
                     If ((DVID == 0xFFFF))
                     {
                         Return (Zero)
@@ -6518,12 +6512,14 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     If (CondRefOf (\_SB.PCI0.XHC.RHUB.PS2X))
                     {
                         PS2X ()
+                        ADBG ("XHC CSD3")
                         CSD3 (0x16)
                     }
                 }
 
                 Method (_PS3, 0, Serialized)  // _PS3: Power State 3
                 {
+                    ADBG ("XHC RHUB PS3")
                     If ((DVID == 0xFFFF))
                     {
                         Return (Zero)
@@ -6532,6 +6528,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     If (CondRefOf (\_SB.PCI0.XHC.RHUB.PS3X))
                     {
                         PS3X ()
+                        ADBG ("XHC CSD3")
                         CSD3 (0x16)
                     }
                 }
@@ -6748,7 +6745,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("732b85d5-b7a7-4a1b-9ba0-4bbd00ffd511")))
+                ADBG ("XDCI DSM")
+                If ((Arg0 == ToUUID ("732b85d5-b7a7-4a1b-9ba0-4bbd00ffd511") /* Unknown UUID */))
                 {
                     If ((Arg1 == One))
                     {
@@ -6776,6 +6774,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             Local2 = Arg1
                             If ((Local1 == Zero))
                             {
+                                ADBG ("PMU D0")
                                 UXPE = Zero
                                 Local0 = Zero
                                 While ((Local0 < 0x0A))
@@ -6797,15 +6796,32 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                                     Local0++
                                 }
 
-                                If ((U2CP != Zero)){}
-                                If ((U3CP != Zero)){}
+                                If ((U2CP != Zero))
+                                {
+                                    ADBG ("U2 not in D0")
+                                }
+
+                                If ((U3CP != Zero))
+                                {
+                                    ADBG ("U3 not in D0")
+                                }
+
                                 Return (Zero)
                             }
 
                             If ((Local1 == 0x03))
                             {
-                                If ((U2CP != Zero)){}
-                                If ((U3CP != Zero)){}
+                                ADBG ("PMU D3")
+                                If ((U2CP != Zero))
+                                {
+                                    ADBG ("U2 not in D0")
+                                }
+
+                                If ((U3CP != Zero))
+                                {
+                                    ADBG ("U3 not in D0")
+                                }
+
                                 PUPS = 0x03
                                 Local0 = Zero
                                 While ((Local0 < 0x07D0))
@@ -6819,8 +6835,16 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                                     Local0++
                                 }
 
-                                If ((U2CP != 0x03)){}
-                                If ((U3CP != 0x03)){}
+                                If ((U2CP != 0x03))
+                                {
+                                    ADBG ("U2 not in D3")
+                                }
+
+                                If ((U3CP != 0x03))
+                                {
+                                    ADBG ("U3 not in D3")
+                                }
+
                                 UXPE = Local2
                                 Return (Zero)
                             }
@@ -6832,6 +6856,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {
                             Case (Zero)
                             {
+                                ADBG ("XDCI Fn0")
                                 Return (Buffer (0x02)
                                 {
                                      0xB3, 0x03                                       // ..
@@ -6839,23 +6864,29 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
                             Case (One)
                             {
+                                ADBG ("XDCI Fn1")
                                 Return (One)
                             }
                             Case (0x04)
                             {
+                                ADBG ("XDCI Fn4")
                                 Local1 = DerefOf (Arg3 [Zero])
+                                ADBG (Local1)
                                 SPPS (Local1, Zero)
                             }
                             Case (0x05)
                             {
+                                ADBG ("XDCI Fn5")
                                 If (CondRefOf (\_SB.PCI0.LPCB.H_EC.XDAT))
                                 {
                                     If ((^^LPCB.H_EC.XDAT () == One))
                                     {
+                                        ADBG ("USB Attach")
                                         Notify (XDCI, 0x80) // Status Change
                                     }
                                     Else
                                     {
+                                        ADBG ("USB Detach")
                                         Notify (XDCI, 0x81) // Information Change
                                     }
                                 }
@@ -6864,6 +6895,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
                             Case (0x07)
                             {
+                                ADBG ("XDCI Fn7")
                                 OperationRegion (XD22, SystemMemory, XDBA (), 0x00110000)
                                 Field (XD22, WordAcc, NoLock, Preserve)
                                 {
@@ -6877,10 +6909,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
                             Case (0x08)
                             {
+                                ADBG ("XDCI Fn8")
                                 Return (One)
                             }
                             Case (0x09)
                             {
+                                ADBG ("XDCI Fn9")
                                 OperationRegion (XGCT, SystemMemory, XDBA (), 0x00110000)
                                 Field (XGCT, WordAcc, NoLock, Preserve)
                                 {
@@ -6890,6 +6924,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                                 Local1 = (PPDS & 0xFFF80000)
                                 Local1 >>= 0x13
+                                ADBG (Concatenate ("PCH XDCI: Func9 Return Val = ", ToHexString (Local1)))
                                 Return (Local1)
                             }
 
@@ -6972,7 +7007,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             })
             Method (_INI, 0, NotSerialized)  // _INI: Initialize
             {
-                ADBG ("HDAS _INI")
                 CreateQWordField (NBUF, \_SB.PCI0.HDAS._Y16._MIN, NBAS)  // _MIN: Minimum Base Address
                 CreateQWordField (NBUF, \_SB.PCI0.HDAS._Y16._MAX, NMAS)  // _MAX: Maximum Base Address
                 CreateQWordField (NBUF, \_SB.PCI0.HDAS._Y16._LEN, NLEN)  // _LEN: Length
@@ -6995,13 +7029,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             })
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                ADBG ("HDAS _DSM")
                 If (PCIC (Arg0))
                 {
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("a69f886e-6ceb-4594-a41f-7b5dce24c553")))
+                If ((Arg0 == ToUUID ("a69f886e-6ceb-4594-a41f-7b5dce24c553") /* Unknown UUID */))
                 {
                     If ((ToInteger (Arg2) == Zero))
                     {
@@ -7012,17 +7045,14 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                     ElseIf ((ToInteger (Arg2) == One))
                     {
-                        ADBG ("_DSM Fun 1 NHLT")
                         Return (NBUF) /* \_SB_.PCI0.HDAS.NBUF */
                     }
                     ElseIf ((ToInteger (Arg2) == 0x02))
                     {
-                        ADBG ("_DSM Fun 2 FMSK")
                         Return (ADFM) /* \ADFM */
                     }
                     ElseIf ((ToInteger (Arg2) == 0x03))
                     {
-                        ADBG ("_DSM Fun 3 PPMS")
                         If (CondRefOf (\_SB.PCI0.HDAS.PPMS))
                         {
                             Return (PPMS (Arg3))
@@ -7032,7 +7062,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                     Else
                     {
-                        ADBG ("_DSM Fun NOK")
                         Return (Buffer (One)
                         {
                              0x00                                             // .
@@ -7051,7 +7080,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                ADBG ("_DSM UUID NOK")
                 Return (Buffer (One)
                 {
                      0x00                                             // .
@@ -7064,9 +7092,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Device (SNDW)
             {
                 Name (_ADR, 0x40000000)  // _ADR: Address
-                Name (_CID, Package (0x02)  // _CID: Compatible ID
+                Name (_CID, Package (0x01)  // _CID: Compatible ID
                 {
-                    "PRP00001", 
                     "PNP0A05" /* Generic Container Device */
                 })
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -7086,7 +7113,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 {
                     If ((Arg1 == Zero))
                     {
-                        ADBG ("XTAL 24MHz")
                         Local0 = 0x016E3600
                         Local1 = 0x005B8D80
                         Local2 = 0x7D
@@ -7094,7 +7120,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                     ElseIf ((Arg1 == One))
                     {
-                        ADBG ("XTAL 38.4MHz")
                         Local0 = 0x0249F000
                         Local1 = 0x00493E00
                         Local2 = 0x32
@@ -7121,7 +7146,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (_INI, 0, NotSerialized)  // _INI: Initialize
                 {
-                    ADBG ("SNDW _INI")
                     QCFG (LNK0, SWQ0, ACS0)
                     QCFG (LNK1, SWQ1, ACS1)
                     QCFG (LNK2, SWQ2, ACS2)
@@ -7154,7 +7178,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                     }, 
 
-                    ToUUID ("dbb8e3e6-5886-4ba6-8795-1319f52a966b"), 
+                    ToUUID ("dbb8e3e6-5886-4ba6-8795-1319f52a966b") /* Hierarchical Data Extension */, 
                     Package (0x04)
                     {
                         Package (0x02)
@@ -13975,7 +13999,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("9cd9cddd-8845-4afd-8392-31c4eb87cabd")))
+                If ((Arg0 == ToUUID ("9cd9cddd-8845-4afd-8392-31c4eb87cabd") /* Unknown UUID */))
                 {
                     Return (D3AS (Arg1, Arg2, Arg3))
                 }
@@ -13996,7 +14020,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_PS0, 0, Serialized)  // _PS0: Power State 0
             {
-                ADBG ("SATA0 Ctrlr D0")
                 If ((PCHS == PCHL))
                 {
                     If (!SCFD)
@@ -14008,7 +14031,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_PS3, 0, Serialized)  // _PS3: Power State 3
             {
-                ADBG ("SATA0 Ctrlr D3")
                 If ((PCHS == PCHL))
                 {
                     CSD3 (0x14)
@@ -14102,7 +14124,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Name (CSAV, Zero)
                 Method (_PS3, 0, Serialized)  // _PS3: Power State 3
                 {
-                    ADBG (Concatenate ("_PS3r:", ToHexString (_ADR)))
                     If (IR3D ())
                     {
                         Return (Zero)
@@ -14113,7 +14134,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                 {
-                    ADBG (Concatenate ("_PS0r:", ToHexString (_ADR)))
                     If (IR3D ())
                     {
                         Return (Zero)
@@ -14176,10 +14196,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (RPON, 0, Serialized)
                 {
-                    ADBG (Concatenate ("RPONs: ", ToHexString (_ADR)))
                     If ((ID3C == Zero))
                     {
-                        ADBG ("RPON: no D3C")
                         Return (Zero)
                     }
 
@@ -14187,15 +14205,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     RLA ()
                     Sleep (0x64)
                     ID3C = Zero
-                    ADBG (Concatenate ("RPONe: ", ToHexString (_ADR)))
                 }
 
                 Method (RPOF, 0, Serialized)
                 {
-                    ADBG (Concatenate ("RPOFs: ", ToHexString (_ADR)))
                     If ((ID3H == Zero))
                     {
-                        ADBG ("RPOF: No D3H")
                         BreakPoint
                         Return (Zero)
                     }
@@ -14212,7 +14227,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (SAVC, 0, Serialized)
                 {
-                    ADBG (Concatenate ("SAVC:", ToHexString (_ADR)))
                     PCMD = RDCA (NCRN, 0x04, Zero, Zero, 0x02)
                     If ((NITV == One))
                     {
@@ -14241,7 +14255,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (NVD3, 0, Serialized)
                 {
-                    ADBG (Concatenate ("NVD3:", ToHexString (_ADR)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14249,7 +14262,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If ((ID3H == One))
                     {
-                        ADBG ("Skip in D3")
                         Return (Zero)
                     }
 
@@ -14262,7 +14274,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (NVD0, 0, Serialized)
                 {
-                    ADBG (Concatenate ("NVD0:", ToHexString (_ADR)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14270,7 +14281,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If ((ID3H == Zero))
                     {
-                        ADBG ("Remap already in D0")
                         Return (Zero)
                     }
 
@@ -14292,12 +14302,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
 
                             RDCA (NCRN, TCSO, 0xFFFFFFFF, (MXIE & 0x80000000), 0x03)
-                            ADBG ("NVD0:  MSIXe")
                         }
                     }
                     Else
                     {
-                        ADBG ("Skip remap restore")
                     }
 
                     ID3H = Zero
@@ -14306,7 +14314,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (CNRS, 0, Serialized)
                 {
-                    ADBG (Concatenate ("CNRSs ", ToDecimalString (Timer)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14339,14 +14346,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     If (((NEAV & 0x40) == 0x40))
                     {
                         RDCA (NCRN, 0x50, 0xFFFFFFDF, 0x20, One)
-                        ADBG (Concatenate ("CNRSw ", ToDecimalString (Timer)))
                         While (((RDCA (NCRN, 0x52, Zero, Zero, Zero) & 0x2000) == Zero))
                         {
                             Stall (0x0A)
                         }
                     }
 
-                    ADBG (Concatenate ("CNRSx ", ToDecimalString (Timer)))
                     RDCA (NCRN, (NPCV + 0x10), 0xFFFFFFFC, (NEAV & 0x03), 0x03)
                     If ((NMVV != Zero))
                     {
@@ -14357,8 +14362,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     {
                         RDCA (NCRN, NPBV, Zero, NPVV, 0x03)
                     }
-
-                    ADBG (Concatenate ("CNRSe ", ToDecimalString (Timer)))
                 }
             }
 
@@ -14414,7 +14417,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Name (CSAV, Zero)
                 Method (_PS3, 0, Serialized)  // _PS3: Power State 3
                 {
-                    ADBG (Concatenate ("_PS3r:", ToHexString (_ADR)))
                     If (IR3D ())
                     {
                         Return (Zero)
@@ -14425,7 +14427,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                 {
-                    ADBG (Concatenate ("_PS0r:", ToHexString (_ADR)))
                     If (IR3D ())
                     {
                         Return (Zero)
@@ -14488,10 +14489,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (RPON, 0, Serialized)
                 {
-                    ADBG (Concatenate ("RPONs: ", ToHexString (_ADR)))
                     If ((ID3C == Zero))
                     {
-                        ADBG ("RPON: no D3C")
                         Return (Zero)
                     }
 
@@ -14499,15 +14498,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     RLA ()
                     Sleep (0x64)
                     ID3C = Zero
-                    ADBG (Concatenate ("RPONe: ", ToHexString (_ADR)))
                 }
 
                 Method (RPOF, 0, Serialized)
                 {
-                    ADBG (Concatenate ("RPOFs: ", ToHexString (_ADR)))
                     If ((ID3H == Zero))
                     {
-                        ADBG ("RPOF: No D3H")
                         BreakPoint
                         Return (Zero)
                     }
@@ -14524,7 +14520,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (SAVC, 0, Serialized)
                 {
-                    ADBG (Concatenate ("SAVC:", ToHexString (_ADR)))
                     PCMD = RDCA (NCRN, 0x04, Zero, Zero, 0x02)
                     If ((NITV == One))
                     {
@@ -14553,7 +14548,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (NVD3, 0, Serialized)
                 {
-                    ADBG (Concatenate ("NVD3:", ToHexString (_ADR)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14561,7 +14555,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If ((ID3H == One))
                     {
-                        ADBG ("Skip in D3")
                         Return (Zero)
                     }
 
@@ -14574,7 +14567,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (NVD0, 0, Serialized)
                 {
-                    ADBG (Concatenate ("NVD0:", ToHexString (_ADR)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14582,7 +14574,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If ((ID3H == Zero))
                     {
-                        ADBG ("Remap already in D0")
                         Return (Zero)
                     }
 
@@ -14604,12 +14595,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
 
                             RDCA (NCRN, TCSO, 0xFFFFFFFF, (MXIE & 0x80000000), 0x03)
-                            ADBG ("NVD0:  MSIXe")
                         }
                     }
                     Else
                     {
-                        ADBG ("Skip remap restore")
                     }
 
                     ID3H = Zero
@@ -14618,7 +14607,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (CNRS, 0, Serialized)
                 {
-                    ADBG (Concatenate ("CNRSs ", ToDecimalString (Timer)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14651,14 +14639,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     If (((NEAV & 0x40) == 0x40))
                     {
                         RDCA (NCRN, 0x50, 0xFFFFFFDF, 0x20, One)
-                        ADBG (Concatenate ("CNRSw ", ToDecimalString (Timer)))
                         While (((RDCA (NCRN, 0x52, Zero, Zero, Zero) & 0x2000) == Zero))
                         {
                             Stall (0x0A)
                         }
                     }
 
-                    ADBG (Concatenate ("CNRSx ", ToDecimalString (Timer)))
                     RDCA (NCRN, (NPCV + 0x10), 0xFFFFFFFC, (NEAV & 0x03), 0x03)
                     If ((NMVV != Zero))
                     {
@@ -14669,8 +14655,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     {
                         RDCA (NCRN, NPBV, Zero, NPVV, 0x03)
                     }
-
-                    ADBG (Concatenate ("CNRSe ", ToDecimalString (Timer)))
                 }
             }
 
@@ -14726,7 +14710,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Name (CSAV, Zero)
                 Method (_PS3, 0, Serialized)  // _PS3: Power State 3
                 {
-                    ADBG (Concatenate ("_PS3r:", ToHexString (_ADR)))
                     If (IR3D ())
                     {
                         Return (Zero)
@@ -14737,7 +14720,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                 {
-                    ADBG (Concatenate ("_PS0r:", ToHexString (_ADR)))
                     If (IR3D ())
                     {
                         Return (Zero)
@@ -14800,10 +14782,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (RPON, 0, Serialized)
                 {
-                    ADBG (Concatenate ("RPONs: ", ToHexString (_ADR)))
                     If ((ID3C == Zero))
                     {
-                        ADBG ("RPON: no D3C")
                         Return (Zero)
                     }
 
@@ -14811,15 +14791,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     RLA ()
                     Sleep (0x64)
                     ID3C = Zero
-                    ADBG (Concatenate ("RPONe: ", ToHexString (_ADR)))
                 }
 
                 Method (RPOF, 0, Serialized)
                 {
-                    ADBG (Concatenate ("RPOFs: ", ToHexString (_ADR)))
                     If ((ID3H == Zero))
                     {
-                        ADBG ("RPOF: No D3H")
                         BreakPoint
                         Return (Zero)
                     }
@@ -14836,7 +14813,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (SAVC, 0, Serialized)
                 {
-                    ADBG (Concatenate ("SAVC:", ToHexString (_ADR)))
                     PCMD = RDCA (NCRN, 0x04, Zero, Zero, 0x02)
                     If ((NITV == One))
                     {
@@ -14865,7 +14841,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (NVD3, 0, Serialized)
                 {
-                    ADBG (Concatenate ("NVD3:", ToHexString (_ADR)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14873,7 +14848,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If ((ID3H == One))
                     {
-                        ADBG ("Skip in D3")
                         Return (Zero)
                     }
 
@@ -14886,7 +14860,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (NVD0, 0, Serialized)
                 {
-                    ADBG (Concatenate ("NVD0:", ToHexString (_ADR)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14894,7 +14867,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                     If ((ID3H == Zero))
                     {
-                        ADBG ("Remap already in D0")
                         Return (Zero)
                     }
 
@@ -14916,12 +14888,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
 
                             RDCA (NCRN, TCSO, 0xFFFFFFFF, (MXIE & 0x80000000), 0x03)
-                            ADBG ("NVD0:  MSIXe")
                         }
                     }
                     Else
                     {
-                        ADBG ("Skip remap restore")
                     }
 
                     ID3H = Zero
@@ -14930,7 +14900,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                 Method (CNRS, 0, Serialized)
                 {
-                    ADBG (Concatenate ("CNRSs ", ToDecimalString (Timer)))
                     If ((NITV == Zero))
                     {
                         Return (Zero)
@@ -14963,14 +14932,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     If (((NEAV & 0x40) == 0x40))
                     {
                         RDCA (NCRN, 0x50, 0xFFFFFFDF, 0x20, One)
-                        ADBG (Concatenate ("CNRSw ", ToDecimalString (Timer)))
                         While (((RDCA (NCRN, 0x52, Zero, Zero, Zero) & 0x2000) == Zero))
                         {
                             Stall (0x0A)
                         }
                     }
 
-                    ADBG (Concatenate ("CNRSx ", ToDecimalString (Timer)))
                     RDCA (NCRN, (NPCV + 0x10), 0xFFFFFFFC, (NEAV & 0x03), 0x03)
                     If ((NMVV != Zero))
                     {
@@ -14981,8 +14948,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     {
                         RDCA (NCRN, NPBV, Zero, NPVV, 0x03)
                     }
-
-                    ADBG (Concatenate ("CNRSe ", ToDecimalString (Timer)))
                 }
             }
 
@@ -15389,7 +15354,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (RSTD, 5, Serialized)
             {
-                If ((Arg0 == ToUUID ("e03e3431-e510-4fa2-abc0-2d7e901245fe")))
+                If ((Arg0 == ToUUID ("e03e3431-e510-4fa2-abc0-2d7e901245fe") /* Unknown UUID */))
                 {
                     Switch (ToInteger (Arg2))
                     {
@@ -15407,7 +15372,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {
                             Arg4 = DerefOf (Arg3 [Zero])
                             Local0 = DerefOf (Arg3 [Zero])
-                            ADBG (Concatenate ("RSTD.SET:", ToHexString (Local0)))
                             Return (Package (0x01)
                             {
                                 Zero
@@ -15416,7 +15380,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         Case (0x02)
                         {
                             Local0 = DerefOf (Arg3 [Zero])
-                            ADBG (Concatenate ("RSTD.ON:", ToHexString (Local0)))
                             CPON (Local0)
                             Return (Package (0x01)
                             {
@@ -15426,7 +15389,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         Case (0x03)
                         {
                             Local0 = DerefOf (Arg3 [Zero])
-                            ADBG (Concatenate ("RSTD.OFF:", ToHexString (Local0)))
                             CPOF (Local0)
                             Return (Package (0x01)
                             {
@@ -15441,13 +15403,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             })
                             CreateByteField (GETM, Zero, GMSK)
                             GMSK = Arg4
-                            ADBG (Concatenate ("RSTD.GET:", ToHexString (GMSK)))
                             Return (GETM) /* \_SB_.PCI0.SAT0.RSTD.GETM */
                         }
                         Case (0x05)
                         {
                             VR3A = DerefOf (Arg3 [Zero])
-                            ADBG (Concatenate ("RSTD.D3A:", ToHexString (VR3A)))
                             Return (Zero)
                         }
                         Default
@@ -15653,7 +15613,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Name (_STA, One)  // _STA: Status
                     Method (_ON, 0, NotSerialized)  // _ON_: Power On
                     {
-                        ADBG (Concatenate ("VOL0._ON:", ToHexString (VL0M)))
                         If (VR3A)
                         {
                             CPON (VL0M)
@@ -15661,13 +15620,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                         Else
                         {
-                            ADBG ("Global RTD3 lock")
                         }
                     }
 
                     Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
                     {
-                        ADBG (Concatenate ("VOL0._OFF:", ToHexString (VL0M)))
                         If (VR3A)
                         {
                             CPOF (VL0M)
@@ -15675,7 +15632,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                         Else
                         {
-                            ADBG ("Global RTD3 lock")
                         }
                     }
                 }
@@ -15702,7 +15658,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Name (_STA, One)  // _STA: Status
                     Method (_ON, 0, NotSerialized)  // _ON_: Power On
                     {
-                        ADBG (Concatenate ("VOL1._ON:", ToHexString (VL1M)))
                         If (VR3A)
                         {
                             CPON (VL1M)
@@ -15710,13 +15665,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                         Else
                         {
-                            ADBG ("Global RTD3 lock")
                         }
                     }
 
                     Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
                     {
-                        ADBG (Concatenate ("VOL1._OFF:", ToHexString (VL1M)))
                         If (VR3A)
                         {
                             CPOF (VL1M)
@@ -15724,7 +15677,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                         Else
                         {
-                            ADBG ("Global RTD3 lock")
                         }
                     }
                 }
@@ -15751,7 +15703,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Name (_STA, One)  // _STA: Status
                     Method (_ON, 0, NotSerialized)  // _ON_: Power On
                     {
-                        ADBG (Concatenate ("VOL2._ON:", ToHexString (VL2M)))
                         If (VR3A)
                         {
                             CPON (VL2M)
@@ -15759,13 +15710,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                         Else
                         {
-                            ADBG ("Global RTD3 lock")
                         }
                     }
 
                     Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
                     {
-                        ADBG (Concatenate ("VOL2._OFF:", ToHexString (VL2M)))
                         If (VR3A)
                         {
                             CPOF (VL2M)
@@ -15773,7 +15722,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         }
                         Else
                         {
-                            ADBG ("Global RTD3 lock")
                         }
                     }
                 }
@@ -15899,7 +15847,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 }
                 ElseIf ((PCHS == PCHN))
                 {
-                    Return ("INT34C3")
+                    Return ("INT34C9")
                 }
                 Else
                 {
@@ -16511,7 +16459,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     {
         Method (UDSM, 1, Serialized)
         {
-            If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27")))
+            If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27") /* Unknown UUID */))
             {
                 Return (One)
             }
@@ -16552,7 +16500,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27")))
+                If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27") /* Unknown UUID */))
                 {
                     Switch (ToInteger (Arg2))
                     {
@@ -17013,7 +16961,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Name (_HRV, 0x30)  // _HRV: Hardware Revision
                     Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                     {
-                        If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27")))
+                        If ((Arg0 == ToUUID ("f7af8347-a966-49fe-9022-7a9deeebdb27") /* Unknown UUID */))
                         {
                             Switch (ToInteger (Arg2))
                             {
@@ -17151,6 +17099,68 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
     Scope (_SB.PCI0)
     {
+        Method (DLLR, 5, Serialized)
+        {
+            ADBG ("SD DLL restore flow")
+            Name (TEMP, Zero)
+            Name (EMPB, Zero)
+            EMPB = XBAS /* External reference */
+            EMPB |= (Arg0 << 0x14)
+            EMPB |= (Arg1 << 0x0F)
+            EMPB |= (Arg2 << 0x0C)
+            OperationRegion (EMPC, SystemMemory, EMPB, 0x0100)
+            Field (EMPC, DWordAcc, NoLock, Preserve)
+            {
+                Offset (0x04), 
+                    ,   1, 
+                MSE,    1, 
+                Offset (0x10), 
+                BAR0,   64, 
+                Offset (0x84), 
+                PSTA,   32
+            }
+
+            Name (OPST, Zero)
+            OPST = PSTA /* \_SB_.PCI0.DLLR.PSTA */
+            PSTA &= 0xFFFFFFFC
+            TEMP = PSTA /* \_SB_.PCI0.DLLR.PSTA */
+            Name (OMSE, Zero)
+            OMSE = MSE /* \_SB_.PCI0.DLLR.MSE_ */
+            MSE = Zero
+            Name (OBAR, Zero)
+            OBAR = BAR0 /* \_SB_.PCI0.DLLR.BAR0 */
+            BAR0 = Arg3
+            TEMP = BAR0 /* \_SB_.PCI0.DLLR.BAR0 */
+            MSE = One
+            OperationRegion (EMMI, SystemMemory, Arg3, Arg4)
+            Field (EMMI, DWordAcc, NoLock, Preserve)
+            {
+                Offset (0x834), 
+                FDLL,   8, 
+                Offset (0x840), 
+                ADLL,   8
+            }
+
+            Name (FDLV, Zero)
+            Name (ADLV, Zero)
+            FDLV = FDLL /* \_SB_.PCI0.DLLR.FDLL */
+            ADLV = ADLL /* \_SB_.PCI0.DLLR.ADLL */
+            ADBG (Concatenate ("Fixed DLL value ", ToHexString (FDLV)))
+            ADBG (Concatenate ("Auto DLL Value ", ToHexString (ADLV)))
+            If ((ADLV != Zero))
+            {
+                ADBG ("Auto tuning executed, restoring values")
+                ADLV *= 0x02
+                FDLL = ADLV /* \_SB_.PCI0.DLLR.ADLV */
+            }
+
+            MSE = Zero
+            BAR0 = OBAR /* \_SB_.PCI0.DLLR.OBAR */
+            MSE = OMSE /* \_SB_.PCI0.DLLR.OMSE */
+            PSTA = OPST /* \_SB_.PCI0.DLLR.OPST */
+            TEMP = PSTA /* \_SB_.PCI0.DLLR.PSTA */
+        }
+
         Device (PUFS)
         {
             Name (_ADR, 0x00120005)  // _ADR: Address
@@ -17201,6 +17211,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_PS3, 0, Serialized)  // _PS3: Power State 3
             {
+                DLLR (Zero, 0x1A, Zero, 0xFE0D0000, 0x00010000)
                 PGEN = One
                 PSTA |= 0x03
                 TEMP = PSTA /* \_SB_.PCI0.PEMC.PSTA */
@@ -17213,8 +17224,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                ADBG (Concatenate ("EMH4=", ToDecimalString (EMH4)))
-                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61")))
+                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61") /* Unknown UUID */))
                 {
                     If ((Arg1 >= Zero))
                     {
@@ -17411,7 +17421,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
-                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61")))
+                If ((Arg0 == ToUUID ("f6c13ea5-65cd-461f-ab7a-29f7e8d5bd61") /* Unknown UUID */))
                 {
                     If ((Arg1 >= Zero))
                     {
@@ -18187,7 +18197,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("6f8398c2-7ca4-11e4-ad36-631042b5008f")))
+                If ((Arg0 == ToUUID ("6f8398c2-7ca4-11e4-ad36-631042b5008f") /* Unknown UUID */))
                 {
                     Switch (ToInteger (Arg2))
                     {
@@ -18282,7 +18292,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("d5e383e1-d892-4a76-89fc-f6aaae7ed5b5")))
+                If ((Arg0 == ToUUID ("d5e383e1-d892-4a76-89fc-f6aaae7ed5b5") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -18297,7 +18307,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             {
                                 Return (Buffer (0x02)
                                 {
-                                     0xE1, 0x01                                       // ..
+                                     0xE1, 0x03                                       // ..
                                 })
                             }
                         }
@@ -18327,6 +18337,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {
                             UDB0 ("SSH._DSM: SAM closes UART handle in D3\n")
                             Return (One)
+                        }
+
+                        If ((Arg2 == 0x09))
+                        {
+                            UDB0 ("SSH._DSM: SSH driver UART buffer size\n")
+                            Return (0x30)
                         }
                     }
                 }
@@ -18392,7 +18408,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("93b666c5-70c6-469f-a215-3d487c91ab3c")))
+                If ((Arg0 == ToUUID ("93b666c5-70c6-469f-a215-3d487c91ab3c") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19160,6 +19176,50 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         }
     }
 
+    Name (BCLE, Zero)
+    Method (OBCL, 3, Serialized)
+    {
+        CreateDWordField (Arg2, Zero, STS0)
+        If ((Arg1 != 0x02))
+        {
+            STS0 &= 0xFFFFFFE0
+            STS0 |= 0x02
+            Return (Arg2)
+        }
+
+        CreateDWordField (Arg2, 0x04, CAP0)
+        Local0 = (STS0 & 0x1F)
+        If ((Local0 & One))
+        {
+            If ((CAP0 & 0x00080000))
+            {
+                If ((SCAP & 0x0400)){}
+                Else
+                {
+                    CAP0 &= 0xFFFFFFFFFFF7FFFF
+                    STS0 |= 0x10
+                }
+            }
+            Else
+            {
+            }
+        }
+        ElseIf ((CAP0 & 0x00080000))
+        {
+            If ((SCAP & 0x0400))
+            {
+                BCLE = One
+            }
+            Else
+            {
+                CAP0 &= 0xFFFFFFFFFFF7FFFF
+                STS0 |= 0x10
+            }
+        }
+
+        Return (Arg2)
+    }
+
     Scope (_SB)
     {
         Device (WSLT)
@@ -19188,7 +19248,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
             {
                 Name (BUF, Buffer (0x09){})
-                BUF = SIDH /* \SIDH */              // MSHW0116
+                BUF = SIDH /* \SIDH */
                 Return (ToString (BUF, 0x09))
             }
 
@@ -19199,7 +19259,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("a653cdf4-476c-44fb-b366-a73cedf6e14c")))
+                If ((Arg0 == ToUUID ("a653cdf4-476c-44fb-b366-a73cedf6e14c") /* Unknown UUID */))
                 {
                     If ((ToInteger (Arg2) == Zero))
                     {
@@ -19207,7 +19267,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {
                             Return (Buffer (One)
                             {
-                                 0x0F                                             // .
+                                 0x4F                                             // O
                             })
                         }
                     }
@@ -19231,6 +19291,16 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             Local0 = ToInteger (OMPR)
                             Return (Local0)
                         }
+
+                        If ((Arg2 == 0x06))
+                        {
+                            If (CondRefOf (BCLE))
+                            {
+                                Return (BCLE) /* \BCLE */
+                            }
+
+                            Return (Zero)
+                        }
                     }
                 }
 
@@ -19244,21 +19314,25 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
     Scope (_SB)
     {
-        Device (VGBI)
+        Device (MSBT)
         {
-            Name (_HID, "MSHW0040")  // _HID: Hardware ID
-            Method (_STA, 0, Serialized)  // _STA: Status
-            {
-                Return (0x0F)
-            }
-
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
                 GPI0
             })
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
             {
-                Name (SBUF, ResourceTemplate ()
+                Return ("MSHW0040")
+            }
+
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                Return (0x0F)
+            }
+
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Return (ResourceTemplate ()
                 {
                     GpioInt (Edge, ActiveBoth, SharedAndWake, PullNone, 0x0000,
                         "\\_SB.GPI0", 0x00, ResourceConsumer, ,
@@ -19297,16 +19371,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             0x00F7
                         }
                 })
-                Return (SBUF) /* \_SB_.VGBI._CRS.SBUF */
             }
 
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("6fd05c69-cde3-49f4-95ed-ab1665498035")))
+                If ((Arg0 == ToUUID ("6fd05c69-cde3-49f4-95ed-ab1665498035") /* Unknown UUID */))
                 {
-                    If ((ToInteger (Arg1) == One))
+                    If ((Arg1 == One))
                     {
-                        If ((ToInteger (Arg2) == Zero))
+                        If ((Arg2 == Zero))
                         {
                             Return (Buffer (One)
                             {
@@ -19314,24 +19387,40 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             })
                         }
 
-                        If ((ToInteger (Arg2) == One)){}
-                        If ((ToInteger (Arg2) == 0x02))
+                        If ((Arg2 == One)){}
+                        If ((Arg2 == 0x02))
                         {
                             Return (OMPR) /* \OMPR */
                         }
 
-                        If ((ToInteger (Arg2) == 0x03))
+                        If ((Arg2 == 0x03))
                         {
-                            Local0 = SBFF /* \SBFF */
-                            Return (Local0)
+                            Return (SBFF) /* \SBFF */
+                        }
+
+                        If ((Arg2 != One))
+                        {
+                            Return (Buffer (One)
+                            {
+                                 0x00                                             // .
+                            })
                         }
                     }
+                    Else
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x00                                             // .
+                        })
+                    }
                 }
-
-                Return (Buffer (One)
+                Else
                 {
-                     0x00                                             // .
-                })
+                    Return (Buffer (One)
+                    {
+                         0x00                                             // .
+                    })
+                }
             }
         }
     }
@@ -19342,9 +19431,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         {
             Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
             {
-                Name (BUF, Buffer (0x09){})
-                BUF = STDH /* \STDH */              // MSHW0125
-                Return (ToString (BUF, 0x09))
+                Return (ToString (STDH, 0x09))
             }
 
             Name (_S0W, 0x03)  // _S0W: S0 Device Wake State
@@ -19355,7 +19442,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Name (RBUF, ResourceTemplate ()
+                Return (ResourceTemplate ()
                 {
                     GpioInt (Edge, ActiveHigh, Exclusive, PullNone, 0x0000,
                         "\\_SB.GPI0", 0x00, ResourceConsumer, ,
@@ -19363,7 +19450,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         {   // Pin list
                             0x0056
                         }
-                    GpioIo (Exclusive, PullUp, 0x0000, 0x0000, IoRestrictionOutputOnly,
+                    GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionOutputOnly,
                         "\\_SB.GPI0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
@@ -19386,12 +19473,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                         0x00, ResourceConsumer, , Exclusive,
                         )
                 })
-                Return (RBUF) /* \_SB_.PCI0.I2C0.FINK._CRS.RBUF */
             }
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("7a0ae771-9cdd-4a77-958f-5d1c79cfe1b7")))
+                If ((Arg0 == ToUUID ("7a0ae771-9cdd-4a77-958f-5d1c79cfe1b7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19424,35 +19510,35 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                         If ((Arg2 == 0x03))
                         {
-                            Name (CALO, Buffer (0x6C){})
-                            CreateDWordField (CALO, Zero, CCNT)
-                            CreateDWordField (CALO, 0x04, CVER)
-                            CreateDWordField (CALO, 0x08, CTP1)
-                            CreateDWordField (CALO, 0x0C, CAV1)
-                            CreateDWordField (CALO, 0x10, CDO1)
-                            CreateDWordField (CALO, 0x14, CAL1)
-                            CreateDWordField (CALO, 0x18, CRC1)
-                            CreateDWordField (CALO, 0x1C, CTP2)
-                            CreateDWordField (CALO, 0x20, CAV2)
-                            CreateDWordField (CALO, 0x24, CDO2)
-                            CreateDWordField (CALO, 0x28, CAL2)
-                            CreateDWordField (CALO, 0x2C, CRC2)
-                            CreateDWordField (CALO, 0x30, CTP3)
-                            CreateDWordField (CALO, 0x34, CAV3)
-                            CreateDWordField (CALO, 0x38, CDO3)
-                            CreateDWordField (CALO, 0x3C, CAL3)
-                            CreateDWordField (CALO, 0x40, CRC3)
-                            CreateDWordField (CALO, 0x44, CTP4)
-                            CreateDWordField (CALO, 0x48, CAV4)
-                            CreateDWordField (CALO, 0x4C, CDO4)
-                            CreateDWordField (CALO, 0x50, CAL4)
-                            CreateDWordField (CALO, 0x54, CRC4)
-                            CreateDWordField (CALO, 0x58, CTP5)
-                            CreateDWordField (CALO, 0x5C, CAV5)
-                            CreateDWordField (CALO, 0x60, CDO5)
-                            CreateDWordField (CALO, 0x64, CAL5)
-                            CreateDWordField (CALO, 0x68, CRC5)
-                            CCNT = 0x05
+                            Local0 = Buffer (0x6C){}
+                            CreateDWordField (Local0, Zero, CCNT)
+                            CreateDWordField (Local0, 0x04, CVER)
+                            CreateDWordField (Local0, 0x08, CTP1)
+                            CreateDWordField (Local0, 0x0C, CAV1)
+                            CreateDWordField (Local0, 0x10, CDO1)
+                            CreateDWordField (Local0, 0x14, CAL1)
+                            CreateDWordField (Local0, 0x18, CRC1)
+                            CreateDWordField (Local0, 0x1C, CTP2)
+                            CreateDWordField (Local0, 0x20, CAV2)
+                            CreateDWordField (Local0, 0x24, CDO2)
+                            CreateDWordField (Local0, 0x28, CAL2)
+                            CreateDWordField (Local0, 0x2C, CRC2)
+                            CreateDWordField (Local0, 0x30, CTP3)
+                            CreateDWordField (Local0, 0x34, CAV3)
+                            CreateDWordField (Local0, 0x38, CDO3)
+                            CreateDWordField (Local0, 0x3C, CAL3)
+                            CreateDWordField (Local0, 0x40, CRC3)
+                            CreateDWordField (Local0, 0x44, CTP4)
+                            CreateDWordField (Local0, 0x48, CAV4)
+                            CreateDWordField (Local0, 0x4C, CDO4)
+                            CreateDWordField (Local0, 0x50, CAL4)
+                            CreateDWordField (Local0, 0x54, CRC4)
+                            CreateDWordField (Local0, 0x58, CTP5)
+                            CreateDWordField (Local0, 0x5C, CAV5)
+                            CreateDWordField (Local0, 0x60, CDO5)
+                            CreateDWordField (Local0, 0x64, CAL5)
+                            CreateDWordField (Local0, 0x68, CRC5)
+                            CCNT = Zero
                             CVER = One
                             CTP1 = One
                             CAV1 = One
@@ -19464,22 +19550,22 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             CDO2 = 0x5200
                             CAL2 = 0x0DFF
                             CRC2 = Zero
-                            CTP4 = 0x03
-                            CAV4 = One
-                            CDO4 = 0x6000
-                            CAL4 = 0x07FF
-                            CRC4 = Zero
-                            CTP3 = 0x04
+                            CTP3 = 0x03
                             CAV3 = One
-                            CDO3 = 0x6800
+                            CDO3 = 0x6000
                             CAL3 = 0x07FF
                             CRC3 = Zero
+                            CTP4 = 0x04
+                            CAV4 = One
+                            CDO4 = 0x6800
+                            CAL4 = 0x07FF
+                            CRC4 = Zero
                             CTP5 = 0x05
                             CAV5 = One
                             CDO5 = 0x7000
                             CAL5 = 0x40
                             CRC5 = Zero
-                            Return (CALO) /* \_SB_.PCI0.I2C0.FINK._DSM.CALO */
+                            Return (Local0)
                         }
                         Else
                         {
@@ -19660,12 +19746,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee")))
+                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee") /* Unknown UUID */))
                 {
                     Return (GCSM (One))
                 }
 
-                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881")))
+                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19752,7 +19838,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f")))
+                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19793,7 +19879,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11")))
+                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -19935,12 +20021,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee")))
+                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee") /* Unknown UUID */))
                 {
                     Return (GCSM (0x02))
                 }
 
-                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881")))
+                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20032,7 +20118,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f")))
+                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20073,7 +20159,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11")))
+                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20211,12 +20297,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee")))
+                If ((Arg0 == ToUUID ("822ace8f-2814-4174-a56b-5f029fe079ee") /* Unknown UUID */))
                 {
                     Return (GCSM (0x03))
                 }
 
-                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881")))
+                If ((Arg0 == ToUUID ("26257549-9271-4ca4-bb43-c4899d5a4881") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20297,7 +20383,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f")))
+                If ((Arg0 == ToUUID ("79234640-9e10-4fea-a5c1-b5aa8b19756f") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20333,7 +20419,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
 
-                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11")))
+                If ((Arg0 == ToUUID ("82c0d13a-78c5-4244-9bb1-eb8b539a8d11") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20398,7 +20484,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7")))
+                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20504,7 +20590,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7")))
+                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20610,7 +20696,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7")))
+                If ((Arg0 == ToUUID ("4993a436-e1ac-4dc7-b4f8-46a5008fb9e7") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -20848,7 +20934,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
     Method (TBTD, 2, Serialized)
     {
-        ADBG ("TBTD")
         If ((Arg1 == One))
         {
             Switch (ToInteger (Arg0))
@@ -20936,14 +21021,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Local0 = 0xFF
         }
 
-        ADBG ("Device no")
-        ADBG (Local0)
         Return (Local0)
     }
 
     Method (TBTF, 2, Serialized)
     {
-        ADBG ("TBTF")
         If ((Arg1 == One))
         {
             Switch (ToInteger (Arg0))
@@ -21075,8 +21157,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Local0 = 0xFF
         }
 
-        ADBG ("Function no")
-        ADBG (Local0)
         Return (Local0)
     }
 
@@ -21090,7 +21170,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
     Method (MMTB, 2, Serialized)
     {
-        ADBG ("MMTB")
         Local0 = \_SB.PCI0.GPCB ()
         Local0 += (TBTD (Arg0, Arg1) << 0x0F)
         Local0 += (TBTF (Arg0, Arg1) << 0x0C)
@@ -21105,14 +21184,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         Local0 = \_SB.PCI0.GPCB ()
         Local2 *= 0x00100000
         Local0 += Local2
-        ADBG ("TBT-US-ADR")
-        ADBG (Local0)
         Return (Local0)
     }
 
     Method (FFTB, 2, Serialized)
     {
-        ADBG ("FFTB")
         Local0 = (MMTB (Arg0, Arg1) + 0x0548)
         OperationRegion (PXVD, SystemMemory, Local0, 0x08)
         Field (PXVD, DWordAcc, NoLock, Preserve)
@@ -21124,12 +21200,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         Local1 = TB2P /* \FFTB.TB2P */
         If ((Local1 == 0xFFFFFFFF))
         {
-            ADBG ("FFTb 1")
             Return (One)
         }
         Else
         {
-            ADBG ("FFTb 0")
             Return (Zero)
         }
     }
@@ -21138,7 +21212,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     {
         Method (DTOU, 1, Serialized)
         {
-            ADBG ("DTOU")
             Local0 = (Arg0 + 0x0540)
             OperationRegion (PXVD, SystemMemory, Local0, 0x10)
             Field (PXVD, DWordAcc, NoLock, Preserve)
@@ -21156,26 +21229,22 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Local2 = DT2P /* \_GPE.DTOU.DT2P */
                 If ((Local2 == 0xFFFFFFFF))
                 {
-                    ADBG ("Dev gone")
                     Return (0x02)
                 }
 
                 If ((Local2 & One))
                 {
-                    ADBG ("Cmd acknowledged")
                     Break
                 }
 
                 Sleep (0x32)
             }
 
-            ADBG ("End-of-DTOU")
             Return (One)
         }
 
         Method (TBFF, 2, Serialized)
         {
-            ADBG ("TBFF")
             Local0 = MMTB (Arg0, Arg1)
             OperationRegion (PXVD, SystemMemory, Local0, 0x04)
             Field (PXVD, DWordAcc, NoLock, Preserve)
@@ -21190,19 +21259,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             }
             Else
             {
-                ADBG ("Dev Present")
                 Return (Zero)
             }
         }
 
         Method (TSUB, 2, Serialized)
         {
-            ADBG ("TSUB")
             Local0 = \_SB.PCI0.GPCB ()
             Local0 += (TBTD (Arg0, Arg1) << 0x0F)
             Local0 += (TBTF (Arg0, Arg1) << 0x0C)
-            ADBG ("ADR")
-            ADBG (Local0)
             OperationRegion (MMMM, SystemMemory, Local0, 0x1A)
             Field (MMMM, AnyAcc, NoLock, Preserve)
             {
@@ -21210,19 +21275,14 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 SBUS,   8
             }
 
-            ADBG ("Sec Bus")
-            ADBG (SBUS)
             Return (SBUS) /* \_GPE.TSUB.SBUS */
         }
 
         Method (TSUP, 2, Serialized)
         {
-            ADBG ("TSUP")
             Local0 = \_SB.PCI0.GPCB ()
             Local0 += (TBTD (Arg0, Arg1) << 0x0F)
             Local0 += (TBTF (Arg0, Arg1) << 0x0C)
-            ADBG ("ADR:")
-            ADBG (Local0)
             OperationRegion (MMMM, SystemMemory, Local0, 0x30)
             Field (MMMM, AnyAcc, NoLock, Preserve)
             {
@@ -21236,15 +21296,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 PMBL,   32
             }
 
-            ADBG ("Pmem of TBT RP:")
-            ADBG (PMBL)
             Return (PMBL) /* \_GPE.TSUP.PMBL */
         }
 
         Method (WSUB, 2, Serialized)
         {
-            ADBG (Concatenate ("WSUB=", ToHexString (Arg0)))
-            ADBG (ToHexString (Timer))
             Local0 = Zero
             Local1 = Zero
             While (One)
@@ -21252,7 +21308,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 Local1 = TSUP (Arg0, Arg1)
                 If ((Local1 > 0x0001FFF1))
                 {
-                    ADBG ("WSUB-Finished")
                     Break
                 }
                 Else
@@ -21261,7 +21316,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     If ((Local0 > 0x03E8))
                     {
                         Sleep (0x03E8)
-                        ADBG ("WSUB-Deadlock")
                     }
                     Else
                     {
@@ -21269,20 +21323,16 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
             }
-
-            ADBG (Concatenate ("WSUb=", ToHexString (Local1)))
         }
 
         Method (WWAK, 0, NotSerialized)
         {
-            ADBG ("WWAK")
             Wait (WFEV, 0xFFFF)
             Signal (WFEV)
         }
 
         Method (NTFY, 2, Serialized)
         {
-            ADBG ("NTFY")
             If ((DTHN == One))
             {
                 If ((Arg1 == One))
@@ -21291,122 +21341,98 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     {
                         Case (One)
                         {
-                            ADBG ("Notify RP01")
                             Notify (\_SB.PCI0.RP01, Zero) // Bus Check
                         }
                         Case (0x02)
                         {
-                            ADBG ("Notify RP02")
                             Notify (\_SB.PCI0.RP02, Zero) // Bus Check
                         }
                         Case (0x03)
                         {
-                            ADBG ("Notify RP03")
                             Notify (\_SB.PCI0.RP03, Zero) // Bus Check
                         }
                         Case (0x04)
                         {
-                            ADBG ("Notify RP04")
                             Notify (\_SB.PCI0.RP04, Zero) // Bus Check
                         }
                         Case (0x05)
                         {
-                            ADBG ("Notify RP05")
                             Notify (\_SB.PCI0.RP05, Zero) // Bus Check
                         }
                         Case (0x06)
                         {
-                            ADBG ("Notify RP06")
                             Notify (\_SB.PCI0.RP06, Zero) // Bus Check
                         }
                         Case (0x07)
                         {
-                            ADBG ("Notify RP07")
                             Notify (\_SB.PCI0.RP07, Zero) // Bus Check
                         }
                         Case (0x08)
                         {
-                            ADBG ("Notify RP08")
                             Notify (\_SB.PCI0.RP08, Zero) // Bus Check
                         }
                         Case (0x09)
                         {
-                            ADBG ("Notify RP09")
                             Notify (\_SB.PCI0.RP09, Zero) // Bus Check
                         }
                         Case (0x0A)
                         {
-                            ADBG ("Notify RP10")
                             Notify (\_SB.PCI0.RP10, Zero) // Bus Check
                         }
                         Case (0x0B)
                         {
-                            ADBG ("Notify RP11")
                             Notify (\_SB.PCI0.RP11, Zero) // Bus Check
                         }
                         Case (0x0C)
                         {
-                            ADBG ("Notify RP12")
                             Notify (\_SB.PCI0.RP12, Zero) // Bus Check
                         }
                         Case (0x0D)
                         {
-                            ADBG ("Notify RP13")
                             Notify (\_SB.PCI0.RP13, Zero) // Bus Check
                         }
                         Case (0x0E)
                         {
-                            ADBG ("Notify RP14")
                             Notify (\_SB.PCI0.RP14, Zero) // Bus Check
                         }
                         Case (0x0F)
                         {
-                            ADBG ("Notify RP15")
                             Notify (\_SB.PCI0.RP15, Zero) // Bus Check
                         }
                         Case (0x10)
                         {
-                            ADBG ("Notify RP16")
                             Notify (\_SB.PCI0.RP16, Zero) // Bus Check
                         }
                         Case (0x11)
                         {
-                            ADBG ("Notify RP17")
                             Notify (\_SB.PCI0.RP17, Zero) // Bus Check
                         }
                         Case (0x12)
                         {
-                            ADBG ("Notify RP18")
                             Notify (\_SB.PCI0.RP18, Zero) // Bus Check
                         }
                         Case (0x13)
                         {
-                            ADBG ("Notify RP19")
                             Notify (\_SB.PCI0.RP19, Zero) // Bus Check
                         }
                         Case (0x14)
                         {
-                            ADBG ("Notify RP20")
                             Notify (\_SB.PCI0.RP20, Zero) // Bus Check
                         }
                         Case (0x15)
                         {
-                            ADBG ("Notify RP21")
                             Notify (\_SB.PCI0.RP21, Zero) // Bus Check
                         }
                         Case (0x16)
                         {
-                            ADBG ("Notify RP22")
                             Notify (\_SB.PCI0.RP22, Zero) // Bus Check
                         }
                         Case (0x17)
                         {
-                            ADBG ("Notify RP23")
                             Notify (\_SB.PCI0.RP23, Zero) // Bus Check
                         }
                         Case (0x18)
                         {
-                            ADBG ("Notify RP24")
                             Notify (\_SB.PCI0.RP24, Zero) // Bus Check
                         }
 
@@ -21418,22 +21444,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     {
                         Case (One)
                         {
-                            ADBG ("Notify PEG0")
                             Notify (\_SB.PCI0.PEG0, Zero) // Bus Check
                         }
                         Case (0x02)
                         {
-                            ADBG ("Notify PEG1")
                             Notify (\_SB.PCI0.PEG1, Zero) // Bus Check
                         }
                         Case (0x03)
                         {
-                            ADBG ("Notify PEG2")
                             Notify (\_SB.PCI0.PEG2, Zero) // Bus Check
                         }
                         Case (0x04)
                         {
-                            ADBG ("Notify PEG3")
                             Notify (\_SB.PCI0.PEG3, Zero) // Bus Check
                         }
 
@@ -21447,10 +21469,8 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
         Method (GNIS, 2, Serialized)
         {
-            ADBG ("GNIS")
             If ((GP5F == Zero))
             {
-                ADBG ("GNIS_Dis=0")
                 Return (Zero)
             }
 
@@ -21464,23 +21484,18 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             }
 
             Local1 = TB2P /* \_GPE.GNIS.TB2P */
-            ADBG (Concatenate ("TB2P=", ToHexString (Local1)))
             If ((Local1 == 0xFFFFFFFF))
             {
-                ADBG ("GNIS=0")
                 Return (Zero)
             }
 
             Local2 = HPFI /* \_GPE.GNIS.HPFI */
-            ADBG (Concatenate ("HPFI=", ToHexString (Local2)))
             If ((Local2 == One))
             {
                 HPFI = Zero
-                ADBG ("GNIS=0")
                 Return (Zero)
             }
 
-            ADBG ("GNIS=1")
             Return (One)
         }
 
@@ -21497,7 +21512,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Local1 = TB2P /* \_GPE.CHKP.TB2P */
             Local1 &= 0x20000000
-            ADBG (Concatenate ("Local1=", ToHexString (Local1)))
             If ((Local1 == 0x20000000))
             {
                 Return (One)
@@ -21510,9 +21524,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
         Method (XTBT, 2, Serialized)
         {
-            ADBG ("XTBT")
-            ADBG ("RP :")
-            ADBG (Arg0)
             DTCP = Arg0
             DTPT = Arg1
             If (((Arg0 != RPS0) && (Arg0 != RPS1)))
@@ -21533,14 +21544,12 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 SSMP,   8
             }
 
-            ADBG ("TBT-HP-Handler")
             Acquire (OSUM, 0xFFFF)
             Local1 = TBFF (Arg0, Arg1)
             If ((Local1 == One))
             {
                 Sleep (0x10)
                 Release (OSUM)
-                ADBG ("OS_Up_Received")
                 Return (Zero)
             }
 
@@ -21549,13 +21558,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 NTFY (Arg0, Arg1)
                 Sleep (0x10)
                 Release (OSUM)
-                ADBG ("Disconnect")
                 Return (Zero)
             }
 
             If ((DTHS == One))
             {
-                ADBG ("TBT SW SMI")
                 DTBF = 0x15
                 SSMP = 0xF7
             }
@@ -21563,12 +21570,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             NTFY (Arg0, Arg1)
             Sleep (0x10)
             Release (OSUM)
-            ADBG ("End-of-XTBT")
         }
 
         Method (ATBT, 0, NotSerialized)
         {
-            ADBG ("ATBT")
             If ((CGST == Zero))
             {
                 If ((RPN0 == One))
@@ -21584,13 +21589,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             {
                 XTBT (RPS1, RPT1)
             }
-
-            ADBG ("End-of-ATBT")
         }
 
         Method (BTBT, 0, NotSerialized)
         {
-            ADBG ("BTBT")
             If ((CGST == Zero))
             {
                 If ((RPN1 == One))
@@ -21598,13 +21600,10 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     XTBT (RPS1, RPT1)
                 }
             }
-
-            ADBG ("End-of-BTBT")
         }
 
         Method (DINI, 2, Serialized)
         {
-            ADBG ("DINI")
             Local0 = MMRP (Arg0, Arg1)
             OperationRegion (RP_X, SystemMemory, Local0, 0x20)
             Field (RP_X, DWordAcc, NoLock, Preserve)
@@ -21624,7 +21623,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Local2 = MMTB (Arg0, Arg1)
             DTOU (Local2)
             REG6 = Local1
-            ADBG ("End-of-DINI")
         }
     }
 
@@ -21632,7 +21630,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     {
         Method (THDR, 3, Serialized)
         {
-            ADBG ("THDR")
             CAGS (Arg0)
             \_GPE.XTBT (Arg1, Arg2)
         }
@@ -22125,12 +22122,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         }
     }
 
-    Method (ADBG, 1, Serialized)
-    {
-        Debug = Arg0
-        Return (Zero)
-    }
-
     OperationRegion (SPRT, SystemIO, 0xB2, 0x02)
     Field (SPRT, ByteAcc, Lock, Preserve)
     {
@@ -22164,7 +22155,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             }
 
             CWEF = CPWE /* \CPWE */
-            ADBG (Concatenate ("_PTS S3 CWEF=", CWEF))
         }
 
         If (CondRefOf (\_SB.TPM.PTS))
@@ -22193,7 +22183,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
         \_SB.PWAK (Arg0)
         If (NEXP)
         {
-            If ((OSCC & 0x02))
+            If ((OSCC & One))
             {
                 NHPG ()
             }
@@ -22802,6 +22792,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 If (_OSI ("Windows 2015"))
                 {
                     OSYS = 0x07DF
+                }
+
+                If (_OSI ("Intel-Ice-Lake-Low-Power-S0-Idle-Always-Set-XTAL-Bypass"))
+                {
+                    S0I3 = Zero
                 }
             }
 
@@ -23621,30 +23616,6 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
         Method (_L69, 0, Serialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            If ((\_SB.PCI0.TRP0.HPME () == One))
-            {
-                Notify (\_SB.PCI0.TDM0, 0x02) // Device Wake
-                Notify (\_SB.PCI0.TRP0, 0x02) // Device Wake
-            }
-
-            If ((\_SB.PCI0.TRP1.HPME () == One))
-            {
-                Notify (\_SB.PCI0.TDM0, 0x02) // Device Wake
-                Notify (\_SB.PCI0.TRP1, 0x02) // Device Wake
-            }
-
-            If ((\_SB.PCI0.TRP2.HPME () == One))
-            {
-                Notify (\_SB.PCI0.TDM1, 0x02) // Device Wake
-                Notify (\_SB.PCI0.TRP2, 0x02) // Device Wake
-            }
-
-            If ((\_SB.PCI0.TRP3.HPME () == One))
-            {
-                Notify (\_SB.PCI0.TDM1, 0x02) // Device Wake
-                Notify (\_SB.PCI0.TRP3, 0x02) // Device Wake
-            }
-
             If (CondRefOf (\_SB.PCI1))
             {
                 If ((\_SB.PCI1.TRP0.HPME () == One))
@@ -23669,6 +23640,32 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                 {
                     Notify (\_SB.PCI0.TDM1, 0x02) // Device Wake
                     Notify (\_SB.PCI1.TRP3, 0x02) // Device Wake
+                }
+            }
+            Else
+            {
+                If ((\_SB.PCI0.TRP0.HPME () == One))
+                {
+                    Notify (\_SB.PCI0.TDM0, 0x02) // Device Wake
+                    Notify (\_SB.PCI0.TRP0, 0x02) // Device Wake
+                }
+
+                If ((\_SB.PCI0.TRP1.HPME () == One))
+                {
+                    Notify (\_SB.PCI0.TDM0, 0x02) // Device Wake
+                    Notify (\_SB.PCI0.TRP1, 0x02) // Device Wake
+                }
+
+                If ((\_SB.PCI0.TRP2.HPME () == One))
+                {
+                    Notify (\_SB.PCI0.TDM1, 0x02) // Device Wake
+                    Notify (\_SB.PCI0.TRP2, 0x02) // Device Wake
+                }
+
+                If ((\_SB.PCI0.TRP3.HPME () == One))
+                {
+                    Notify (\_SB.PCI0.TDM1, 0x02) // Device Wake
+                    Notify (\_SB.PCI0.TRP3, 0x02) // Device Wake
                 }
             }
 
@@ -24505,7 +24502,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                     }
                 }
             })
-            Name (DEVY, Package (0x49)
+            Name (DEVY, Package (0x4A)
             {
                 Package (0x03)
                 {
@@ -25625,6 +25622,21 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             0x03
                         }
                     }
+                }, 
+
+                Package (0x03)
+                {
+                    "\\_SB.PCI0.GNA0", 
+                    One, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        Package (0x02)
+                        {
+                            0xFF, 
+                            0x03
+                        }
+                    }
                 }
             })
             Name (DEVZ, Package (0x01)
@@ -25685,7 +25697,7 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 ADBG (Concatenate ("PEPC = ", ToHexString (PEPC)))
-                If ((Arg0 == ToUUID ("c4eb40a0-6cd2-11e2-bcfd-0800200c9a66")))
+                If ((Arg0 == ToUUID ("c4eb40a0-6cd2-11e2-bcfd-0800200c9a66") /* Unknown UUID */))
                 {
                     If ((Arg2 == Zero))
                     {
@@ -26003,6 +26015,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
                             }
                         }
 
+                        If (((PEPC & 0x10000000) == Zero))
+                        {
+                            DerefOf (DEVY [0x49]) [One] = Zero
+                        }
+
                         If ((OSYS >= 0x07DF))
                         {
                             If ((^^PCI0.CNVW.VDID != 0xFFFFFFFF))
@@ -26025,7 +26042,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & One))
                             {
-                                DerefOf (DEVY [0x19]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x19]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26039,7 +26064,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x02))
                             {
-                                DerefOf (DEVY [0x1A]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x1A]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26053,7 +26086,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x04))
                             {
-                                DerefOf (DEVY [0x1B]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x1B]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26067,7 +26108,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x08))
                             {
-                                DerefOf (DEVY [0x1C]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x1C]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26081,7 +26130,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x10))
                             {
-                                DerefOf (DEVY [0x1D]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x1D]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26095,7 +26152,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x20))
                             {
-                                DerefOf (DEVY [0x1E]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x1E]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26109,7 +26174,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x40))
                             {
-                                DerefOf (DEVY [0x1F]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x1F]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26123,7 +26196,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x80))
                             {
-                                DerefOf (DEVY [0x20]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x20]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26137,7 +26218,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x0100))
                             {
-                                DerefOf (DEVY [0x21]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x21]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26151,7 +26240,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x0200))
                             {
-                                DerefOf (DEVY [0x22]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x22]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26165,7 +26262,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x0400))
                             {
-                                DerefOf (DEVY [0x23]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x23]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26179,21 +26284,52 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x0800))
                             {
-                                DerefOf (DEVY [0x24]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x24]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
                         If ((REMK & 0x1000))
                         {
-                            DerefOf (DEVY [0x25]) [One] = One
                             If ((~RPEM & 0x1000))
                             {
-                                DerefOf (DEVY [0x3C]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x3C]) [One] = One
+                                If ((~RD3M & 0x1000))
+                                {
+                                    DerefOf (DEVY [0x3C]) [0x02] = Package (0x02)
+                                        {
+                                            Zero, 
+                                            Package (0x03)
+                                            {
+                                                0xFF, 
+                                                Zero, 
+                                                0x81
+                                            }
+                                        }
+                                }
                             }
-
-                            If ((RD3M & 0x1000))
+                            Else
                             {
-                                DerefOf (DEVY [0x25]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x25]) [One] = One
+                                If ((RD3M & 0x1000))
+                                {
+                                    DerefOf (DEVY [0x25]) [0x02] = Package (0x02)
+                                        {
+                                            Zero, 
+                                            Package (0x02)
+                                            {
+                                                0xFF, 
+                                                0x03
+                                            }
+                                        }
+                                }
                             }
                         }
 
@@ -26207,7 +26343,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x2000))
                             {
-                                DerefOf (DEVY [0x26]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x26]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26221,7 +26365,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x4000))
                             {
-                                DerefOf (DEVY [0x27]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x27]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26235,7 +26387,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x8000))
                             {
-                                DerefOf (DEVY [0x28]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x28]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26249,7 +26409,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x00010000))
                             {
-                                DerefOf (DEVY [0x29]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x29]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26263,7 +26431,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x00020000))
                             {
-                                DerefOf (DEVY [0x2A]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x2A]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26277,7 +26453,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x00040000))
                             {
-                                DerefOf (DEVY [0x2B]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x2B]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26291,7 +26475,15 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
                             If ((RD3M & 0x00080000))
                             {
-                                DerefOf (DEVY [0x2C]) [0x02] = "Package() {0, Package() {0xFF, 3}}"
+                                DerefOf (DEVY [0x2C]) [0x02] = Package (0x02)
+                                    {
+                                        Zero, 
+                                        Package (0x02)
+                                        {
+                                            0xFF, 
+                                            0x03
+                                        }
+                                    }
                             }
                         }
 
@@ -26943,17 +27135,17 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
     {
         Method (PPMS, 1, Serialized)
         {
-            If ((Arg0 == ToUUID ("7c708106-3aff-40fe-88be-8c999b3f7445")))
+            If ((Arg0 == ToUUID ("7c708106-3aff-40fe-88be-8c999b3f7445") /* Unknown UUID */))
             {
                 Return ((ADPM & 0x04))
             }
 
-            If ((Arg0 == ToUUID ("e0e018a8-3550-4b54-a8d0-a8e05d0fcba2")))
+            If ((Arg0 == ToUUID ("e0e018a8-3550-4b54-a8d0-a8e05d0fcba2") /* Unknown UUID */))
             {
                 Return ((ADPM & 0x08))
             }
 
-            If ((Arg0 == ToUUID ("ec774fa9-28d3-424a-90e4-69f984f1eeb7")))
+            If ((Arg0 == ToUUID ("ec774fa9-28d3-424a-90e4-69f984f1eeb7") /* Unknown UUID */))
             {
                 Return ((ADPM & 0x0100))
             }
@@ -27003,13 +27195,11 @@ DefinitionBlock ("", "DSDT", 2, "MSFT  ", "MSFT    ", 0x00000002)
 
             Method (ON, 1, Serialized)
             {
-                ADBG (Concatenate ("PINH GPIO=", ToHexString (DerefOf (Arg0 [Zero]))))
                 \_SB.SGOV (DerefOf (Arg0 [Zero]), DerefOf (Arg0 [One]))
             }
 
             Method (OFF, 1, Serialized)
             {
-                ADBG (Concatenate ("PINL GPIO=", ToHexString (DerefOf (Arg0 [Zero]))))
                 \_SB.SGOV (DerefOf (Arg0 [Zero]), ~DerefOf (Arg0 [One])
                     )
             }
